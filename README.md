@@ -1,1 +1,2 @@
 # vuejs-boilerplate
+test
