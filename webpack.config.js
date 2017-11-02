@@ -1,3 +1,4 @@
+const path = require('path')
 const Copy = require('copy-webpack-plugin')
 const ExtractText = require('extract-text-webpack-plugin')
 
@@ -9,7 +10,9 @@ module.exports = {
     ]
   },
   output: {
-    filename: '[name].js'
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   devServer: {
     contentBase: 'dist',
