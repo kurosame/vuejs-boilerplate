@@ -1,8 +1,6 @@
-import { mapActions, mapGetters } from 'vuex'
-import {
-  ADD_VALUE
-} from '../../vuex/types'
-import Child from '../../components/Child/Child'
+import { mapActions, mapGetters } from "vuex";
+import { ADD_VALUE } from "../../vuex/types";
+import Child from "../../components/Child/Child";
 
 export default {
   methods: {
@@ -11,11 +9,9 @@ export default {
     })
   },
   computed: {
-    ...mapGetters([
-      'count'
-    ])
+    ...mapGetters(["count"])
   },
   components: {
     Child
   }
-}
+};

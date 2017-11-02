@@ -1,5 +1,5 @@
 export default {
   count: state => {
-    return state.count
+    return state.count;
   }
-}
+};

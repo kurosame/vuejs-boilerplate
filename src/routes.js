@@ -1,9 +1,9 @@
-const Parent = require('./pages/Parent/Parent')
+const Parent = require("./pages/Parent/Parent");
 
 export default [
   {
-    name: 'parent',
-    path: '/',
+    name: "parent",
+    path: "/",
     component: Parent
   }
-]
+];

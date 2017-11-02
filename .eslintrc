@@ -1,10 +1,15 @@
 {
   "root": true,
   "parser": "babel-eslint",
-  "extends": "vue",
+  "extends": [
+    "airbnb-base",
+    "prettier"
+  ],
   "plugins": [
-    "html"
+    "html",
+    "prettier"
   ],
   "rules": {
+    "prettier/prettier": 2
   }
 }
