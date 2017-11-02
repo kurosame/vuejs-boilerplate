@@ -1,6 +1,7 @@
 const path = require('path')
+const webpack = require('webpack')
 const Copy = require('copy-webpack-plugin')
-const ExtractText = require('extract-text-webpack-plugin')
+const Clean = require('clean-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -74,13 +75,6 @@ module.exports = {
             ]
           }
         }]
-      },
-      {
-        test: /\.css$/,
-        use: ExtractText.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
       }
     ]
   },
@@ -91,7 +85,20 @@ module.exports = {
         to: 'assets'
       }
     ]),
-    new ExtractText('bundle.css')
+    new Clean(['dist/**/*'], {
+      root: `${__dirname}/..`,
+      verbose: false
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: (module) => {
+        return (
+          module.resource &&
+          /\.js$/.test(module.resource) &&
+          module.resource.indexOf('node_modules') !== -1
+        )
+      }
+    })
   ],
   resolve: {
     extensions: ['.js', '.vue']
