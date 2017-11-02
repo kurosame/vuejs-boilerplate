@@ -1,5 +1,5 @@
 <template src="./parent.html"></template>
-<style module lang="sass" src="./parent.scss"></style>
+<style module src="./parent.scss"></style>
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import {

@@ -4,15 +4,16 @@ const ExtractText = require('extract-text-webpack-plugin')
 module.exports = {
   entry: {
     bundle: [
-      `bootstrap-webpack!${__dirname}/bootstrap.config.js`,
-      `font-awesome-webpack!${__dirname}/font-awesome.config.js`,
-      `${__dirname}/../node_modules/babel-polyfill/dist/polyfill.js`,
-      `${__dirname}/../${config.paths.src.index}`,
-      `${__dirname}/../${config.paths.src.entries}`
+      './src/index.html',
+      './src/index.js'
     ]
   },
   output: {
     filename: '[name].js'
+  },
+  devServer: {
+    contentBase: 'dist',
+    port: 3000
   },
   module: {
     rules: [
@@ -44,7 +45,7 @@ module.exports = {
         use: [{
           loader: 'string-replace-loader',
           query: {
-            search: `${config.bundle.replace.gitCommitHash}`,
+            search: 'GIT_COMMIT_HASH_PLACE_HOLDER',
             replace: `${process.env.GIT_COMMIT_HASH}`
           }
         }]
@@ -61,11 +62,11 @@ module.exports = {
             multiple: [
               {
                 search: '<!--scriptsVendor-->',
-                replace: `<script src=\"/${config.filenames.build.scriptsVendor}.js?${process.env.GIT_COMMIT_HASH}\"></script>`
+                replace: `<script src=\"/vendor.js?${process.env.GIT_COMMIT_HASH}\"></script>`
               },
               {
                 search: '<!--scripts-->',
-                replace: `<script src=\"/${config.filenames.build.scripts}.js?${process.env.GIT_COMMIT_HASH}\"></script>`
+                replace: `<script src=\"/bundle.js?${process.env.GIT_COMMIT_HASH}\"></script>`
               }
             ]
           }
@@ -77,37 +78,17 @@ module.exports = {
           fallback: "style-loader",
           use: "css-loader"
         })
-      },
-      {
-        test: /bootstrap\/js\//,
-        use: 'imports-loader?jQuery=jquery'
-      },
-      {
-        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-        use: 'url-loader?limit=10000&mimetype=application/font-woff&name=assets/fonts/[name].[ext]'
-      },
-      {
-        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        use: 'url-loader?limit=10000&mimetype=application/octet-stream&name=assets/fonts/[name].[ext]'
-      },
-      {
-        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        use: 'file-loader?name=assets/fonts/[name].[ext]'
-      },
-      {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        use: 'url-loader?limit=10000&mimetype=image/svg+xml&name=assets/fonts/[name].[ext]'
       }
     ]
   },
   plugins: [
     new Copy([
       {
-        from: `${__dirname}/../${config.paths.assets}`,
-        to: `${__dirname}/../${config.paths.assets}`
+        from: 'assets',
+        to: 'assets'
       }
     ]),
-    new ExtractText(config.filenames.build.styles)
+    new ExtractText('bundle.css')
   ],
   resolve: {
     extensions: ['.js', '.vue']

@@ -1,5 +1,5 @@
 <template src="./child.html"></template>
-<style module lang="sass" src="./child.scss"></style>
+<style module src="./child.scss"></style>
 <script>
 export default {
   props: {
