@@ -5,11 +5,11 @@
   </div>
 </template>
 <script>
-import HeaderView from './components/globals/Header/Header'
+import HeaderView from "./components/globals/Header/Header.vue";
 
 export default {
   components: {
     HeaderView
   }
-}
+};
 </script>

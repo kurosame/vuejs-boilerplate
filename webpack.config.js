@@ -1,7 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
+const precss = require('precss')
+const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
 const Clean = require('clean-webpack-plugin')
+const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -17,7 +20,8 @@ module.exports = {
   },
   devServer: {
     contentBase: 'dist',
-    port: 3000
+    port: 8000,
+    open: true
   },
   module: {
     rules: [
@@ -26,6 +30,10 @@ module.exports = {
         use: [{
           loader: 'vue-loader',
           options: {
+            postcss: [
+              precss(),
+              stylelint()
+            ],
             cssModules: {
               localIdentName: '[name]__[local]___[hash:base64:5]',
               camelCase: true
@@ -53,10 +61,6 @@ module.exports = {
             replace: `${process.env.GIT_COMMIT_HASH}`
           }
         }]
-      },
-      {
-        test: /\.html$/,
-        use: 'file-loader?name=[name].[ext]'
       },
       {
         test: /index\.html$/,
@@ -89,6 +93,7 @@ module.exports = {
       root: `${__dirname}/..`,
       verbose: false
     }),
+    new StyleLint(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: (module) => {
