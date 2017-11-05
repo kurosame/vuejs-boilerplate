@@ -53,14 +53,8 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /index\.js$/,
-        use: [{
-          loader: 'string-replace-loader',
-          query: {
-            search: 'GIT_COMMIT_HASH_PLACE_HOLDER',
-            replace: `${process.env.GIT_COMMIT_HASH}`
-          }
-        }]
+        test: /\.html$/,
+        use: 'file-loader?name=[name].[ext]'
       },
       {
         test: /index\.html$/,
@@ -69,11 +63,11 @@ module.exports = {
           query: {
             multiple: [
               {
-                search: '<!--scriptsVendor-->',
+                search: '<!-- scriptsVendor -->',
                 replace: `<script src=\"/vendor.js?${process.env.GIT_COMMIT_HASH}\"></script>`
               },
               {
-                search: '<!--scripts-->',
+                search: '<!-- scripts -->',
                 replace: `<script src=\"/bundle.js?${process.env.GIT_COMMIT_HASH}\"></script>`
               }
             ]
