@@ -1,7 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const cssnext = require('postcss-cssnext')
-const precss = require('precss')
 const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
 const Clean = require('clean-webpack-plugin')
@@ -33,7 +32,6 @@ module.exports = {
           options: {
             postcss: [
               cssnext(),
-              precss(),
               stylelint()
             ],
             cssModules: {
