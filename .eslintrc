@@ -10,6 +10,21 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": 2
+    "no-param-reassign": [
+      2,
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "state"
+        ]
+      }
+    ],
+    "prettier/prettier": [
+      2,
+      {
+        "singleQuote": true,
+        "semi": false
+      }
+    ]
   }
 }

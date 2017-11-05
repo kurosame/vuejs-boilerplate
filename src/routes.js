@@ -1,9 +1,9 @@
-const Parent = require("./pages/Parent/Parent.vue");
+const Parent = require('./pages/Parent/Parent.vue')
 
 export default [
   {
-    name: "parent",
-    path: "/",
+    name: 'parent',
+    path: '/',
     component: Parent
   }
-];
+]

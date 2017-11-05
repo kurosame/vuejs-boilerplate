@@ -1,6 +1,6 @@
-import actions from "../actions/counter";
-import getters from "../getters/counter";
-import { ADD_VALUE } from "../types";
+import actions from '../actions/counter'
+import getters from '../getters/counter'
+import { ADD_VALUE } from '../types'
 
 export default {
   actions,
@@ -10,7 +10,7 @@ export default {
   },
   mutations: {
     [ADD_VALUE](state, value) {
-      state.count += value;
+      state.count += value
     }
   }
-};
+}

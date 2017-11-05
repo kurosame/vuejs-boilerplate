@@ -1,5 +1,6 @@
 export default {
   count: state => {
-    return state.count;
+    const { count } = state
+    return count
   }
-};
+}
