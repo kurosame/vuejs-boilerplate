@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const cssnext = require('postcss-cssnext')
 const precss = require('precss')
 const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
@@ -31,6 +32,7 @@ module.exports = {
           loader: 'vue-loader',
           options: {
             postcss: [
+              cssnext(),
               precss(),
               stylelint()
             ],
