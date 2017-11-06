@@ -20,8 +20,12 @@ module.exports = {
   },
   devServer: {
     contentBase: 'dist',
+    historyApiFallback: true,
+    open: true,
     port: 8000,
-    open: true
+    proxy: {
+      '/api/*': 'http://mock.example.jp:8001'
+    }
   },
   module: {
     rules: [
