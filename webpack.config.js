@@ -30,6 +30,7 @@ module.exports = {
         use: [{
           loader: 'vue-loader',
           options: {
+            esModule: false,
             postcss: [
               cssnext(),
               stylelint()
@@ -100,7 +101,7 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.js', '.vue']
+    extensions: ['.vue', '.js']
   },
   devtool: '#inline-source-map'
 }

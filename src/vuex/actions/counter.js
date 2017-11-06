@@ -13,16 +13,16 @@ export default {
         commit(AXIOS_SAMPLE, res.data)
       })
       .catch(err => {
-        console.log(err)
+        throw new Error(err)
       })
   },
   // async await sample
   [ASYNC_AWAIT_SAMPLE]: async ({ commit }) => {
     const res1 = await axios.get('/api1').catch(err => {
-      console.log(err)
+      throw new Error(err)
     })
     const res2 = await axios.get(`/api2?${res1.id}`).catch(err => {
-      console.log(err)
+      throw new Error(err)
     })
     commit(ASYNC_AWAIT_SAMPLE, res2.data)
   }
