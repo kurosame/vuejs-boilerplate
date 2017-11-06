@@ -1,5 +1,5 @@
 export default {
-  name: "Child",
+  name: 'Child',
   props: {
     addValue: {
       type: Function,
@@ -10,4 +10,4 @@ export default {
       required: true
     }
   }
-};
+}

@@ -9,6 +9,7 @@
     "html",
     "prettier"
   ],
+  "settings": { "import/resolver": "webpack" },
   "rules": {
     "no-param-reassign": [
       2,

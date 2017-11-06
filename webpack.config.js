@@ -30,15 +30,14 @@ module.exports = {
         use: [{
           loader: 'vue-loader',
           options: {
-            esModule: false,
+            loaders: {
+              js: 'babel-loader!eslint-loader'
+            },
             postcss: [
               cssnext(),
               stylelint()
             ],
-            cssModules: {
-              localIdentName: '[name]__[local]___[hash:base64:5]',
-              camelCase: true
-            }
+            esModule: false
           }
         }],
         exclude: /node_modules/
@@ -95,13 +94,17 @@ module.exports = {
         return (
           module.resource &&
           /\.js$/.test(module.resource) &&
-          module.resource.indexOf('node_modules') !== -1
+          ~module.resource.indexOf('node_modules')
         )
       }
     })
   ],
   resolve: {
-    extensions: ['.vue', '.js']
+    extensions: ['.vue', '.js'],
+    modules: [
+      path.resolve(__dirname, 'src'),
+      'node_modules'
+    ]
   },
   devtool: '#inline-source-map'
 }
