@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import getters from '../../../../../src/vuex/getters/counter'
+import getters from 'vuex/getters/counter'
 
 Vue.use(Vuex)
 

@@ -11,6 +11,12 @@
   ],
   "settings": { "import/resolver": "webpack" },
   "rules": {
+    "no-console": [
+      2,
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
     "no-param-reassign": [
       2,
       {

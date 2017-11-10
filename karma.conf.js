@@ -1,25 +1,21 @@
 const webpack = require('webpack')
-const webpackConfig = require('../../gulp/webpack.config')
+const webpackConfig = require('./webpack.config')
+
+// Disable CommonsChunkPlugin
+webpackConfig.plugins.splice(webpackConfig.plugins.findIndex(plugin => plugin.chunkNames), 1)
 
 module.exports = (config) => {
   config.set({
     frameworks: ['mocha', 'sinon-chai'],
     files: [
-      '../../node_modules/babel-polyfill/dist/polyfill.js',
-      '../../src/**/*.vue',
-      '../../src/**/*.js',
+      './node_modules/babel-polyfill/dist/polyfill.js',
       {
-        pattern: 'specs/**/*.js',
+        pattern: './test/unit/specs/**/*.js',
         watched: false
       }
     ],
     preprocessors: {
-      '../../src/**/*.vue': ['webpack'],
-      '../../src/**/*.js': ['webpack'],
-      'specs/**/*.js': ['webpack', 'sourcemap']
-    },
-    proxies: {
-      '/api': 'http://local.oahu.jp:8087/api'
+      './test/unit/specs/**/*.js': ['webpack', 'sourcemap']
     },
     reporters: ['spec', 'coverage'],
     browsers: ['PhantomJS'],
@@ -28,11 +24,14 @@ module.exports = (config) => {
       quiet: true
     },
     coverageReporter: {
-      dir: './coverage',
+      dir: './test/unit/coverage',
       reporters: [
         { type: 'text-summary' },
         { type: 'html' }
       ]
+    },
+    client: {
+      captureConsole: false
     }
   })
 }
