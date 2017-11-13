@@ -4,6 +4,9 @@
     <router-view></router-view>
   </div>
 </template>
+<style>
+@import "~normalize.css/normalize.css";
+</style>
 <script>
 import HeaderView from './components/globals/Header/Header.vue'
 
