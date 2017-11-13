@@ -68,11 +68,11 @@ module.exports = {
             multiple: [
               {
                 search: '<!-- scriptsVendor -->',
-                replace: `<script src=\"/vendor.js?${process.env.GIT_COMMIT_HASH}\"></script>`
+                replace: `<script src=\"/vendor.js?${new Date().getTime()}\"></script>`
               },
               {
                 search: '<!-- scripts -->',
-                replace: `<script src=\"/bundle.js?${process.env.GIT_COMMIT_HASH}\"></script>`
+                replace: `<script src=\"/bundle.js?${new Date().getTime()}\"></script>`
               }
             ]
           }
