@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const cssnext = require('postcss-cssnext')
+const autoprefixer = require('autoprefixer')
 const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
 const Clean = require('clean-webpack-plugin')
@@ -38,7 +38,12 @@ module.exports = {
               js: 'babel-loader!eslint-loader'
             },
             postcss: [
-              cssnext(),
+              autoprefixer({
+                "browsers": [
+                  "last 2 versions",
+                  "IE 11"
+                ]
+              }),
               stylelint()
             ],
             esModule: false
