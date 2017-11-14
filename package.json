@@ -5,9 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "test": "NODE_ENV=test karma start karma.conf.js",
-    "development-build": "NODE_ENV=development GIT_COMMIT_HASH=$(git rev-parse HEAD) gulp --release --environment=development",
-    "production-build": "NODE_ENV=production GIT_COMMIT_HASH=$(git rev-parse HEAD) gulp --release --environment=production"
+    "build:production": "NODE_ENV=production webpack",
+    "test": "NODE_ENV=test karma start karma.conf.js"
   },
   "dependencies": {
     "axios": "^0.17.0",
