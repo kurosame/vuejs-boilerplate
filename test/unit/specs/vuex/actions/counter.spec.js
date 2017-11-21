@@ -8,21 +8,21 @@ import { ADD_VALUE, AXIOS_SAMPLE } from 'vuex/types'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  actions: actions,
+  actions,
   state: {
     count: 0
   },
   mutations: {
-    [ADD_VALUE] (state) {
+    [ADD_VALUE](state) {
       state.count = 1
     },
-    [AXIOS_SAMPLE] (state) {
+    [AXIOS_SAMPLE](state) {
       state.count = 2
     }
   }
 })
 
-const vm =  new Vue({
+const vm = new Vue({
   store,
   methods: {
     ...mapActions({

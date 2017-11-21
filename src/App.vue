@@ -5,7 +5,7 @@
   </div>
 </template>
 <style>
-@import "~normalize.css/normalize.css";
+@import '~normalize.css/normalize.css';
 </style>
 <script>
 import HeaderView from './components/globals/Header/Header.vue'

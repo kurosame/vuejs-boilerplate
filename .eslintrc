@@ -1,14 +1,8 @@
 {
   "root": true,
   "parser": "babel-eslint",
-  "extends": [
-    "airbnb-base",
-    "prettier"
-  ],
-  "plugins": [
-    "html",
-    "prettier"
-  ],
+  "extends": ["airbnb-base", "prettier"],
+  "plugins": ["html", "prettier"],
   "settings": { "import/resolver": "webpack" },
   "rules": {
     "no-console": [
@@ -21,9 +15,7 @@
       2,
       {
         "props": true,
-        "ignorePropertyModificationsFor": [
-          "state"
-        ]
+        "ignorePropertyModificationsFor": ["state"]
       }
     ],
     "prettier/prettier": [

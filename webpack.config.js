@@ -8,10 +8,7 @@ const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = {
   entry: {
-    bundle: [
-      './src/index.html',
-      './src/index.js'
-    ]
+    bundle: ['./src/index.html', './src/index.js']
   },
   output: {
     filename: '[name].js',
@@ -31,24 +28,23 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        use: [{
-          loader: 'vue-loader',
-          options: {
-            loaders: {
-              js: 'babel-loader!eslint-loader'
-            },
-            postcss: [
-              autoprefixer({
-                "browsers": [
-                  "last 2 versions",
-                  "IE 11"
-                ]
-              }),
-              stylelint()
-            ],
-            esModule: false
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              loaders: {
+                js: 'babel-loader!eslint-loader'
+              },
+              postcss: [
+                autoprefixer({
+                  browsers: ['last 2 versions', 'IE 11']
+                }),
+                stylelint()
+              ],
+              esModule: false
+            }
           }
-        }],
+        ],
         exclude: /node_modules/
       },
       {
@@ -67,21 +63,23 @@ module.exports = {
       },
       {
         test: /index\.html$/,
-        use: [{
-          loader: 'string-replace-loader',
-          query: {
-            multiple: [
-              {
-                search: '<!-- scriptsVendor -->',
-                replace: `<script src=\"/vendor.js?${new Date().getTime()}\"></script>`
-              },
-              {
-                search: '<!-- scripts -->',
-                replace: `<script src=\"/bundle.js?${new Date().getTime()}\"></script>`
-              }
-            ]
+        use: [
+          {
+            loader: 'string-replace-loader',
+            query: {
+              multiple: [
+                {
+                  search: '<!-- scriptsVendor -->',
+                  replace: `<script src=\"/vendor.js?${new Date().getTime()}\"></script>`
+                },
+                {
+                  search: '<!-- scripts -->',
+                  replace: `<script src=\"/bundle.js?${new Date().getTime()}\"></script>`
+                }
+              ]
+            }
           }
-        }]
+        ]
       }
     ]
   },
@@ -99,27 +97,21 @@ module.exports = {
     new StyleLint(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: (module) => {
-        return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          ~module.resource.indexOf('node_modules')
-        )
-      }
+      minChunks: module =>
+        module.resource &&
+        /\.js$/.test(module.resource) &&
+        ~module.resource.indexOf('node_modules')
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    process.env.NODE_ENV === 'production' ?
-    new webpack.optimize.UglifyJsPlugin() :
-    () => {}
+    process.env.NODE_ENV === 'production'
+      ? new webpack.optimize.UglifyJsPlugin()
+      : () => {}
   ],
   resolve: {
     extensions: ['.vue', '.js'],
-    modules: [
-      path.resolve(__dirname, 'src'),
-      'node_modules'
-    ]
+    modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
   devtool: '#inline-source-map'
 }

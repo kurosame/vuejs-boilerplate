@@ -2,9 +2,12 @@ const webpack = require('webpack')
 const webpackConfig = require('./webpack.config')
 
 // Disable CommonsChunkPlugin
-webpackConfig.plugins.splice(webpackConfig.plugins.findIndex(plugin => plugin.chunkNames), 1)
+webpackConfig.plugins.splice(
+  webpackConfig.plugins.findIndex(plugin => plugin.chunkNames),
+  1
+)
 
-module.exports = (config) => {
+module.exports = config => {
   config.set({
     frameworks: ['mocha', 'sinon-chai'],
     files: [
@@ -25,10 +28,7 @@ module.exports = (config) => {
     },
     coverageReporter: {
       dir: './test/unit/coverage',
-      reporters: [
-        { type: 'text-summary' },
-        { type: 'html' }
-      ]
+      reporters: [{ type: 'text-summary' }, { type: 'html' }]
     },
     client: {
       captureConsole: false
