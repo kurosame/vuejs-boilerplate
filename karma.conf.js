@@ -1,17 +1,11 @@
-const webpack = require('webpack')
 const webpackConfig = require('./webpack.config')
-
-// Disable CommonsChunkPlugin
-webpackConfig.plugins.splice(
-  webpackConfig.plugins.findIndex(plugin => plugin.chunkNames),
-  1
-)
 
 module.exports = config => {
   config.set({
     frameworks: ['mocha', 'sinon-chai'],
     files: [
       './node_modules/babel-polyfill/dist/polyfill.js',
+      './dist/vendor.js',
       {
         pattern: './test/unit/specs/**/*.js',
         watched: false

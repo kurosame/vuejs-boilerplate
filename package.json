@@ -6,6 +6,7 @@
     "start": "webpack-dev-server",
     "build": "webpack",
     "build:production": "NODE_ENV=production webpack",
+    "build:vendor": "webpack --config webpack.vendor.config.js",
     "test": "NODE_ENV=test karma start karma.conf.js"
   },
   "dependencies": {

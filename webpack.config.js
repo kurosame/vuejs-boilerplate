@@ -95,19 +95,16 @@ module.exports = {
       verbose: false
     }),
     new StyleLint(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: module =>
-        module.resource &&
-        /\.js$/.test(module.resource) &&
-        ~module.resource.indexOf('node_modules')
-    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     process.env.NODE_ENV === 'production'
       ? new webpack.optimize.UglifyJsPlugin()
-      : () => {}
+      : () => {},
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('./dist/vendor-manifest.json')
+    })
   ],
   resolve: {
     extensions: ['.vue', '.js'],
