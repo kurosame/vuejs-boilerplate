@@ -1,3 +1,3 @@
 <template src="./child.html"></template>
-<style scoped src="./child.css"></style>
+<style scoped src="./child.scss"></style>
 <script src="./child.js"></script>
