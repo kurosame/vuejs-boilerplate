@@ -5,13 +5,15 @@
 ```sh
 git clone https://github.com/kurosame/vuejs-boilerplate.git
 yarn install
-yarn start   # webpack-dev-server localhost:8000
+yarn build:vendor # This must be done in advance
+yarn start        # webpack-dev-server localhost:8000
 ```
 
 ## Tasks
 
 ```sh
-yarn build            # for development
-yarn build:production # for production
+yarn build            # build for development
+yarn build:production # build for production
+yarn build:vendor     # build for vendor
 yarn test             # unit test (karma + mocha + chai)
 ```
