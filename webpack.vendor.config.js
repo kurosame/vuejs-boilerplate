@@ -11,6 +11,7 @@ module.exports = {
     library: '[name]_library'
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.DllPlugin({
       path: path.join(__dirname, 'dist', '[name]-manifest.json'),
       name: '[name]_library'

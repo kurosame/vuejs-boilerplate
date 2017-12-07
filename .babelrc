@@ -6,7 +6,8 @@
         "targets": {
           "browsers": ["last 2 versions", "IE 11"]
         },
-        "modules": false
+        "modules": false,
+        "useBuiltIns": true
       }
     ]
   ],
