@@ -1,6 +1,6 @@
-import actions from 'vuex/actions/counter'
-import getters from 'vuex/getters/counter'
-import { ADD_VALUE } from 'vuex/types'
+import actions from '@/vuex/actions/counter'
+import getters from '@/vuex/getters/counter'
+import { ADD_VALUE } from '@/vuex/types'
 
 export default {
   actions,

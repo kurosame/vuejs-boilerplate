@@ -1,6 +1,6 @@
 import { mapActions, mapGetters } from 'vuex'
-import { ADD_VALUE } from 'vuex/types'
-import Child from 'components/Child/Child.vue'
+import { ADD_VALUE } from '@/vuex/types'
+import Child from '@/components/Child/Child.vue'
 
 export default {
   name: 'Parent',

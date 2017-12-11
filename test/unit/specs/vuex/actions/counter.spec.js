@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex, { mapActions } from 'vuex'
 import axios from 'axios'
 import Promise from 'bluebird'
-import actions from 'vuex/actions/counter'
-import { ADD_VALUE, AXIOS_SAMPLE } from 'vuex/types'
+import actions from '@/vuex/actions/counter'
+import { ADD_VALUE, AXIOS_SAMPLE } from '@/vuex/types'
 
 Vue.use(Vuex)
 

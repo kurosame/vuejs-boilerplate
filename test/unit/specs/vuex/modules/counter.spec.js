@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import mutations from 'vuex/modules/counter'
-import { ADD_VALUE } from 'vuex/types'
+import mutations from '@/vuex/modules/counter'
+import { ADD_VALUE } from '@/vuex/types'
 
 Vue.use(Vuex)
 

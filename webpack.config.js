@@ -108,7 +108,9 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.vue', '.js'],
-    modules: [path.resolve(__dirname, 'src'), 'node_modules']
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
   },
   devtool: '#inline-source-map'
 }
