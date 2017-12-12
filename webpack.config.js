@@ -40,8 +40,7 @@ module.exports = {
                   browsers: ['last 2 versions', 'IE 11']
                 }),
                 stylelint()
-              ],
-              esModule: false
+              ]
             }
           }
         ],

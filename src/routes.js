@@ -1,4 +1,4 @@
-const Parent = require('./pages/Parent/Parent.vue')
+import Parent from './pages/Parent/Parent.vue'
 
 export default [
   {
