@@ -1,6 +1,5 @@
 export default {
-  count: state => {
-    const { count } = state
-    return count
-  }
+  count: state => state.count,
+  axiosCount: state => state.axiosCount,
+  asyncCount: state => state.asyncCount
 }

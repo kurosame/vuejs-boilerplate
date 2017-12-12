@@ -1,4 +1,16 @@
 <div class="child">
-  <i class="fa fa-address-book" /> {{ count }}
-  <button type="button" class="btn btn-success" @click="addValue">ADD</button>
+  <div>
+    {{ count }}
+    <button type="button" class="btn btn-success" @click="addValue">ADD</button>
+  </div>
+  <div>
+    {{ axiosCount }}
+    <button type="button" class="btn btn-success" @click="axiosSample">ADD</button>
+    ※axios sample
+  </div>
+  <div>
+    {{ asyncCount }}
+    <button type="button" class="btn btn-success" @click="asyncAwaitSample">ADD</button>
+    ※async await sample
+  </div>
 </div>

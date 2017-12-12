@@ -1,0 +1,6 @@
+{
+  "api": {
+    "axiosCount": 2,
+    "asyncCount": 3
+  }
+}

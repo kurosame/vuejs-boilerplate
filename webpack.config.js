@@ -21,7 +21,7 @@ module.exports = {
     open: true,
     port: 8000,
     proxy: {
-      '/api/*': 'http://mock.example.jp:8001'
+      '/api/*': 'http://localhost:3000'
     }
   },
   module: {
