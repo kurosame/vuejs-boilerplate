@@ -8,7 +8,7 @@ const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = {
   entry: {
-    bundle: ['./src/index.html', './src/index.js']
+    bundle: ['./src/index.html', './src/index.ts']
   },
   output: {
     filename: '[name].js',
@@ -55,6 +55,17 @@ module.exports = {
         test: /\.vue$|\.js$/,
         use: 'eslint-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.ts$/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              appendTsSuffixTo: [/\.vue$/]
+            }
+          }
+        ]
       },
       {
         test: /\.html$/,
@@ -106,7 +117,7 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['.vue', '.js'],
+    extensions: ['.vue', '.js', '.ts'],
     alias: {
       '@': path.resolve(__dirname, 'src')
     }

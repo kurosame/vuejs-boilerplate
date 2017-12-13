@@ -7,12 +7,14 @@
 <style>
 @import '~normalize.css/normalize.css';
 </style>
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import HeaderView from './components/globals/Header/Header.vue'
 
-export default {
+export default Vue.extend({
+  name: 'App',
   components: {
     HeaderView
   }
-}
+})
 </script>
