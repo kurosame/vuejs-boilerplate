@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import Vuex, { mapActions } from 'vuex'
 import axios from 'axios'
-import Promise from 'bluebird'
+import * as assert from 'power-assert'
+import * as sinon from 'sinon'
+import * as Bluebird from 'bluebird'
 import actions from '@/vuex/actions/counter'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
 Vue.use(Vuex)
+
+const getStub = sinon.stub(axios, 'get')
 
 export class State {
   count: number = 0
@@ -43,65 +47,57 @@ const vm = new Vue({
 describe('counter.ts - actions', () => {
   it('ADD_VALUE', () => {
     vm.addValue()
-    expect(store.state.count).to.equal(1)
+    assert.equal(store.state.count, 1)
   })
 
   it('AXIOS_SAMPLE - axios sample resolved', done => {
-    const resolved = new Promise.resolve({
+    const resolved = Bluebird.resolve({
       data: {
         count: 2,
       },
     })
-    sinon.stub(axios, 'get').returns(resolved)
+    getStub.returns(resolved)
 
     vm.axiosSample()
     resolved
       .then(() => {
-        expect(store.state.axiosCount).to.equal(2)
+        assert.equal(store.state.axiosCount, 2)
         done()
       })
       .catch(done)
-
-    axios.get.restore()
   })
 
   it('AXIOS_SAMPLE - axios sample rejected', done => {
-    const rejected = new Promise.reject(new Error('error'))
-    sinon.stub(axios, 'get').returns(rejected)
+    const rejected = Bluebird.reject(new Error('error'))
+    getStub.returns(rejected)
 
     vm.axiosSample()
-    rejected.catch(err => {
-      expect(err.message).to.equal('error')
+    rejected.catch((err: Error) => {
+      assert.equal(err.message, 'error')
       done()
     })
-
-    axios.get.restore()
   })
 
   it('ASYNC_AWAIT_SAMPLE - async await sample resolved', async () => {
-    const resolved = new Promise.resolve({
+    const resolved = Bluebird.resolve({
       data: {
         count: 3,
       },
     })
-    sinon.stub(axios, 'get').returns(resolved)
+    getStub.returns(resolved)
 
     await vm.asyncAwaitSample()
-    expect(store.state.asyncCount).to.equal(3)
-
-    axios.get.restore()
+    assert.equal(store.state.asyncCount, 3)
   })
 
   it('ASYNC_AWAIT_SAMPLE - async await sample rejected', done => {
-    const rejected = new Promise.reject(new Error('error'))
-    sinon.stub(axios, 'get').returns(rejected)
+    const rejected = Bluebird.reject(new Error('error'))
+    getStub.returns(rejected)
 
     vm.asyncAwaitSample()
-    rejected.catch(err => {
-      expect(err.message).to.equal('error')
+    rejected.catch((err: Error) => {
+      assert.equal(err.message, 'error')
       done()
     })
-
-    axios.get.restore()
   })
 })

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as assert from 'power-assert'
 import getters from '@/vuex/getters/counter'
 
 Vue.use(Vuex)
@@ -17,8 +18,8 @@ describe('counter.ts - getters', () => {
       state: new State(),
     })
 
-    expect(store.getters.count).to.equal(1)
-    expect(store.getters.axiosCount).to.equal(2)
-    expect(store.getters.asyncCount).to.equal(3)
+    assert.equal(store.getters.count, 1)
+    assert.equal(store.getters.axiosCount, 2)
+    assert.equal(store.getters.asyncCount, 3)
   })
 })
