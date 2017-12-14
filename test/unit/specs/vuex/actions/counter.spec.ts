@@ -7,24 +7,26 @@ import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
 Vue.use(Vuex)
 
+export class State {
+  count: number = 0
+  axiosCount: number = 0
+  asyncCount: number = 0
+}
+
 const store = new Vuex.Store({
   actions,
-  state: {
-    count: 0,
-    axiosCount: 0,
-    asyncCount: 0
-  },
+  state: new State(),
   mutations: {
-    [ADD_VALUE](state) {
+    [ADD_VALUE](state: State): void {
       state.count = 1
     },
-    [AXIOS_SAMPLE](state) {
+    [AXIOS_SAMPLE](state: State): void {
       state.axiosCount = 2
     },
-    [ASYNC_AWAIT_SAMPLE](state) {
+    [ASYNC_AWAIT_SAMPLE](state: State): void {
       state.asyncCount = 3
-    }
-  }
+    },
+  },
 })
 
 const vm = new Vue({
@@ -33,12 +35,12 @@ const vm = new Vue({
     ...mapActions({
       addValue: ADD_VALUE,
       axiosSample: AXIOS_SAMPLE,
-      asyncAwaitSample: ASYNC_AWAIT_SAMPLE
-    })
-  }
+      asyncAwaitSample: ASYNC_AWAIT_SAMPLE,
+    }),
+  },
 })
 
-describe('counter.js - actions', () => {
+describe('counter.ts - actions', () => {
   it('ADD_VALUE', () => {
     vm.addValue()
     expect(store.state.count).to.equal(1)
@@ -47,8 +49,8 @@ describe('counter.js - actions', () => {
   it('AXIOS_SAMPLE - axios sample resolved', done => {
     const resolved = new Promise.resolve({
       data: {
-        count: 2
-      }
+        count: 2,
+      },
     })
     sinon.stub(axios, 'get').returns(resolved)
 
@@ -79,8 +81,8 @@ describe('counter.js - actions', () => {
   it('ASYNC_AWAIT_SAMPLE - async await sample resolved', async () => {
     const resolved = new Promise.resolve({
       data: {
-        count: 3
-      }
+        count: 3,
+      },
     })
     sinon.stub(axios, 'get').returns(resolved)
 

@@ -4,15 +4,17 @@ import getters from '@/vuex/getters/counter'
 
 Vue.use(Vuex)
 
-describe('counter.js - getters', () => {
+export class State {
+  count: number = 1
+  axiosCount: number = 2
+  asyncCount: number = 3
+}
+
+describe('counter.ts - getters', () => {
   it('all', () => {
     const store = new Vuex.Store({
       getters,
-      state: {
-        count: 1,
-        axiosCount: 2,
-        asyncCount: 3
-      }
+      state: new State(),
     })
 
     expect(store.getters.count).to.equal(1)

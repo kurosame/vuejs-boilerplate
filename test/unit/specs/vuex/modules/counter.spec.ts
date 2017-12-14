@@ -5,15 +5,17 @@ import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
 Vue.use(Vuex)
 
-describe('counter.js - mutations', () => {
+export class State {
+  count: number = 0
+  axiosCount: number = 0
+  asyncCount: number = 0
+}
+
+describe('counter.ts - mutations', () => {
   it('all', () => {
     const store = new Vuex.Store({
-      state: {
-        count: 0,
-        axiosCount: 0,
-        asyncCount: 0
-      },
-      mutations: mutations.mutations
+      state: new State(),
+      mutations: mutations.mutations,
     })
     store.commit(ADD_VALUE, 1)
     store.commit(AXIOS_SAMPLE, 2)
