@@ -5,7 +5,7 @@
 ```sh
 git clone https://github.com/kurosame/vuejs-boilerplate.git
 yarn install
-yarn build:vendor # This must be done in advance
+yarn build:vendor # build for vendor (this must be done in advance)
 ```
 
 ## Tasks
@@ -16,7 +16,6 @@ yarn build:vendor # This must be done in advance
 yarn start            # webpack-dev-server localhost:8000
 yarn build            # build for development
 yarn build:production # build for production
-yarn build:vendor     # build for vendor
 yarn test             # unit test (karma + mocha + power-assert)
 ```
 
@@ -26,8 +25,7 @@ yarn test             # unit test (karma + mocha + power-assert)
 yarn start:js            # webpack-dev-server localhost:8000
 yarn build:js            # build for development
 yarn build:production:js # build for production
-yarn build:vendor        # build for vendor
-yarn test                # unit test (karma + mocha + power-assert)
+yarn test:js             # unit test (karma + mocha + power-assert)
 ```
 
 ## Mock
