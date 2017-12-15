@@ -4,8 +4,11 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
+    "start:js": "USE_JS=true webpack-dev-server",
     "build": "webpack",
+    "build:js": "USE_JS=true webpack",
     "build:production": "NODE_ENV=production webpack",
+    "build:production:js": "NODE_ENV=production USE_JS=true webpack",
     "build:vendor": "webpack --config webpack.vendor.config.js",
     "test": "NODE_ENV=test karma start karma.conf.js"
   },

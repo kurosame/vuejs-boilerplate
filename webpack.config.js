@@ -7,10 +7,9 @@ const Clean = require('clean-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = {
-  entry: {
-    bundle: ['./src/js/index.html', './src/js/index.js']
-    // bundle: ['./src/ts/index.html', './src/ts/index.ts']
-  },
+  entry: process.env.USE_JS
+    ? { bundle: ['./src/js/index.html', './src/js/index.js'] }
+    : { bundle: ['./src/ts/index.html', './src/ts/index.ts'] },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -119,10 +118,9 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.vue', '.js', '.ts'],
-    alias: {
-      'js@': path.resolve(__dirname, 'src/js'),
-      '@': path.resolve(__dirname, 'src/ts')
-    }
+    alias: process.env.USE_JS
+      ? { '@': path.resolve(__dirname, 'src/js') }
+      : { '@': path.resolve(__dirname, 'src/ts') }
   },
   devtool: '#inline-source-map'
 }

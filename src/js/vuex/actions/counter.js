@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from 'js@/vuex/types'
+import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
 export default {
   [ADD_VALUE]({ commit }) {

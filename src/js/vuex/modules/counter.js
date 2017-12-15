@@ -1,6 +1,6 @@
-import actions from 'js@/vuex/actions/counter'
-import getters from 'js@/vuex/getters/counter'
-import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from 'js@/vuex/types'
+import actions from '@/vuex/actions/counter'
+import getters from '@/vuex/getters/counter'
+import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
 export default {
   actions,

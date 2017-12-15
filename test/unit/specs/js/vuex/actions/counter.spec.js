@@ -4,8 +4,8 @@ import axios from 'axios'
 import * as assert from 'power-assert'
 import * as sinon from 'sinon'
 import * as Bluebird from 'bluebird'
-import actions from 'js@/vuex/actions/counter'
-import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from 'js@/vuex/types'
+import actions from '@/vuex/actions/counter'
+import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
 Vue.use(Vuex)
 

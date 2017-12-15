@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as assert from 'power-assert'
-import getters from 'js@/vuex/getters/counter'
+import getters from '@/vuex/getters/counter'
 
 Vue.use(Vuex)
 
