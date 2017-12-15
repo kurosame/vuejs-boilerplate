@@ -8,9 +8,9 @@ import App from './App.vue'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
+  routes,
   mode: 'history',
-  base: __dirname,
-  routes
+  base: __dirname
 })
 
 sync(store, router)

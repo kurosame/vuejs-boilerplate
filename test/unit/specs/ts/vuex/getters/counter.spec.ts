@@ -15,7 +15,7 @@ describe('counter.ts - getters', () => {
   it('all', () => {
     const store = new Vuex.Store({
       getters,
-      state: new State(),
+      state: new State()
     })
 
     assert.equal(store.getters.count, 1)

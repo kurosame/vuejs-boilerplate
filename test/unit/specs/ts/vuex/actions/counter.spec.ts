@@ -27,8 +27,8 @@ const store = new Vuex.Store({
     },
     [ASYNC_AWAIT_SAMPLE](state: State): void {
       state.asyncCount = 3
-    },
-  },
+    }
+  }
 })
 
 const vm = new Vue({
@@ -37,9 +37,9 @@ const vm = new Vue({
     ...mapActions({
       addValue: ADD_VALUE,
       axiosSample: AXIOS_SAMPLE,
-      asyncAwaitSample: ASYNC_AWAIT_SAMPLE,
-    }),
-  },
+      asyncAwaitSample: ASYNC_AWAIT_SAMPLE
+    })
+  }
 })
 
 describe('counter.ts - actions', () => {
@@ -51,8 +51,8 @@ describe('counter.ts - actions', () => {
   it('AXIOS_SAMPLE - axios sample resolved', done => {
     const resolved = Bluebird.resolve({
       data: {
-        count: 2,
-      },
+        count: 2
+      }
     })
     const stub = sinon.stub(axios, 'get')
     stub.returns(resolved)
@@ -85,8 +85,8 @@ describe('counter.ts - actions', () => {
   it('ASYNC_AWAIT_SAMPLE - async await sample resolved', async () => {
     const resolved = Bluebird.resolve({
       data: {
-        count: 3,
-      },
+        count: 3
+      }
     })
     const stub = sinon.stub(axios, 'get')
     stub.returns(resolved)

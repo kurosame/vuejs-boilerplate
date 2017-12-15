@@ -16,7 +16,7 @@ describe('counter.ts - mutations', () => {
   it('all', () => {
     const store = new Vuex.Store({
       state: new State(),
-      mutations: mutations.mutations,
+      mutations: mutations.mutations
     })
     store.commit(ADD_VALUE, 1)
     store.commit(AXIOS_SAMPLE, 2)

@@ -18,12 +18,12 @@ const mutations: MutationTree<State> = {
   },
   [ASYNC_AWAIT_SAMPLE](state: State, value: number): void {
     state.asyncCount += value
-  },
+  }
 }
 
 export default {
   actions,
   getters,
-  state: new State(),
   mutations,
+  state: new State()
 }

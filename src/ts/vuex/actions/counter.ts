@@ -22,7 +22,7 @@ const actions: ActionTree<State, State> = {
       console.error(err)
     })
     commit(ASYNC_AWAIT_SAMPLE, res.data.asyncCount)
-  },
+  }
 }
 
 export default actions
