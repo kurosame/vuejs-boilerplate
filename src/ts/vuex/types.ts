@@ -1,0 +1,3 @@
+export const ADD_VALUE = 'ADD_VALUE'
+export const AXIOS_SAMPLE = 'AXIOS_SAMPLE'
+export const ASYNC_AWAIT_SAMPLE = 'ASYNC_AWAIT_SAMPLE'

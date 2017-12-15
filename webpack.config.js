@@ -8,7 +8,8 @@ const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = {
   entry: {
-    bundle: ['./src/index.html', './src/index.ts']
+    bundle: ['./src/js/index.html', './src/js/index.js']
+    // bundle: ['./src/ts/index.html', './src/ts/index.ts']
   },
   output: {
     filename: '[name].js',
@@ -119,7 +120,8 @@ module.exports = {
   resolve: {
     extensions: ['.vue', '.js', '.ts'],
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      'js@': path.resolve(__dirname, 'src/js'),
+      '@': path.resolve(__dirname, 'src/ts')
     }
   },
   devtool: '#inline-source-map'

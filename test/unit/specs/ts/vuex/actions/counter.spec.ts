@@ -9,8 +9,6 @@ import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
 Vue.use(Vuex)
 
-const getStub = sinon.stub(axios, 'get')
-
 export class State {
   count: number = 0
   axiosCount: number = 0
@@ -56,7 +54,8 @@ describe('counter.ts - actions', () => {
         count: 2,
       },
     })
-    getStub.returns(resolved)
+    const stub = sinon.stub(axios, 'get')
+    stub.returns(resolved)
 
     vm.axiosSample()
     resolved
@@ -65,17 +64,22 @@ describe('counter.ts - actions', () => {
         done()
       })
       .catch(done)
+
+    stub.restore()
   })
 
   it('AXIOS_SAMPLE - axios sample rejected', done => {
     const rejected = Bluebird.reject(new Error('error'))
-    getStub.returns(rejected)
+    const stub = sinon.stub(axios, 'get')
+    stub.returns(rejected)
 
     vm.axiosSample()
     rejected.catch((err: Error) => {
       assert.equal(err.message, 'error')
       done()
     })
+
+    stub.restore()
   })
 
   it('ASYNC_AWAIT_SAMPLE - async await sample resolved', async () => {
@@ -84,20 +88,26 @@ describe('counter.ts - actions', () => {
         count: 3,
       },
     })
-    getStub.returns(resolved)
+    const stub = sinon.stub(axios, 'get')
+    stub.returns(resolved)
 
     await vm.asyncAwaitSample()
     assert.equal(store.state.asyncCount, 3)
+
+    stub.restore()
   })
 
   it('ASYNC_AWAIT_SAMPLE - async await sample rejected', done => {
     const rejected = Bluebird.reject(new Error('error'))
-    getStub.returns(rejected)
+    const stub = sinon.stub(axios, 'get')
+    stub.returns(rejected)
 
     vm.asyncAwaitSample()
     rejected.catch((err: Error) => {
       assert.equal(err.message, 'error')
       done()
     })
+
+    stub.restore()
   })
 })
