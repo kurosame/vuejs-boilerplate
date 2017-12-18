@@ -70,7 +70,14 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        use: 'tslint-loader',
+        use: [
+          {
+            loader: 'tslint-loader',
+            options: {
+              typeCheck: true
+            }
+          }
+        ],
         exclude: /node_modules/
       },
       {

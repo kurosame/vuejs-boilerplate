@@ -9,13 +9,13 @@ export default Vue.extend({
     ...mapActions({
       addValue: ADD_VALUE,
       axiosSample: AXIOS_SAMPLE,
-      asyncAwaitSample: ASYNC_AWAIT_SAMPLE,
-    }),
+      asyncAwaitSample: ASYNC_AWAIT_SAMPLE
+    })
   },
   computed: {
-    ...mapGetters(['count', 'axiosCount', 'asyncCount']),
+    ...mapGetters(['count', 'axiosCount', 'asyncCount'])
   },
   components: {
-    Child,
-  },
+    Child
+  }
 })
