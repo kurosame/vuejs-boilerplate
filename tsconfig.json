@@ -11,6 +11,12 @@
     "strict": true,
     "noImplicitThis": true,
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/ts/*"
+      ]
+    },
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true
   }
