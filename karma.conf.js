@@ -7,17 +7,12 @@ module.exports = config => {
       './node_modules/babel-polyfill/dist/polyfill.js',
       './dist/vendor.js',
       {
-        pattern: './test/unit/specs/**/*.js',
-        watched: false
-      },
-      {
-        pattern: './test/unit/specs/**/*.ts',
+        pattern: './test/unit/specs/**/*.+(js|ts)',
         watched: false
       }
     ],
     preprocessors: {
-      './test/unit/specs/**/*.js': ['webpack', 'sourcemap'],
-      './test/unit/specs/**/*.ts': ['webpack', 'sourcemap']
+      './test/unit/specs/**/*.+(js|ts)': ['webpack', 'sourcemap']
     },
     reporters: ['spec', 'coverage'],
     browsers: ['PhantomJS'],
