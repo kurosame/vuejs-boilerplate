@@ -48,14 +48,14 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        use: 'babel-loader?cacheDirectory',
         exclude: /node_modules/
       },
       {
         test: /\.ts$/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader?cacheDirectory'
           },
           {
             loader: 'ts-loader',

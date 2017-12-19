@@ -19,5 +19,12 @@
     },
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true
-  }
+  },
+  "include": [
+    "src/ts/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "test/unit/specs/ts/**/*.spec.ts"
+  ]
 }
