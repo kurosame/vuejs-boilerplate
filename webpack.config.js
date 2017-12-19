@@ -52,13 +52,11 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.vue$|\.js$/,
-        use: 'eslint-loader',
-        exclude: /node_modules/
-      },
-      {
         test: /\.ts$/,
         use: [
+          {
+            loader: 'babel-loader'
+          },
           {
             loader: 'ts-loader',
             options: {
@@ -66,6 +64,11 @@ module.exports = {
             }
           }
         ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.vue$|\.js$/,
+        use: 'eslint-loader',
         exclude: /node_modules/
       },
       {
