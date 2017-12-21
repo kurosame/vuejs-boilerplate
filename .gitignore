@@ -1,4 +1,4 @@
-node_modules/
 dist/
+node_modules/
 test/unit/coverage/
 npm-debug.log
