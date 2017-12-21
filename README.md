@@ -1,4 +1,4 @@
-# vuejs-boilerplate
+# Vue.js Boilerplate
 
 ## Usage
 
