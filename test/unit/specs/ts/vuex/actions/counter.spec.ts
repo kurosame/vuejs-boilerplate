@@ -19,13 +19,13 @@ const store = new Vuex.Store({
   actions,
   state: new State(),
   mutations: {
-    [ADD_VALUE](state: State): void {
+    [ADD_VALUE](state: State) {
       state.count = 1
     },
-    [AXIOS_SAMPLE](state: State): void {
+    [AXIOS_SAMPLE](state: State) {
       state.axiosCount = 2
     },
-    [ASYNC_AWAIT_SAMPLE](state: State): void {
+    [ASYNC_AWAIT_SAMPLE](state: State) {
       state.asyncCount = 3
     }
   }

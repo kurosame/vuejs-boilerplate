@@ -4,10 +4,10 @@ import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 import { State } from '@/vuex/modules/counter'
 
 const actions: ActionTree<State, State> = {
-  [ADD_VALUE]({ commit }): void {
+  [ADD_VALUE]({ commit }) {
     commit(ADD_VALUE, 1)
   },
-  [AXIOS_SAMPLE]({ commit }): void {
+  [AXIOS_SAMPLE]({ commit }) {
     axios
       .get('/api')
       .then(res => {

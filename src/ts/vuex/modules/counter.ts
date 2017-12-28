@@ -10,13 +10,13 @@ export class State {
 }
 
 const mutations: MutationTree<State> = {
-  [ADD_VALUE](state: State, value: number): void {
+  [ADD_VALUE](state: State, value: number) {
     state.count += value
   },
-  [AXIOS_SAMPLE](state: State, value: number): void {
+  [AXIOS_SAMPLE](state: State, value: number) {
     state.axiosCount += value
   },
-  [ASYNC_AWAIT_SAMPLE](state: State, value: number): void {
+  [ASYNC_AWAIT_SAMPLE](state: State, value: number) {
     state.asyncCount += value
   }
 }
