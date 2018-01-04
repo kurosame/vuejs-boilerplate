@@ -8,6 +8,7 @@
 @import '~normalize.css/normalize.css';
 </style>
 <script lang="ts">
+// This rule is temporary solution to bug by TSLint (tslint-loader) of vue-loader
 /* tslint:disable:prettier */
 /* tslint:enable:prettier */
 import Vue from 'vue'
