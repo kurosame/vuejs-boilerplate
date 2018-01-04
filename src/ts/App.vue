@@ -8,8 +8,8 @@
 @import '~normalize.css/normalize.css';
 </style>
 <script lang="ts">
-// This rule is temporary solution to bug by TSLint (tslint-loader) of vue-loader
 /* tslint:disable:prettier */
+// This rule is temporary solution to bug by TSLint (tslint-loader) of vue-loader
 /* tslint:enable:prettier */
 import Vue from 'vue'
 import HeaderView from './components/globals/Header/Header.vue'
