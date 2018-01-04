@@ -33,7 +33,8 @@ module.exports = {
             loader: 'vue-loader',
             options: {
               loaders: {
-                js: 'babel-loader?cacheDirectory!eslint-loader'
+                js: 'babel-loader?cacheDirectory!eslint-loader',
+                ts: 'ts-loader!tslint-loader'
               },
               postcss: [
                 autoprefixer({

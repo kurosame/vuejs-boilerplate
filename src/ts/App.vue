@@ -8,6 +8,8 @@
 @import '~normalize.css/normalize.css';
 </style>
 <script lang="ts">
+/* tslint:disable:prettier */
+/* tslint:enable:prettier */
 import Vue from 'vue'
 import HeaderView from './components/globals/Header/Header.vue'
 
