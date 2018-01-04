@@ -33,7 +33,7 @@ module.exports = {
             loader: 'vue-loader',
             options: {
               loaders: {
-                js: 'babel-loader!eslint-loader'
+                js: 'babel-loader?cacheDirectory!eslint-loader'
               },
               postcss: [
                 autoprefixer({
@@ -62,18 +62,7 @@ module.exports = {
             options: {
               appendTsSuffixTo: [/\.vue$/]
             }
-          }
-        ],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.vue$|\.js$/,
-        use: 'eslint-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.ts$/,
-        use: [
+          },
           {
             loader: 'tslint-loader',
             options: {
@@ -81,6 +70,11 @@ module.exports = {
             }
           }
         ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.vue$|\.js$/,
+        use: 'eslint-loader',
         exclude: /node_modules/
       },
       {
