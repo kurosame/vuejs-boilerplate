@@ -17,7 +17,7 @@ const actions: ActionTree<State, State> = {
         console.error(err)
       })
   },
-  [ASYNC_AWAIT_SAMPLE]: async ({ commit }) => {
+  async [ASYNC_AWAIT_SAMPLE]({ commit }) {
     const res: any = await axios.get('/api').catch(err => {
       console.error(err)
     })

@@ -15,7 +15,7 @@ export default {
         console.error(err)
       })
   },
-  [ASYNC_AWAIT_SAMPLE]: async ({ commit }) => {
+  async [ASYNC_AWAIT_SAMPLE]({ commit }) {
     const res = await axios.get('/api').catch(err => {
       console.error(err)
     })
