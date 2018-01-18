@@ -4,7 +4,7 @@
     <router-view></router-view>
   </div>
 </template>
-<style>
+<style lang="scss">
 @import '~normalize.css/normalize.css';
 </style>
 <script>
