@@ -1,22 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as assert from 'power-assert'
-import mutations from '@/vuex/modules/counter'
+import modules from '@/vuex/modules/counter'
+import { State } from '@/vuex/state/counter'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
 Vue.use(Vuex)
 
-export class State {
-  count: number = 0
-  axiosCount: number = 0
-  asyncCount: number = 0
-}
-
 describe('counter.ts - mutations', () => {
-  it('all', () => {
+  it('ALL', () => {
     const store = new Vuex.Store({
       state: new State(),
-      mutations: mutations.mutations
+      mutations: modules.mutations
     })
     store.commit(ADD_VALUE, 1)
     store.commit(AXIOS_SAMPLE, 2)

@@ -7,7 +7,7 @@ import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 Vue.use(Vuex)
 
 describe('counter.js - mutations', () => {
-  it('all', () => {
+  it('ALL', () => {
     const store = new Vuex.Store({
       state: {
         count: 0,

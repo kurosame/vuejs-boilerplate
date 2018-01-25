@@ -6,7 +6,7 @@ import getters from '@/vuex/getters/counter'
 Vue.use(Vuex)
 
 describe('counter.js - getters', () => {
-  it('all', () => {
+  it('ALL', () => {
     const store = new Vuex.Store({
       getters,
       state: {

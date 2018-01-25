@@ -5,15 +5,10 @@ import * as assert from 'power-assert'
 import * as sinon from 'sinon'
 import * as Bluebird from 'bluebird'
 import actions from '@/vuex/actions/counter'
+import { State } from '@/vuex/state/counter'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
 Vue.use(Vuex)
-
-export class State {
-  count: number = 0
-  axiosCount: number = 0
-  asyncCount: number = 0
-}
 
 const store = new Vuex.Store({
   actions,

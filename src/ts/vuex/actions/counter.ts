@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ActionTree } from 'vuex'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
-import { State } from '@/vuex/modules/counter'
+import { State } from '@/vuex/state/counter'
 
 const actions: ActionTree<State, State> = {
   [ADD_VALUE]({ commit }) {

@@ -12,7 +12,7 @@ export class State {
 }
 
 describe('counter.ts - getters', () => {
-  it('all', () => {
+  it('ALL', () => {
     const store = new Vuex.Store({
       getters,
       state: new State()

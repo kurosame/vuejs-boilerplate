@@ -1,5 +1,5 @@
 import { GetterTree } from 'vuex'
-import { State } from '@/vuex/modules/counter'
+import { State } from '@/vuex/state/counter'
 
 const getters: GetterTree<State, State> = {
   count: (state: State): number => state.count,
