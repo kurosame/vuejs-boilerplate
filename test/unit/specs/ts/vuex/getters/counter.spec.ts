@@ -12,14 +12,21 @@ export class State {
 }
 
 describe('counter.ts - getters', () => {
-  it('ALL', () => {
-    const store = new Vuex.Store({
-      getters,
-      state: new State()
-    })
+  it('count', () => {
+    const store = new Vuex.Store({ getters, state: new State() })
 
     assert.equal(store.getters.count, 1)
+  })
+
+  it('axiosCount', () => {
+    const store = new Vuex.Store({ getters, state: new State() })
+
     assert.equal(store.getters.axiosCount, 2)
+  })
+
+  it('asyncCount', () => {
+    const store = new Vuex.Store({ getters, state: new State() })
+
     assert.equal(store.getters.asyncCount, 3)
   })
 })
