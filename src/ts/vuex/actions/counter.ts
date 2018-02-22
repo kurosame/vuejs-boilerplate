@@ -1,27 +1,27 @@
 import axios from 'axios'
-import { ActionTree } from 'vuex'
+import { ActionTree, ActionContext } from 'vuex'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 import { State } from '@/vuex/state/counter'
 
 const actions: ActionTree<State, State> = {
-  [ADD_VALUE]({ commit }) {
-    commit(ADD_VALUE, 1)
+  [ADD_VALUE](context: ActionContext<State, any>) {
+    context.commit(ADD_VALUE, 1)
   },
-  [AXIOS_SAMPLE]({ commit }) {
+  [AXIOS_SAMPLE](context: ActionContext<State, any>) {
     axios
       .get('/api')
       .then(res => {
-        commit(AXIOS_SAMPLE, res.data.axiosCount)
+        context.commit(AXIOS_SAMPLE, res.data.axiosCount)
       })
       .catch(err => {
         console.error(err)
       })
   },
-  async [ASYNC_AWAIT_SAMPLE]({ commit }) {
+  async [ASYNC_AWAIT_SAMPLE](context: ActionContext<State, any>) {
     const res: any = await axios.get('/api').catch(err => {
       console.error(err)
     })
-    commit(ASYNC_AWAIT_SAMPLE, res.data.asyncCount)
+    context.commit(ASYNC_AWAIT_SAMPLE, res.data.asyncCount)
   }
 }
 
