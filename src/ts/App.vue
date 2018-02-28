@@ -12,7 +12,7 @@
 // This rule is temporary solution to bug by TSLint (tslint-loader) of vue-loader
 /* tslint:enable:prettier */
 import Vue from 'vue'
-import HeaderView from './components/globals/Header/Header.vue'
+import HeaderView from './components/globals/Header/Header'
 
 export default Vue.extend({
   name: 'App',

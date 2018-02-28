@@ -14,14 +14,14 @@ const store = new Vuex.Store({
   actions,
   state: new State(),
   mutations: {
-    [ADD_VALUE](state: State) {
-      state.count = 1
+    [ADD_VALUE](state: State, count) {
+      state.count = count
     },
-    [AXIOS_SAMPLE](state: State) {
-      state.axiosCount = 2
+    [AXIOS_SAMPLE](state: State, axiosCount) {
+      state.axiosCount = axiosCount
     },
-    [ASYNC_AWAIT_SAMPLE](state: State) {
-      state.asyncCount = 3
+    [ASYNC_AWAIT_SAMPLE](state: State, asyncCount) {
+      state.asyncCount = asyncCount
     }
   }
 })
@@ -45,9 +45,7 @@ describe('counter.ts - actions', () => {
 
   it('AXIOS_SAMPLE - axios sample resolved', done => {
     const resolved = Bluebird.resolve({
-      data: {
-        count: 2
-      }
+      data: { axiosCount: 2 }
     })
     const stub = sinon.stub(axios, 'get')
     stub.returns(resolved)
@@ -79,9 +77,7 @@ describe('counter.ts - actions', () => {
 
   it('ASYNC_AWAIT_SAMPLE - async await sample resolved', async () => {
     const resolved = Bluebird.resolve({
-      data: {
-        count: 3
-      }
+      data: { asyncCount: 3 }
     })
     const stub = sinon.stub(axios, 'get')
     stub.returns(resolved)

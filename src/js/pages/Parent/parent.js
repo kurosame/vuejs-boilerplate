@@ -1,6 +1,6 @@
 import { mapActions, mapGetters } from 'vuex'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
-import Child from '@/components/Child/Child.vue'
+import Child from '@/components/Child/Child'
 
 export default {
   name: 'Parent',
