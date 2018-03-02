@@ -7,9 +7,9 @@ const Clean = require('clean-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = {
-  entry: process.env.USE_JS
-    ? { bundle: ['./src/js/index.html', './src/js/index.js'] }
-    : { bundle: ['./src/ts/index.html', './src/ts/index.ts'] },
+  entry: {
+    bundle: ['./src/index.html', './src/index.ts']
+  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -33,7 +33,6 @@ module.exports = {
             loader: 'vue-loader',
             options: {
               loaders: {
-                js: 'babel-loader?cacheDirectory!eslint-loader',
                 ts: 'ts-loader!tslint-loader'
               },
               postcss: [
@@ -45,11 +44,6 @@ module.exports = {
             }
           }
         ],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        use: 'babel-loader?cacheDirectory',
         exclude: /node_modules/
       },
       {
@@ -71,11 +65,6 @@ module.exports = {
             }
           }
         ],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.vue$|\.js$/,
-        use: 'eslint-loader',
         exclude: /node_modules/
       },
       {
@@ -129,9 +118,7 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.vue', '.js', '.ts'],
-    alias: process.env.USE_JS
-      ? { '@': path.resolve(__dirname, 'src/js') }
-      : { '@': path.resolve(__dirname, 'src/ts') }
+    alias: { '@': path.resolve(__dirname, 'src') }
   },
   devtool: '#inline-source-map'
 }
