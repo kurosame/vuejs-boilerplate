@@ -41,42 +41,30 @@ let stub: any
 
 describe('actions', () => {
   describe('counter.ts', () => {
-    beforeEach(() => {
-      stub = sinon.stub(axios, 'get')
-    })
-    afterEach(() => {
-      stub.restore()
-    })
+    beforeEach(() => (stub = sinon.stub(axios, 'get')))
+    afterEach(() => stub.restore())
 
     it('ADD_VALUE', () => {
       vm.addValue()
       assert.equal(store.state.count, 1)
     })
 
-    it('AXIOS_SAMPLE - axios sample resolved', done => {
+    it('AXIOS_SAMPLE - axios sample resolved', async () => {
       const resolved = Bluebird.resolve({
         data: { axiosCount: 2 }
       })
       stub.returns(resolved)
 
-      vm.axiosSample()
-      resolved
-        .then(() => {
-          assert.equal(store.state.axiosCount, 2)
-          done()
-        })
-        .catch(done)
+      await vm.axiosSample()
+      resolved.then(() => assert.equal(store.state.axiosCount, 2))
     })
 
-    it('AXIOS_SAMPLE - axios sample rejected', done => {
+    it('AXIOS_SAMPLE - axios sample rejected', async () => {
       const rejected = Bluebird.reject(new Error('error'))
       stub.returns(rejected)
 
-      vm.axiosSample()
-      rejected.catch((err: Error) => {
-        assert.equal(err.message, 'error')
-        done()
-      })
+      await vm.axiosSample()
+      rejected.catch((err: Error) => assert.equal(err.message, 'error'))
     })
 
     it('ASYNC_AWAIT_SAMPLE - async await sample resolved', async () => {

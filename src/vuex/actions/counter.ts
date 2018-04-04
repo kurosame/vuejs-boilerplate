@@ -10,17 +10,11 @@ const actions: ActionTree<State, State> = {
   [AXIOS_SAMPLE](context: ActionContext<State, any>) {
     axios
       .get('/api')
-      .then(res => {
-        context.commit(AXIOS_SAMPLE, res.data.axiosCount)
-      })
-      .catch(err => {
-        console.error(err)
-      })
+      .then(res => context.commit(AXIOS_SAMPLE, res.data.axiosCount))
+      .catch(err => console.error(err))
   },
   async [ASYNC_AWAIT_SAMPLE](context: ActionContext<State, any>) {
-    const res: any = await axios.get('/api').catch(err => {
-      console.error(err)
-    })
+    const res: any = await axios.get('/api').catch(err => console.error(err))
     context.commit(ASYNC_AWAIT_SAMPLE, res.data.asyncCount)
   }
 }
