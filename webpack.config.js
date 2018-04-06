@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer')
 const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
 const Clean = require('clean-webpack-plugin')
+const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = {
@@ -55,7 +56,8 @@ module.exports = {
           {
             loader: 'ts-loader',
             options: {
-              appendTsSuffixTo: [/\.vue$/]
+              appendTsSuffixTo: [/\.vue$/],
+              transpileOnly: true
             }
           },
           {
@@ -104,6 +106,7 @@ module.exports = {
       root: `${__dirname}/..`,
       verbose: false
     }),
+    new ForkTsChecker(),
     new StyleLint(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
