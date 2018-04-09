@@ -5,14 +5,16 @@ const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
 const Clean = require('clean-webpack-plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
+const Html = require('html-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = {
   entry: {
-    bundle: ['./src/index.html', './src/index.ts']
+    vendor: './dist/vendor.js',
+    bundle: './src/index.ts'
   },
   output: {
-    filename: '[name].js',
+    filename: '[name]-[hash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
@@ -68,30 +70,6 @@ module.exports = {
           }
         ],
         exclude: /node_modules/
-      },
-      {
-        test: /\.html$/,
-        use: 'file-loader?name=[name].[ext]'
-      },
-      {
-        test: /index\.html$/,
-        use: [
-          {
-            loader: 'string-replace-loader',
-            query: {
-              multiple: [
-                {
-                  search: '<!-- scriptsVendor -->',
-                  replace: `<script src=\"/vendor.js?${new Date().getTime()}\"></script>`
-                },
-                {
-                  search: '<!-- scripts -->',
-                  replace: `<script src=\"/bundle.js?${new Date().getTime()}\"></script>`
-                }
-              ]
-            }
-          }
-        ]
       }
     ]
   },
@@ -107,6 +85,10 @@ module.exports = {
       verbose: false
     }),
     new ForkTsChecker(),
+    new Html({
+      filename: 'index.html',
+      template: '!!html-loader!./src/index.html'
+    }),
     new StyleLint(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
