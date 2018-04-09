@@ -5,6 +5,7 @@ const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
 const Clean = require('clean-webpack-plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
+const HardSource = require('hard-source-webpack-plugin')
 const Html = require('html-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
@@ -85,6 +86,7 @@ module.exports = {
       verbose: false
     }),
     new ForkTsChecker(),
+    new HardSource(),
     new Html({
       filename: 'index.html',
       template: '!!html-loader!./src/index.html'
