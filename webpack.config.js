@@ -3,15 +3,13 @@ const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
-const Clean = require('clean-webpack-plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
 const HardSource = require('hard-source-webpack-plugin')
 const Html = require('html-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
-module.exports = {
+module.exports = (env, argv) => ({
   entry: {
-    vendor: './dist/vendor.js',
     bundle: './src/index.ts'
   },
   output: {
@@ -81,23 +79,13 @@ module.exports = {
         to: 'assets'
       }
     ]),
-    new Clean(['dist/**/*'], {
-      root: `${__dirname}/..`,
-      verbose: false
-    }),
     new ForkTsChecker(),
     new HardSource(),
     new Html({
       filename: 'index.html',
-      template: '!!html-loader!./src/index.html'
+      template: './dist/index.html'
     }),
     new StyleLint(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    }),
-    process.env.NODE_ENV === 'production'
-      ? new webpack.optimize.UglifyJsPlugin()
-      : () => {},
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require('./dist/vendor-manifest.json')
@@ -107,5 +95,5 @@ module.exports = {
     extensions: ['.vue', '.js', '.ts'],
     alias: { '@': path.resolve(__dirname, 'src') }
   },
-  devtool: '#inline-source-map'
-}
+  devtool: argv.mode === 'development' ? '#inline-source-map' : false
+})

@@ -5,9 +5,10 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode development",
-    "build:production": "NODE_ENV=production webpack --mode production",
-    "build:vendor": "webpack --config webpack.vendor.config.js",
-    "test": "NODE_ENV=test karma start karma.conf.js"
+    "build:production": "webpack --mode production",
+    "build:vendor": "webpack --config webpack.vendor.config.js --mode production",
+    "test": "NODE_ENV=test karma start karma.conf.js",
+    "clean": "rimraf ./dist/**/*"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -30,7 +31,6 @@
     "babel-plugin-transform-runtime": "^6.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "clean-webpack-plugin": "^0.1.17",
     "copy-webpack-plugin": "^4.2.0",
     "css-loader": "^0.28.7",
     "exports-loader": "^0.7.0",
