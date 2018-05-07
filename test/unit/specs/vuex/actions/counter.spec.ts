@@ -37,11 +37,11 @@ const vm = new Vue({
   }
 })
 
-let stub: any
+let stub: sinon.SinonStub
 
 describe('actions', () => {
   describe('counter.ts', () => {
-    beforeEach(() => (stub = sinon.stub(axios, 'get')))
+    beforeEach(stub = sinon.stub(axios, 'get'))
     afterEach(() => stub.restore())
 
     it('ADD_VALUE', () => {
