@@ -37,12 +37,7 @@ module.exports = (env, argv) => ({
               loaders: {
                 ts: 'ts-loader!tslint-loader'
               },
-              postcss: [
-                autoprefixer({
-                  browsers: ['last 2 versions', 'IE 11']
-                }),
-                stylelint()
-              ]
+              postcss: [autoprefixer(), stylelint()]
             }
           }
         ],
@@ -82,8 +77,7 @@ module.exports = (env, argv) => ({
     new ForkTsChecker(),
     new HardSource(),
     new Html({
-      filename: 'index.html',
-      template: './dist/index.html'
+      template: './dist/vendor.html'
     }),
     new StyleLint(),
     new webpack.DllReferencePlugin({

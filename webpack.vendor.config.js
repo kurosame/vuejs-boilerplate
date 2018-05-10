@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new Html({
-      filename: 'index.html',
+      filename: 'vendor.html',
       template: './src/index.html'
     }),
     new webpack.DllPlugin({
