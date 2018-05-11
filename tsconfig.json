@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "ESNEXT",
     "module": "es2015",
     "lib": ["dom", "es2015"],
     "sourceMap": true,
     "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
     "noImplicitThis": true,
+    "alwaysStrict": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {

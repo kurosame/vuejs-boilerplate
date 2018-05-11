@@ -10,11 +10,11 @@ const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = (env, argv) => ({
   entry: {
-    bundle: './src/index.ts'
+    bundle: path.join(__dirname, 'src', 'index.ts')
   },
   output: {
     filename: '[name]-[hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     publicPath: '/'
   },
   devServer: {
@@ -68,26 +68,21 @@ module.exports = (env, argv) => ({
     ]
   },
   plugins: [
-    new Copy([
-      {
-        from: 'assets',
-        to: 'assets'
-      }
-    ]),
+    new Copy([{ from: 'assets', to: 'assets' }]),
     new ForkTsChecker(),
     new HardSource(),
     new Html({
-      template: './dist/vendor.html'
+      template: path.join(__dirname, 'dist', 'vendor.html')
     }),
     new StyleLint(),
     new webpack.DllReferencePlugin({
       context: __dirname,
-      manifest: require('./dist/vendor-manifest.json')
+      manifest: require(path.join(__dirname, 'dist', 'vendor-manifest.json'))
     })
   ],
   resolve: {
     extensions: ['.vue', '.js', '.ts'],
-    alias: { '@': path.resolve(__dirname, 'src') }
+    alias: { '@': path.join(__dirname, 'src') }
   },
   devtool: argv.mode === 'development' ? '#inline-source-map' : false
 })

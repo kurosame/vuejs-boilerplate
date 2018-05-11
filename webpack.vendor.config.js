@@ -8,14 +8,14 @@ module.exports = {
   },
   output: {
     filename: '[name]-[hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
     publicPath: '/',
     library: '[name]_library'
   },
   plugins: [
     new Html({
       filename: 'vendor.html',
-      template: './src/index.html'
+      template: path.join(__dirname, 'src', 'index.html')
     }),
     new webpack.DllPlugin({
       path: path.join(__dirname, 'dist', '[name]-manifest.json'),
