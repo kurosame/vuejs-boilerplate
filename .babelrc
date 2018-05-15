@@ -12,7 +12,7 @@
   "comments": false,
   "env": {
     "test": {
-      "plugins": ["istanbul"]
+      "presets": [["env", { "targets": { "node": "current" } }]]
     }
   }
 }

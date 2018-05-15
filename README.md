@@ -14,7 +14,7 @@ yarn build:vendor # build for vendor (this must be done in advance)
 yarn start            # webpack-dev-server localhost:8000
 yarn build            # build for development
 yarn build:production # build for production
-yarn test             # unit test (karma + mocha + power-assert)
+yarn test             # unit test (jest + vue-test-utils + power-assert)
 ```
 
 ## Mock
