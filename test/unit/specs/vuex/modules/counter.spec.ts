@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as assert from 'power-assert'
 import modules from '@/vuex/modules/counter'
 import { State } from '@/vuex/state/counter'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
@@ -16,7 +15,7 @@ describe('mutations', () => {
       })
       store.commit(ADD_VALUE, 1)
 
-      assert.equal(store.state.count, 1)
+      expect(store.state.count).toEqual(1)
     })
 
     it('AXIOS_SAMPLE', () => {
@@ -26,7 +25,7 @@ describe('mutations', () => {
       })
       store.commit(AXIOS_SAMPLE, 2)
 
-      assert.equal(store.state.axiosCount, 2)
+      expect(store.state.axiosCount).toEqual(2)
     })
 
     it('ASYNC_AWAIT_SAMPLE', () => {
@@ -36,7 +35,7 @@ describe('mutations', () => {
       })
       store.commit(ASYNC_AWAIT_SAMPLE, 3)
 
-      assert.equal(store.state.asyncCount, 3)
+      expect(store.state.asyncAwaitCount).toEqual(3)
     })
   })
 })

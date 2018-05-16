@@ -12,7 +12,7 @@ const mutations: MutationTree<State> = {
     state.axiosCount += value
   },
   [ASYNC_AWAIT_SAMPLE](state: State, value: number) {
-    state.asyncCount += value
+    state.asyncAwaitCount += value
   }
 }
 

@@ -13,7 +13,7 @@ export default Vue.extend({
     })
   },
   computed: {
-    ...mapGetters(['count', 'axiosCount', 'asyncCount'])
+    ...mapGetters(['count', 'axiosCount', 'asyncAwaitCount'])
   },
   components: {
     Child

@@ -4,7 +4,7 @@ import { State } from '@/vuex/state/counter'
 const getters: GetterTree<State, State> = {
   count: (state: State): number => state.count,
   axiosCount: (state: State): number => state.axiosCount,
-  asyncCount: (state: State): number => state.asyncCount
+  asyncAwaitCount: (state: State): number => state.asyncAwaitCount
 }
 
 export default getters

@@ -9,7 +9,13 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
+  collectCoverageFrom: [
+    '<rootDir>/src/vuex/actions/**/*.ts',
+    '<rootDir>/src/vuex/getters/**/*.ts',
+    '<rootDir>/src/vuex/modules/**/*.ts',
+    '<rootDir>/src/vuex/state/**/*.ts'
+  ],
   coverageDirectory: '<rootDir>/test/unit/coverage',
-  coverageReporters: ['html', 'text-summary']
+  coverageReporters: ['html', 'text-summary'],
+  verbose: true
 }

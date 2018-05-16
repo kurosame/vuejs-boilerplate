@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Vuex, { mapActions } from 'vuex'
 import axios from 'axios'
-import * as assert from 'power-assert'
-import * as sinon from 'sinon'
-import * as Bluebird from 'bluebird'
+import moxios from 'moxios'
 import actions from '@/vuex/actions/counter'
 import { State } from '@/vuex/state/counter'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
@@ -20,8 +18,8 @@ const store = new Vuex.Store({
     [AXIOS_SAMPLE](state: State, axiosCount) {
       state.axiosCount = axiosCount
     },
-    [ASYNC_AWAIT_SAMPLE](state: State, asyncCount) {
-      state.asyncCount = asyncCount
+    [ASYNC_AWAIT_SAMPLE](state: State, asyncAwaitCount) {
+      state.asyncAwaitCount = asyncAwaitCount
     }
   }
 })
@@ -37,53 +35,76 @@ const vm = new Vue({
   }
 })
 
-let stub: sinon.SinonStub
-
 describe('actions', () => {
   describe('counter.ts', () => {
-    beforeEach(stub = sinon.stub(axios, 'get'))
-    afterEach(() => stub.restore())
+    beforeEach(() => moxios.install())
+    afterEach(() => moxios.uninstall())
 
     it('ADD_VALUE', () => {
       vm.addValue()
-      assert.equal(store.state.count, 1)
+      expect(store.state.count).toEqual(1)
     })
 
-    it('AXIOS_SAMPLE - axios sample resolved', async () => {
-      const resolved = Bluebird.resolve({
-        data: { axiosCount: 2 }
+    it('AXIOS_SAMPLE - axios sample resolved', done => {
+      moxios.stubRequest('/api', {
+        status: 200,
+        response: { axiosCount: 2 }
       })
-      stub.returns(resolved)
 
-      await vm.axiosSample()
-      resolved.then(() => assert.equal(store.state.axiosCount, 2))
-    })
-
-    it('AXIOS_SAMPLE - axios sample rejected', async () => {
-      const rejected = Bluebird.reject(new Error('error'))
-      stub.returns(rejected)
-
-      await vm.axiosSample()
-      rejected.catch((err: Error) => assert.equal(err.message, 'error'))
-    })
-
-    it('ASYNC_AWAIT_SAMPLE - async await sample resolved', async () => {
-      const resolved = Bluebird.resolve({
-        data: { asyncCount: 3 }
+      vm.axiosSample()
+      moxios.wait(() => {
+        expect(store.state.axiosCount).toEqual(2)
+        done()
       })
-      stub.returns(resolved)
+    })
 
-      await vm.asyncAwaitSample()
-      assert.equal(store.state.asyncCount, 3)
+    it('AXIOS_SAMPLE - axios sample rejected', done => {
+      moxios.stubRequest('/api', {
+        status: 400
+      })
+      const spyErr = jest.spyOn(console, 'error')
+      spyErr.mockImplementation(() => {})
+
+      vm.axiosSample()
+      moxios.wait(() => {
+        expect(console.error).toBeCalled()
+        expect(spyErr.mock.calls[0][0]).toEqual(
+          'AXIOS_SAMPLE API response error'
+        )
+        spyErr.mockReset()
+        spyErr.mockRestore()
+        done()
+      })
+    })
+
+    it('ASYNC_AWAIT_SAMPLE - async await sample resolved', done => {
+      moxios.stubRequest('/api', {
+        status: 200,
+        response: { asyncAwaitCount: 3 }
+      })
+
+      vm.asyncAwaitSample()
+      moxios.wait(() => {
+        expect(store.state.asyncAwaitCount).toEqual(3)
+        done()
+      })
     })
 
     it('ASYNC_AWAIT_SAMPLE - async await sample rejected', done => {
-      const rejected = Bluebird.reject(new Error('error'))
-      stub.returns(rejected)
+      moxios.stubRequest('/api', {
+        status: 400
+      })
+      const spyErr = jest.spyOn(console, 'error')
+      spyErr.mockImplementation(() => {})
 
       vm.asyncAwaitSample()
-      rejected.catch((err: Error) => {
-        assert.equal(err.message, 'error')
+      moxios.wait(() => {
+        expect(console.error).toBeCalled()
+        expect(spyErr.mock.calls[0][0]).toEqual(
+          'ASYNC_AWAIT_SAMPLE API response error'
+        )
+        spyErr.mockReset()
+        spyErr.mockRestore()
         done()
       })
     })

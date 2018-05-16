@@ -8,6 +8,6 @@ export default Vue.extend({
     'asyncAwaitSample',
     'count',
     'axiosCount',
-    'asyncCount'
+    'asyncAwaitCount'
   ]
 })

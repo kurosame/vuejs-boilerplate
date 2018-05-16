@@ -11,11 +11,14 @@ const actions: ActionTree<State, State> = {
     axios
       .get('/api')
       .then(res => context.commit(AXIOS_SAMPLE, res.data.axiosCount))
-      .catch(err => console.error(err))
+      .catch(() => console.error('AXIOS_SAMPLE API response error'))
   },
   async [ASYNC_AWAIT_SAMPLE](context: ActionContext<State, any>) {
-    const res: any = await axios.get('/api').catch(err => console.error(err))
-    context.commit(ASYNC_AWAIT_SAMPLE, res.data.asyncCount)
+    const res: any = await axios
+      .get('/api')
+      .then(res => context.commit(ASYNC_AWAIT_SAMPLE, res.data.asyncAwaitCount))
+      .catch(() => console.error('ASYNC_AWAIT_SAMPLE API response error'))
+    // possible to use res
   }
 }
 
