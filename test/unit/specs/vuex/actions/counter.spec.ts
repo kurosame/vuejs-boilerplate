@@ -35,10 +35,20 @@ const vm = new Vue({
   }
 })
 
+let spyErr: any
+
 describe('actions', () => {
   describe('counter.ts', () => {
-    beforeEach(() => moxios.install())
-    afterEach(() => moxios.uninstall())
+    beforeEach(() => {
+      moxios.install()
+      spyErr = jest.spyOn(console, 'error')
+      spyErr.mockImplementation(() => {})
+    })
+    afterEach(() => {
+      moxios.uninstall()
+      spyErr.mockReset()
+      spyErr.mockRestore()
+    })
 
     it('ADD_VALUE', () => {
       vm.addValue()
@@ -62,8 +72,6 @@ describe('actions', () => {
       moxios.stubRequest('/api', {
         status: 400
       })
-      const spyErr = jest.spyOn(console, 'error')
-      spyErr.mockImplementation(() => {})
 
       vm.axiosSample()
       moxios.wait(() => {
@@ -71,8 +79,6 @@ describe('actions', () => {
         expect(spyErr.mock.calls[0][0]).toEqual(
           'AXIOS_SAMPLE API response error'
         )
-        spyErr.mockReset()
-        spyErr.mockRestore()
         done()
       })
     })
@@ -94,8 +100,6 @@ describe('actions', () => {
       moxios.stubRequest('/api', {
         status: 400
       })
-      const spyErr = jest.spyOn(console, 'error')
-      spyErr.mockImplementation(() => {})
 
       vm.asyncAwaitSample()
       moxios.wait(() => {
@@ -103,8 +107,6 @@ describe('actions', () => {
         expect(spyErr.mock.calls[0][0]).toEqual(
           'ASYNC_AWAIT_SAMPLE API response error'
         )
-        spyErr.mockReset()
-        spyErr.mockRestore()
         done()
       })
     })
