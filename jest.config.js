@@ -1,15 +1,16 @@
 module.exports = {
-  moduleFileExtensions: ['js', 'ts'],
+  moduleFileExtensions: ['vue', 'js', 'ts'],
   testMatch: ['<rootDir>/test/unit/specs/**/*.ts'],
   transform: {
+    '^.+\\.vue$': 'vue-jest',
     '^.+\\.ts$': 'babel-jest',
     '^.+\\.ts$': 'ts-jest'
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
-  collectCoverage: true,
   collectCoverageFrom: [
+    '<rootDir>/src/components/**/*.vue',
     '<rootDir>/src/vuex/actions/**/*.ts',
     '<rootDir>/src/vuex/getters/**/*.ts',
     '<rootDir>/src/vuex/modules/**/*.ts',
