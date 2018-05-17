@@ -14,15 +14,15 @@ describe('components', () => {
       }
     })
 
-    it('count', () => {
+    test('count', () => {
       expect(wrapper.html()).toContain('<span class="count">1</span>')
     })
 
-    it('axiosCount', () => {
+    test('axiosCount', () => {
       expect(wrapper.html()).toContain('<span class="axios-count">2</span>')
     })
 
-    it('asyncAwaitCount', () => {
+    test('asyncAwaitCount', () => {
       expect(wrapper.html()).toContain(
         '<span class="async-await-count">3</span>'
       )

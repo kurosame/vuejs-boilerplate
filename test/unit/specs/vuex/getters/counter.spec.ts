@@ -12,19 +12,19 @@ export class State {
 
 describe('getters', () => {
   describe('counter.ts', () => {
-    it('count', () => {
+    test('count', () => {
       const store = new Vuex.Store({ getters, state: new State() })
 
       expect(store.getters.count).toEqual(1)
     })
 
-    it('axiosCount', () => {
+    test('axiosCount', () => {
       const store = new Vuex.Store({ getters, state: new State() })
 
       expect(store.getters.axiosCount).toEqual(2)
     })
 
-    it('asyncAwaitCount', () => {
+    test('asyncAwaitCount', () => {
       const store = new Vuex.Store({ getters, state: new State() })
 
       expect(store.getters.asyncAwaitCount).toEqual(3)

@@ -50,12 +50,12 @@ describe('actions', () => {
       spyErr.mockRestore()
     })
 
-    it('ADD_VALUE', () => {
+    test('ADD_VALUE', () => {
       vm.addValue()
       expect(store.state.count).toEqual(1)
     })
 
-    it('AXIOS_SAMPLE - axios sample resolved', done => {
+    test('AXIOS_SAMPLE - axios sample resolved', done => {
       moxios.stubRequest('/api', {
         status: 200,
         response: { axiosCount: 2 }
@@ -68,7 +68,7 @@ describe('actions', () => {
       })
     })
 
-    it('AXIOS_SAMPLE - axios sample rejected', done => {
+    test('AXIOS_SAMPLE - axios sample rejected', done => {
       moxios.stubRequest('/api', {
         status: 400
       })
@@ -83,7 +83,7 @@ describe('actions', () => {
       })
     })
 
-    it('ASYNC_AWAIT_SAMPLE - async await sample resolved', done => {
+    test('ASYNC_AWAIT_SAMPLE - async await sample resolved', done => {
       moxios.stubRequest('/api', {
         status: 200,
         response: { asyncAwaitCount: 3 }
@@ -96,7 +96,7 @@ describe('actions', () => {
       })
     })
 
-    it('ASYNC_AWAIT_SAMPLE - async await sample rejected', done => {
+    test('ASYNC_AWAIT_SAMPLE - async await sample rejected', done => {
       moxios.stubRequest('/api', {
         status: 400
       })

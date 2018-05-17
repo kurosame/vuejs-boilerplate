@@ -8,7 +8,7 @@ Vue.use(Vuex)
 
 describe('mutations', () => {
   describe('counter.ts', () => {
-    it('ADD_VALUE', () => {
+    test('ADD_VALUE', () => {
       const store = new Vuex.Store({
         state: new State(),
         mutations: modules.mutations
@@ -18,7 +18,7 @@ describe('mutations', () => {
       expect(store.state.count).toEqual(1)
     })
 
-    it('AXIOS_SAMPLE', () => {
+    test('AXIOS_SAMPLE', () => {
       const store = new Vuex.Store({
         state: new State(),
         mutations: modules.mutations
@@ -28,7 +28,7 @@ describe('mutations', () => {
       expect(store.state.axiosCount).toEqual(2)
     })
 
-    it('ASYNC_AWAIT_SAMPLE', () => {
+    test('ASYNC_AWAIT_SAMPLE', () => {
       const store = new Vuex.Store({
         state: new State(),
         mutations: modules.mutations
