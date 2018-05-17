@@ -1,4 +1,4 @@
-import Parent from './pages/Parent/Parent.vue'
+import Parent from './pages/Parent.vue'
 
 export default [
   {

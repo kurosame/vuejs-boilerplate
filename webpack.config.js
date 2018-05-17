@@ -34,9 +34,6 @@ module.exports = (env, argv) => ({
           {
             loader: 'vue-loader',
             options: {
-              loaders: {
-                ts: 'ts-loader!tslint-loader'
-              },
               postcss: [autoprefixer(), stylelint()]
             }
           }

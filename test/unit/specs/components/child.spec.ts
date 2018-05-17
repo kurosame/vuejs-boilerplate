@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Child from '@/components/Child/Child.vue'
+import Child from '@/components/Child.vue'
 
 describe('components', () => {
   describe('Child.vue', () => {
