@@ -3,7 +3,7 @@ import { ActionTree, ActionContext } from 'vuex'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 import { State } from '@/vuex/state/counter'
 
-const actions: ActionTree<State, State> = {
+const actions: ActionTree<State, any> = {
   [ADD_VALUE](context: ActionContext<State, any>) {
     context.commit(ADD_VALUE, 1)
   },

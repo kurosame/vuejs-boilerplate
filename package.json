@@ -6,7 +6,8 @@
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
-    "build:vendor": "webpack --config webpack.vendor.config.js --mode production",
+    "build:vendor":
+      "webpack --config webpack.vendor.config.js --mode production",
     "test": "jest --watchAll --coverage",
     "test:ci": "jest",
     "clean": "rimraf ./dist/**/*"
@@ -64,7 +65,7 @@
     "typescript": "^2.8.3",
     "vue-devtools": "^3.1.9",
     "vue-jest": "^2.5.0",
-    "vue-loader": "14.2.2",
+    "vue-loader": "^14.2.2",
     "vue-template-compiler": "^2.5.3",
     "webpack": "^4.7.0",
     "webpack-cli": "^2.1.3",

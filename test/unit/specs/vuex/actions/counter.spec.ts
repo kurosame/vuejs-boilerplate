@@ -1,58 +1,32 @@
-import Vue from 'vue'
-import Vuex, { mapActions } from 'vuex'
-import axios from 'axios'
 import moxios from 'moxios'
 import actions from '@/vuex/actions/counter'
-import { State } from '@/vuex/state/counter'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
-  actions,
-  state: new State(),
-  mutations: {
-    [ADD_VALUE](state: State, count) {
-      state.count = count
-    },
-    [AXIOS_SAMPLE](state: State, axiosCount) {
-      state.axiosCount = axiosCount
-    },
-    [ASYNC_AWAIT_SAMPLE](state: State, asyncAwaitCount) {
-      state.asyncAwaitCount = asyncAwaitCount
-    }
-  }
-})
-
-const vm = new Vue({
-  store,
-  methods: {
-    ...mapActions({
-      addValue: ADD_VALUE,
-      axiosSample: AXIOS_SAMPLE,
-      asyncAwaitSample: ASYNC_AWAIT_SAMPLE
-    })
-  }
-})
-
+let mockCommit: any
 let spyErr: any
 
 describe('actions', () => {
   describe('counter.ts', () => {
     beforeEach(() => {
       moxios.install()
+      mockCommit = jest.fn()
       spyErr = jest.spyOn(console, 'error')
       spyErr.mockImplementation(() => {})
     })
     afterEach(() => {
       moxios.uninstall()
+      mockCommit.mockReset()
       spyErr.mockReset()
-      spyErr.mockRestore()
     })
 
     test('ADD_VALUE', () => {
-      vm.addValue()
-      expect(store.state.count).toEqual(1)
+      const wrapper = (actions: any) =>
+        actions[ADD_VALUE]({ commit: mockCommit })
+      wrapper(actions)
+
+      expect(mockCommit).toBeCalled()
+      expect(mockCommit.mock.calls[0][0]).toEqual(ADD_VALUE)
+      expect(mockCommit.mock.calls[0][1]).toEqual(1)
     })
 
     test('AXIOS_SAMPLE - axios sample resolved', done => {
@@ -61,9 +35,14 @@ describe('actions', () => {
         response: { axiosCount: 2 }
       })
 
-      vm.axiosSample()
+      const wrapper = (actions: any) =>
+        actions[AXIOS_SAMPLE]({ commit: mockCommit })
+      wrapper(actions)
+
       moxios.wait(() => {
-        expect(store.state.axiosCount).toEqual(2)
+        expect(mockCommit).toBeCalled()
+        expect(mockCommit.mock.calls[0][0]).toEqual(AXIOS_SAMPLE)
+        expect(mockCommit.mock.calls[0][1]).toEqual(2)
         done()
       })
     })
@@ -73,7 +52,10 @@ describe('actions', () => {
         status: 400
       })
 
-      vm.axiosSample()
+      const wrapper = (actions: any) =>
+        actions[AXIOS_SAMPLE]({ commit: mockCommit })
+      wrapper(actions)
+
       moxios.wait(() => {
         expect(console.error).toBeCalled()
         expect(spyErr.mock.calls[0][0]).toEqual(
@@ -89,9 +71,14 @@ describe('actions', () => {
         response: { asyncAwaitCount: 3 }
       })
 
-      vm.asyncAwaitSample()
+      const wrapper = (actions: any) =>
+        actions[ASYNC_AWAIT_SAMPLE]({ commit: mockCommit })
+      wrapper(actions)
+
       moxios.wait(() => {
-        expect(store.state.asyncAwaitCount).toEqual(3)
+        expect(mockCommit).toBeCalled()
+        expect(mockCommit.mock.calls[0][0]).toEqual(ASYNC_AWAIT_SAMPLE)
+        expect(mockCommit.mock.calls[0][1]).toEqual(3)
         done()
       })
     })
@@ -101,7 +88,10 @@ describe('actions', () => {
         status: 400
       })
 
-      vm.asyncAwaitSample()
+      const wrapper = (actions: any) =>
+        actions[ASYNC_AWAIT_SAMPLE]({ commit: mockCommit })
+      wrapper(actions)
+
       moxios.wait(() => {
         expect(console.error).toBeCalled()
         expect(spyErr.mock.calls[0][0]).toEqual(

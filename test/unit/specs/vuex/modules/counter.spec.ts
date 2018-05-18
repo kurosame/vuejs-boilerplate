@@ -1,41 +1,31 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 import modules from '@/vuex/modules/counter'
-import { State } from '@/vuex/state/counter'
 import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
-
-Vue.use(Vuex)
 
 describe('mutations', () => {
   describe('counter.ts', () => {
     test('ADD_VALUE', () => {
-      const store = new Vuex.Store({
-        state: new State(),
-        mutations: modules.mutations
-      })
-      store.commit(ADD_VALUE, 1)
+      const state = { count: 1 }
+      const wrapper = (mutations: any) => mutations[ADD_VALUE](state, 1)
+      wrapper(modules.mutations)
 
-      expect(store.state.count).toEqual(1)
+      expect(state.count).toEqual(2)
     })
 
     test('AXIOS_SAMPLE', () => {
-      const store = new Vuex.Store({
-        state: new State(),
-        mutations: modules.mutations
-      })
-      store.commit(AXIOS_SAMPLE, 2)
+      const state = { axiosCount: 2 }
+      const wrapper = (mutations: any) => mutations[AXIOS_SAMPLE](state, 2)
+      wrapper(modules.mutations)
 
-      expect(store.state.axiosCount).toEqual(2)
+      expect(state.axiosCount).toEqual(4)
     })
 
     test('ASYNC_AWAIT_SAMPLE', () => {
-      const store = new Vuex.Store({
-        state: new State(),
-        mutations: modules.mutations
-      })
-      store.commit(ASYNC_AWAIT_SAMPLE, 3)
+      const state = { asyncAwaitCount: 3 }
+      const wrapper = (mutations: any) =>
+        mutations[ASYNC_AWAIT_SAMPLE](state, 3)
+      wrapper(modules.mutations)
 
-      expect(store.state.asyncAwaitCount).toEqual(3)
+      expect(state.asyncAwaitCount).toEqual(6)
     })
   })
 })

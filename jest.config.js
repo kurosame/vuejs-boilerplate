@@ -11,6 +11,7 @@ module.exports = {
   },
   collectCoverageFrom: [
     '<rootDir>/src/components/**/*.vue',
+    '<rootDir>/src/pages/**/*.vue',
     '<rootDir>/src/vuex/actions/**/*.ts',
     '<rootDir>/src/vuex/getters/**/*.ts',
     '<rootDir>/src/vuex/modules/**/*.ts',
