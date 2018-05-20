@@ -4,7 +4,7 @@ const Html = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    vendor: ['axios', 'vue', 'vue-router', 'vuex', 'vuex-router-sync']
+    vendor: ['axios', 'vue', 'vue-router', 'vuex']
   },
   output: {
     filename: '[name]-[hash].js',

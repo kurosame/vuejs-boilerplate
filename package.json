@@ -6,8 +6,7 @@
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
-    "build:vendor":
-      "webpack --config webpack.vendor.config.js --mode production",
+    "build:vendor": "webpack --config webpack.vendor.config.js --mode production",
     "test": "jest --watchAll --coverage",
     "test:ci": "jest",
     "clean": "rimraf ./dist/**/*"
@@ -16,8 +15,7 @@
     "axios": "^0.18.0",
     "vue": "^2.5.3",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.0",
-    "vuex-router-sync": "^5.0.0"
+    "vuex": "^3.0.0"
   },
   "devDependencies": {
     "@types/jest": "^22.2.3",
