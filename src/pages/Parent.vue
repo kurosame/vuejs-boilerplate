@@ -1,5 +1,6 @@
 <template>
   <div class="parent">
+    Parent
     <child :count="count" :axiosCount="axiosCount" :asyncAwaitCount="asyncAwaitCount" @addValue="addValue" @axiosSample="axiosSample" @asyncAwaitSample="asyncAwaitSample">
     </child>
   </div>

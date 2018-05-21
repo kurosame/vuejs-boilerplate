@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { sync } from 'vuex-router-sync'
 import routes from './routes'
 import store from './vuex/store'
 import App from './App.vue'
@@ -12,8 +11,6 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname
 })
-
-sync(store, router)
 
 /* eslint-disable no-new */
 new Vue({

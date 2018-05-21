@@ -6,7 +6,6 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 const store = new Vuex.Store({
-  state: {},
   actions: {
     addValue: jest.fn(),
     axiosSample: jest.fn(),
@@ -26,6 +25,6 @@ describe('pages', () => {
       store
     })
 
-    test('count', () => {})
+    test('no test case', () => {})
   })
 })
