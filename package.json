@@ -18,6 +18,7 @@
     "vuex": "^3.0.0"
   },
   "devDependencies": {
+    "@kurosame/tslint-config-vue": "^1.0.0",
     "@types/jest": "^22.2.3",
     "@types/moxios": "^0.4.8",
     "@types/node": "^10.0.4",
@@ -48,7 +49,6 @@
     "moxios": "^0.4.0",
     "node-sass": "^4.6.0",
     "normalize.css": "^8.0.0",
-    "prettier": "^1.7.4",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
     "stylelint": "^8.0.0",
@@ -56,11 +56,8 @@
     "stylelint-webpack-plugin": "^0.10.4",
     "ts-jest": "^22.4.6",
     "ts-loader": "^4.2.0",
-    "tslint": "^5.8.0",
-    "tslint-config-airbnb": "^5.4.2",
-    "tslint-config-prettier": "^1.6.0",
+    "tslint": "^5.10.0",
     "tslint-loader": "^3.5.3",
-    "tslint-plugin-prettier": "^1.3.0",
     "typescript": "^2.8.3",
     "vue-devtools": "^3.1.9",
     "vue-jest": "^2.5.0",

@@ -1,15 +1,3 @@
 {
-  "extends": ["tslint-config-airbnb", "tslint-config-prettier"],
-  "rulesDirectory": ["tslint-plugin-prettier"],
-  "rules": {
-    "function-name": false,
-    "import-name": false,
-    "prettier": [
-      true,
-      {
-        "singleQuote": true,
-        "semi": false
-      }
-    ]
-  }
+  "extends": ["@kurosame/tslint-config-vue"]
 }
