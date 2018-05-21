@@ -51,5 +51,9 @@ describe('components', () => {
       expect(wrapper.emitted('asyncAwaitSample')).toBeTruthy()
       expect(wrapper.emitted('asyncAwaitSample')[0]).toEqual([])
     })
+
+    test('snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot()
+    })
   })
 })

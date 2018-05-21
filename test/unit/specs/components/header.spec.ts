@@ -5,6 +5,8 @@ describe('components', () => {
   describe('Header.vue', () => {
     const wrapper = mount(Header)
 
-    test('no test case', () => {})
+    test('snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot()
+    })
   })
 })

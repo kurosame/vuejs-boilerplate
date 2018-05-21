@@ -25,6 +25,8 @@ describe('pages', () => {
       store
     })
 
-    test('no test case', () => {})
+    test('snapshot', () => {
+      expect(wrapper.html()).toMatchSnapshot()
+    })
   })
 })

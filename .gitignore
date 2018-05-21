@@ -2,5 +2,6 @@
 .vscode/
 dist/
 node_modules/
+test/unit/**/__snapshots__/
 test/unit/coverage/
 npm-debug.log
