@@ -1,0 +1,61 @@
+references:
+  commands:
+    setup-docker: &setup-docker
+      docker:
+        - image: circleci/node:8.11.2
+      working_directory: ~/circleci/vuejs-boilerplate
+
+version: 2
+jobs:
+  build:
+    <<: *setup-docker
+    steps:
+      - checkout
+      - restore_cache:
+          name: Download and cache dependencies
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install
+          command: yarn install
+      - run:
+          name: Build for vendor
+          command: yarn build:vendor
+      - run:
+          name: Build for production
+          command: yarn build:production
+      - save_cache:
+          name: Cache dependencies
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+  test:
+    <<: *setup-docker
+    steps:
+      - checkout
+      - restore_cache:
+          name: Download and cache dependencies
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install
+          command: yarn install
+      - run:
+          name: Build for vendor
+          command: yarn build:vendor
+      - run:
+          name: Test
+          command: yarn test
+      - save_cache:
+          name: Cache dependencies
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test:
