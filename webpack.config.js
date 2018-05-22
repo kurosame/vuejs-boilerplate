@@ -6,6 +6,7 @@ const Copy = require('copy-webpack-plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
 const HardSource = require('hard-source-webpack-plugin')
 const Html = require('html-webpack-plugin')
+const AddAssetHtml = require('add-asset-html-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = (env, argv) => ({
@@ -13,7 +14,7 @@ module.exports = (env, argv) => ({
     bundle: path.join(__dirname, 'src', 'index.ts')
   },
   output: {
-    filename: '[name]-[hash].js',
+    filename: '[name].js',
     path: path.join(__dirname, 'dist'),
     publicPath: '/'
   },
@@ -69,7 +70,13 @@ module.exports = (env, argv) => ({
     new ForkTsChecker(),
     new HardSource(),
     new Html({
-      template: path.join(__dirname, 'dist', 'vendor.html')
+      template: path.join(__dirname, 'src', 'index.html'),
+      hash: true
+    }),
+    new AddAssetHtml({
+      filepath: path.join(__dirname, 'dist', 'vendor.js'),
+      hash: true,
+      includeSourcemap: false
     }),
     new StyleLint(),
     new webpack.DllReferencePlugin({
