@@ -46,8 +46,8 @@ jobs:
           name: Build for vendor
           command: yarn build:vendor
       - run:
-          name: Test
-          command: yarn test
+          name: Test for CI
+          command: yarn test:ci
       - save_cache:
           name: Cache dependencies
           paths:
