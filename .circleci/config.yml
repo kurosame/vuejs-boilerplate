@@ -56,6 +56,6 @@ jobs:
 
 workflows:
   version: 2
-  test-for-commit:
+  test:
     jobs:
-      - test:
+      - test
