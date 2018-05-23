@@ -8,7 +8,7 @@
       }
     ]
   ],
-  "plugins": ["transform-runtime"],
+  "plugins": ["transform-runtime", "transform-object-rest-spread"],
   "comments": false,
   "env": {
     "test": {
