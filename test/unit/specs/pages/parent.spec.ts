@@ -1,6 +1,6 @@
+import Parent from '@/pages/Parent.vue'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuex from 'vuex'
-import Parent from '@/pages/Parent.vue'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

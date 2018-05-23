@@ -1,6 +1,6 @@
-import moxios from 'moxios'
 import actions from '@/vuex/actions/counter'
-import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
+import { ADD_VALUE, ASYNC_AWAIT_SAMPLE, AXIOS_SAMPLE } from '@/vuex/types'
+import moxios from 'moxios'
 
 let mockCommit: any
 let spyErr: any
@@ -11,7 +11,6 @@ describe('actions', () => {
       moxios.install()
       mockCommit = jest.fn()
       spyErr = jest.spyOn(console, 'error')
-      spyErr.mockImplementation(() => {})
     })
     afterEach(() => {
       moxios.uninstall()
@@ -20,8 +19,7 @@ describe('actions', () => {
     })
 
     test('ADD_VALUE', () => {
-      const wrapper = (actions: any) =>
-        actions[ADD_VALUE]({ commit: mockCommit })
+      const wrapper = (a: any) => a[ADD_VALUE]({ commit: mockCommit })
       wrapper(actions)
 
       expect(mockCommit).toBeCalled()
@@ -35,8 +33,7 @@ describe('actions', () => {
         response: { axiosCount: 2 }
       })
 
-      const wrapper = (actions: any) =>
-        actions[AXIOS_SAMPLE]({ commit: mockCommit })
+      const wrapper = (a: any) => a[AXIOS_SAMPLE]({ commit: mockCommit })
       wrapper(actions)
 
       moxios.wait(() => {
@@ -52,8 +49,7 @@ describe('actions', () => {
         status: 400
       })
 
-      const wrapper = (actions: any) =>
-        actions[AXIOS_SAMPLE]({ commit: mockCommit })
+      const wrapper = (a: any) => a[AXIOS_SAMPLE]({ commit: mockCommit })
       wrapper(actions)
 
       moxios.wait(() => {
@@ -71,8 +67,7 @@ describe('actions', () => {
         response: { asyncAwaitCount: 3 }
       })
 
-      const wrapper = (actions: any) =>
-        actions[ASYNC_AWAIT_SAMPLE]({ commit: mockCommit })
+      const wrapper = (a: any) => a[ASYNC_AWAIT_SAMPLE]({ commit: mockCommit })
       wrapper(actions)
 
       moxios.wait(() => {
@@ -88,8 +83,7 @@ describe('actions', () => {
         status: 400
       })
 
-      const wrapper = (actions: any) =>
-        actions[ASYNC_AWAIT_SAMPLE]({ commit: mockCommit })
+      const wrapper = (a: any) => a[ASYNC_AWAIT_SAMPLE]({ commit: mockCommit })
       wrapper(actions)
 
       moxios.wait(() => {
