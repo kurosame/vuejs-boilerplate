@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import counter from './modules/counter'
 
 Vue.use(Vuex)
+Vue.config.devtools = true
 
 const debug = process.env.NODE_ENV !== 'production'
 

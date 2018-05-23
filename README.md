@@ -24,7 +24,7 @@ Start mock server\
 You can check the axios sample and the async/await sample
 
 ```sh
-json-server mock.json # localhost:3000
+yarn mock # localhost:3000
 ```
 
 ## License
