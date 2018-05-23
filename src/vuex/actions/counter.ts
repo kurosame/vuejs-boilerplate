@@ -1,7 +1,7 @@
-import axios from 'axios'
-import { ActionTree, ActionContext } from 'vuex'
-import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
 import { State } from '@/vuex/state/counter'
+import { ADD_VALUE, ASYNC_AWAIT_SAMPLE, AXIOS_SAMPLE } from '@/vuex/types'
+import axios from 'axios'
+import { ActionContext, ActionTree } from 'vuex'
 
 const actions: ActionTree<State, any> = {
   [ADD_VALUE](context: ActionContext<State, any>) {
@@ -14,11 +14,11 @@ const actions: ActionTree<State, any> = {
       .catch(() => console.error('AXIOS_SAMPLE API response error'))
   },
   async [ASYNC_AWAIT_SAMPLE](context: ActionContext<State, any>) {
-    const res: any = await axios
+    const data: any = await axios
       .get('/api')
       .then(res => context.commit(ASYNC_AWAIT_SAMPLE, res.data.asyncAwaitCount))
       .catch(() => console.error('ASYNC_AWAIT_SAMPLE API response error'))
-    // possible to use res
+    // possible to use data
   }
 }
 

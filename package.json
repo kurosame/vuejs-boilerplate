@@ -6,7 +6,8 @@
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
-    "build:vendor": "webpack --config webpack.vendor.config.js --mode production",
+    "build:vendor":
+      "webpack --config webpack.vendor.config.js --mode production",
     "test": "jest --watchAll --coverage",
     "test:ci": "jest",
     "clean": "rimraf ./dist/**/*"
@@ -18,7 +19,7 @@
     "vuex": "^3.0.0"
   },
   "devDependencies": {
-    "@kurosame/tslint-config-vue": "^1.0.0",
+    "@kurosame/tslint-config-vue": "^1.2.0",
     "@types/jest": "^22.2.3",
     "@types/moxios": "^0.4.8",
     "@types/node": "^10.0.4",

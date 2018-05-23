@@ -16,9 +16,9 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@kurosame/tslint-config-vue@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@kurosame/tslint-config-vue/-/tslint-config-vue-1.0.0.tgz#1c25336a2cba978e6947979265933c15aa17bf30"
+"@kurosame/tslint-config-vue@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@kurosame/tslint-config-vue/-/tslint-config-vue-1.2.0.tgz#d6d4a0df2561da1c16392ff0d7cee318dfee5a69"
   dependencies:
     prettier "^1.12.1"
     tslint "^5.10.0"
