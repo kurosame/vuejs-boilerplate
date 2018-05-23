@@ -12,10 +12,10 @@
 }
 </style>
 <script lang="ts">
+import Child from '@/components/Child.vue'
+import { ADD_VALUE, ASYNC_AWAIT_SAMPLE, AXIOS_SAMPLE } from '@/vuex/types'
 import Vue from 'vue'
 import { mapActions, mapGetters } from 'vuex'
-import { ADD_VALUE, AXIOS_SAMPLE, ASYNC_AWAIT_SAMPLE } from '@/vuex/types'
-import Child from '@/components/Child.vue'
 
 export default Vue.extend({
   name: 'Parent',
