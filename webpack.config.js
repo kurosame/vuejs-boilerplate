@@ -21,8 +21,6 @@ module.exports = (env, argv) => ({
   devServer: {
     contentBase: 'dist',
     historyApiFallback: true,
-    open: true,
-    port: 8000,
     proxy: {
       '/api/*': 'http://localhost:3000'
     }
