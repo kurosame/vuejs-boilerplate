@@ -16,6 +16,7 @@ yarn build            # Build for development
 yarn build:production # Build for production
 yarn test             # Unit test (jest + vue-test-utils)
 yarn test:ci          # Unit test for CI
+yarn e2e              # E2E test (jest + puppeteer)
 ```
 
 ## Mock
