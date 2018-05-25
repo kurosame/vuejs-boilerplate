@@ -2,8 +2,8 @@ import actions from '@/vuex/actions/counter'
 import { ADD_VALUE, ASYNC_AWAIT_SAMPLE, AXIOS_SAMPLE } from '@/vuex/types'
 import moxios from 'moxios'
 
-let mockCommit: any
-let spyErr: any
+let mockCommit: jest.Mock
+let spyErr: jest.SpyInstance
 
 describe('actions', () => {
   describe('counter.ts', () => {

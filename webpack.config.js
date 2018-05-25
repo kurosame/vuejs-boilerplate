@@ -4,7 +4,6 @@ const autoprefixer = require('autoprefixer')
 const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
-const HardSource = require('hard-source-webpack-plugin')
 const Html = require('html-webpack-plugin')
 const AddAssetHtml = require('add-asset-html-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
@@ -53,6 +52,17 @@ module.exports = (env, argv) => ({
             }
           },
           {
+            loader: 'cache-loader',
+            options: {
+              cacheDirectory: path.join(
+                __dirname,
+                'node_modules',
+                '.cache',
+                'cache-loader'
+              )
+            }
+          },
+          {
             loader: 'tslint-loader',
             options: {
               typeCheck: true
@@ -66,7 +76,6 @@ module.exports = (env, argv) => ({
   plugins: [
     new Copy([{ from: 'assets', to: 'assets' }]),
     new ForkTsChecker(),
-    new HardSource(),
     new Html({
       template: path.join(__dirname, 'src', 'index.html'),
       hash: true

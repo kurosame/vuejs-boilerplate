@@ -28,7 +28,7 @@ describe('components', () => {
     test('addValue', () => {
       expect(wrapper.emitted('addValue')).toBeUndefined()
 
-      wrapper.find('button.addValue').trigger('click')
+      wrapper.find('button.add-value').trigger('click')
 
       expect(wrapper.emitted('addValue')).toBeTruthy()
       expect(wrapper.emitted('addValue')[0]).toEqual([])
@@ -37,7 +37,7 @@ describe('components', () => {
     test('axiosSample', () => {
       expect(wrapper.emitted('axiosSample')).toBeUndefined()
 
-      wrapper.find('button.axiosSample').trigger('click')
+      wrapper.find('button.axios-sample').trigger('click')
 
       expect(wrapper.emitted('axiosSample')).toBeTruthy()
       expect(wrapper.emitted('axiosSample')[0]).toEqual([])
@@ -46,7 +46,7 @@ describe('components', () => {
     test('asyncAwaitSample', () => {
       expect(wrapper.emitted('asyncAwaitSample')).toBeUndefined()
 
-      wrapper.find('button.asyncAwaitSample').trigger('click')
+      wrapper.find('button.async-await-sample').trigger('click')
 
       expect(wrapper.emitted('asyncAwaitSample')).toBeTruthy()
       expect(wrapper.emitted('asyncAwaitSample')[0]).toEqual([])

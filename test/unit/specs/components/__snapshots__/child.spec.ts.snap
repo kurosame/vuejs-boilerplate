@@ -3,14 +3,14 @@
 exports[`components Child.vue snapshot 1`] = `
 <div class="child">
   <div><span class="count">1</span>
-    <button type="button" class="btn btn-success addValue">ADD</button>
+    <button type="button" class="btn btn-success add-value">ADD</button>
   </div>
   <div><span class="axios-count">2</span>
-    <button type="button" class="btn btn-success axiosSample">ADD</button>
+    <button type="button" class="btn btn-success axios-sample">ADD</button>
     ※axios sample
   </div>
   <div><span class="async-await-count">3</span>
-    <button type="button" class="btn btn-success asyncAwaitSample">ADD</button>
+    <button type="button" class="btn btn-success async-await-sample">ADD</button>
     ※async await sample
   </div>
 </div>
