@@ -18,15 +18,11 @@ const store = new Vuex.Store({
   }
 })
 
-describe('pages', () => {
-  describe('Parent.vue', () => {
-    const wrapper = shallowMount(Parent, {
-      localVue,
-      store
-    })
+const wrapper = shallowMount(Parent, {
+  localVue,
+  store
+})
 
-    test('snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot()
-    })
-  })
+test('Match the snapshot', () => {
+  expect(wrapper.html()).toMatchSnapshot()
 })

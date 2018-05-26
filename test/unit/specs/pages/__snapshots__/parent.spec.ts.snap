@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pages Parent.vue snapshot 1`] = `
+exports[`Match the snapshot 1`] = `
 <div class="parent">
   Parent
   <!---->

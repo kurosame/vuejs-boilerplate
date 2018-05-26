@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components Child.vue snapshot 1`] = `
+exports[`Match the snapshot 1`] = `
 <div class="child">
   <div><span class="count">1</span>
     <button type="button" class="btn btn-success add-value">ADD</button>

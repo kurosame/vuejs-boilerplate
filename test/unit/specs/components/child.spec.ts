@@ -1,59 +1,53 @@
 import Child from '@/components/Child.vue'
 import { mount } from '@vue/test-utils'
 
-describe('components', () => {
-  describe('Child.vue', () => {
-    const wrapper = mount(Child, {
-      propsData: {
-        count: 1,
-        axiosCount: 2,
-        asyncAwaitCount: 3
-      }
-    })
+const wrapper = mount(Child, {
+  propsData: {
+    count: 1,
+    axiosCount: 2,
+    asyncAwaitCount: 3
+  }
+})
 
-    test('count', () => {
-      expect(wrapper.html()).toContain('<span class="count">1</span>')
-    })
+test('Data binding from the propsData.count to the count', () => {
+  expect(wrapper.html()).toContain('<span class="count">1</span>')
+})
 
-    test('axiosCount', () => {
-      expect(wrapper.html()).toContain('<span class="axios-count">2</span>')
-    })
+test('Click the button.add-value will emit the addValue', () => {
+  expect(wrapper.emitted('addValue')).toBeUndefined()
 
-    test('asyncAwaitCount', () => {
-      expect(wrapper.html()).toContain(
-        '<span class="async-await-count">3</span>'
-      )
-    })
+  wrapper.find('button.add-value').trigger('click')
 
-    test('addValue', () => {
-      expect(wrapper.emitted('addValue')).toBeUndefined()
+  expect(wrapper.emitted('addValue')).toBeTruthy()
+  expect(wrapper.emitted('addValue')[0]).toEqual([])
+})
 
-      wrapper.find('button.add-value').trigger('click')
+test('Data binding from the propsData.axiosCount to the axiosCount', () => {
+  expect(wrapper.html()).toContain('<span class="axios-count">2</span>')
+})
 
-      expect(wrapper.emitted('addValue')).toBeTruthy()
-      expect(wrapper.emitted('addValue')[0]).toEqual([])
-    })
+test('Click the button.axios-sample will emit the axiosSample', () => {
+  expect(wrapper.emitted('axiosSample')).toBeUndefined()
 
-    test('axiosSample', () => {
-      expect(wrapper.emitted('axiosSample')).toBeUndefined()
+  wrapper.find('button.axios-sample').trigger('click')
 
-      wrapper.find('button.axios-sample').trigger('click')
+  expect(wrapper.emitted('axiosSample')).toBeTruthy()
+  expect(wrapper.emitted('axiosSample')[0]).toEqual([])
+})
 
-      expect(wrapper.emitted('axiosSample')).toBeTruthy()
-      expect(wrapper.emitted('axiosSample')[0]).toEqual([])
-    })
+test('Data binding from the propsData.asyncAwaitCount to the asyncAwaitCount', () => {
+  expect(wrapper.html()).toContain('<span class="async-await-count">3</span>')
+})
 
-    test('asyncAwaitSample', () => {
-      expect(wrapper.emitted('asyncAwaitSample')).toBeUndefined()
+test('Click the button.async-await-sample will emit the asyncAwaitSample', () => {
+  expect(wrapper.emitted('asyncAwaitSample')).toBeUndefined()
 
-      wrapper.find('button.async-await-sample').trigger('click')
+  wrapper.find('button.async-await-sample').trigger('click')
 
-      expect(wrapper.emitted('asyncAwaitSample')).toBeTruthy()
-      expect(wrapper.emitted('asyncAwaitSample')[0]).toEqual([])
-    })
+  expect(wrapper.emitted('asyncAwaitSample')).toBeTruthy()
+  expect(wrapper.emitted('asyncAwaitSample')[0]).toEqual([])
+})
 
-    test('snapshot', () => {
-      expect(wrapper.html()).toMatchSnapshot()
-    })
-  })
+test('Match the snapshot', () => {
+  expect(wrapper.html()).toMatchSnapshot()
 })
