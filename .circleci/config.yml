@@ -3,7 +3,7 @@ references:
     setup-docker: &setup-docker
       docker:
         - image: circleci/node:8.11.2
-      working_directory: ~/circleci/vuejs-boilerplate
+      working_directory: ~/vuejs-boilerplate
 
 version: 2
 jobs:
