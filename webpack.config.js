@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const apiMocker = require('webpack-api-mocker')
 const autoprefixer = require('autoprefixer')
 const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
@@ -20,8 +21,13 @@ module.exports = (env, argv) => ({
   devServer: {
     contentBase: 'dist',
     historyApiFallback: true,
-    proxy: {
-      '/api/*': 'http://localhost:3000'
+    before(app) {
+      apiMocker(app, path.join(__dirname, 'mock.js'), {
+        proxy: {
+          '/api/*': 'http://localhost:3000'
+        },
+        changeHost: true
+      })
     }
   },
   module: {

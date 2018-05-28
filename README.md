@@ -21,12 +21,10 @@ yarn e2e              # E2E test (jest + puppeteer)
 
 ## Mock
 
-Start mock server\
-You can check the axios sample and the async/await sample
-
-```sh
-yarn mock # localhost:3000
-```
+Mock server is start at port 3000 when the `yarn start`\
+You can check the axios sample and the async/await sample\
+Also, you can edit mock.js\
+using https://github.com/jaywcjlove/webpack-api-mocker
 
 ## License
 
