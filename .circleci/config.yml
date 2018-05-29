@@ -70,7 +70,7 @@ jobs:
           command: yarn build:vendor
       - run:
           name: E2E Test for CI
-          command: ls -la
+          command: yarn e2e:ci
       - save_cache:
           name: Cache dependencies
           paths:
