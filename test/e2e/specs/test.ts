@@ -1,6 +1,8 @@
 import path from 'path'
 import puppeteer, { Browser, Page } from 'puppeteer'
 
+jest.setTimeout(30000)
+
 let browser: Browser
 let page: Page
 
@@ -20,7 +22,7 @@ afterAll(() => {
 })
 
 beforeEach(async () => {
-  await page.goto('http://localhost:9000', { timeout: 10000 })
+  await page.goto('http://localhost:9000')
 })
 
 test('Click the button.add-value, update the count', async () => {
