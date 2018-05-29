@@ -5,7 +5,13 @@ let browser: Browser
 let page: Page
 
 beforeAll(async () => {
-  browser = await puppeteer.launch({ headless: false, timeout: 0 })
+  browser = process.env.CI
+    ? await puppeteer.launch({
+        headless: true,
+        timeout: 0,
+        args: ['--no-sandbox']
+      })
+    : await puppeteer.launch({ headless: false, timeout: 0 })
   page = await browser.newPage()
 
   await page.goto('http://localhost:9000')

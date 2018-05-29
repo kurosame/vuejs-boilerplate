@@ -1,6 +1,6 @@
-.DS_Store
-.vscode/
-dist/
-node_modules/
-test/unit/coverage/
+.vscode
+dist
+node_modules
+test/e2e/specs/**/__screenshots__
+test/unit/coverage
 npm-debug.log
