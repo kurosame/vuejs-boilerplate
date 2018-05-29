@@ -13,11 +13,13 @@ beforeAll(async () => {
       })
     : await puppeteer.launch({ headless: false, timeout: 0 })
   page = await browser.newPage()
-
-  await page.goto('http://localhost:9000')
 })
 afterAll(() => {
   browser.close()
+})
+
+beforeEach(async () => {
+  await page.goto('http://localhost:9000')
 })
 
 test('Click the button.add-value, update the count', async () => {
