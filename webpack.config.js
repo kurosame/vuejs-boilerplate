@@ -80,7 +80,12 @@ module.exports = (env, argv) => ({
     ]
   },
   plugins: [
-    new Copy([{ from: 'assets', to: 'assets' }]),
+    new Copy([
+      {
+        from: path.join(__dirname, 'assets'),
+        to: path.join(__dirname, 'dist', 'assets')
+      }
+    ]),
     new ForkTsChecker(),
     new Html({
       template: path.join(__dirname, 'src', 'index.html'),

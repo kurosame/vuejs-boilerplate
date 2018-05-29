@@ -65,12 +65,15 @@ jobs:
       - run:
           name: Install
           command: yarn install
+          working_directory: 'vuejs-boilerplate'
       - run:
           name: Build for vendor
           command: yarn build:vendor
+          working_directory: 'vuejs-boilerplate'
       - run:
           name: E2E Test for CI
           command: yarn e2e:ci
+          working_directory: 'vuejs-boilerplate'
       - save_cache:
           name: Cache dependencies
           paths:

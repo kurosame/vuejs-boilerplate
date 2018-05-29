@@ -5,13 +5,14 @@ let browser: Browser
 let page: Page
 
 beforeAll(async () => {
-  browser = process.env.CI
-    ? await puppeteer.launch({
-        headless: true,
-        timeout: 0,
-        args: ['--no-sandbox']
-      })
-    : await puppeteer.launch({ headless: false, timeout: 0 })
+  browser =
+    process.env.CI === 'true'
+      ? await puppeteer.launch({
+          headless: true,
+          timeout: 0,
+          args: ['--no-sandbox']
+        })
+      : await puppeteer.launch({ headless: false, timeout: 0 })
   page = await browser.newPage()
 })
 afterAll(() => {
@@ -19,7 +20,7 @@ afterAll(() => {
 })
 
 beforeEach(async () => {
-  await page.goto('http://localhost:9000')
+  await page.goto('http://localhost:9000', { timeout: 0 })
 })
 
 test('Click the button.add-value, update the count', async () => {
