@@ -1,7 +1,8 @@
 <template>
   <div class="parent">
     Parent
-    <child :count="count" :axiosCount="axiosCount" :asyncAwaitCount="asyncAwaitCount" @addValue="addValue" @axiosSample="axiosSample" @asyncAwaitSample="asyncAwaitSample">
+    <child :count="count" :axiosCount="axiosCount" :asyncAwaitCount="asyncAwaitCount"
+      @addValue="addValue" @axiosSample="axiosSample" @asyncAwaitSample="asyncAwaitSample">
     </child>
   </div>
 </template>
@@ -12,6 +13,9 @@
 }
 </style>
 <script lang="ts">
+/* tslint:disable:prettier */
+// This rule is temporary solution to bug by TSLint (tslint-loader) of vue-loader
+/* tslint:enable:prettier */
 import Child from '@/components/Child.vue'
 import { ADD_VALUE, ASYNC_AWAIT_SAMPLE, AXIOS_SAMPLE } from '@/vuex/types'
 import Vue from 'vue'

@@ -38,6 +38,9 @@ module.exports = (env, argv) => ({
           {
             loader: 'vue-loader',
             options: {
+              loaders: {
+                ts: 'ts-loader!tslint-loader'
+              },
               postcss: [autoprefixer(), stylelint()]
             }
           }
@@ -83,10 +86,11 @@ module.exports = (env, argv) => ({
     new Copy([
       {
         from: path.join(__dirname, 'assets'),
-        to: path.join(__dirname, 'dist', 'assets')
+        to: path.join(__dirname, 'dist', 'assets'),
+        ignore: '.gitkeep'
       }
     ]),
-    new ForkTsChecker(),
+    new ForkTsChecker({ tslint: true }),
     new Html({
       template: path.join(__dirname, 'src', 'index.html'),
       hash: true
