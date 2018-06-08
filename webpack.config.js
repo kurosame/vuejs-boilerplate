@@ -9,7 +9,7 @@ const Html = require('html-webpack-plugin')
 const AddAssetHtml = require('add-asset-html-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
-module.exports = (env, argv) => ({
+module.exports = (_, argv) => ({
   entry: {
     bundle: path.join(__dirname, 'src', 'index.ts')
   },

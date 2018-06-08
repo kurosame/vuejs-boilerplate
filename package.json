@@ -6,8 +6,7 @@
     "start": "webpack-dev-server --open --port 8000 --mode development",
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
-    "build:vendor":
-      "webpack --config webpack.vendor.config.js --mode production",
+    "build:vendor": "webpack --config webpack.vendor.config.js --mode production",
     "test": "jest --watchAll --coverage",
     "test:ci": "jest",
     "e2e": "jest --config jest.e2e.config.js --watchAll",
@@ -17,6 +16,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "normalize.css": "^8.0.0",
     "vue": "^2.5.3",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.0"
@@ -48,7 +48,6 @@
     "jest-serializer-vue": "^1.0.0",
     "moxios": "^0.4.0",
     "node-sass": "^4.9.0",
-    "normalize.css": "^8.0.0",
     "puppeteer": "^1.4.0",
     "sass-loader": "^7.0.1",
     "stylelint": "^8.0.0",

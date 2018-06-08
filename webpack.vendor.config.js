@@ -3,7 +3,7 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    vendor: ['axios', 'vue', 'vue-router', 'vuex']
+    vendor: ['axios', 'normalize.css', 'vue', 'vue-router', 'vuex']
   },
   output: {
     filename: '[name].js',
