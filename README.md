@@ -19,6 +19,12 @@ yarn test:ci          # Unit test for CI
 yarn e2e              # E2E test (jest + puppeteer)
 ```
 
+## Hot Module Replacement
+
+```sh
+yarn start --hot
+```
+
 ## Mock
 
 Mock server is start at port 3000 when the `yarn start`\
