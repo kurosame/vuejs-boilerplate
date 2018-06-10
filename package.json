@@ -6,13 +6,13 @@
     "start": "webpack-dev-server --open --port 8000 --mode development",
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
-    "build:vendor": "webpack --config webpack.vendor.config.js --mode production",
+    "build:vendor":
+      "webpack --config webpack.vendor.config.js --mode production",
     "test": "jest --watchAll --coverage",
     "test:ci": "jest",
     "e2e": "jest --config jest.e2e.config.js --watchAll",
     "e2e:ci": "jest --config jest.e2e.config.js",
-    "clean": "rimraf ./dist/**/*",
-    "mock": "json-server mock.json"
+    "clean": "rimraf ./dist/**/*"
   },
   "dependencies": {
     "axios": "^0.18.0",
