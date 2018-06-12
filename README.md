@@ -17,6 +17,14 @@ yarn build:production # Build for production
 yarn test             # Unit test (jest + vue-test-utils)
 yarn test:ci          # Unit test for CI
 yarn e2e              # E2E test (jest + puppeteer)
+yarn e2e:ci           # E2E test for CI
+yarn clean            # Clear the dist directory
+```
+
+## Hot Module Replacement
+
+```sh
+yarn start --hot
 ```
 
 ## Mock
