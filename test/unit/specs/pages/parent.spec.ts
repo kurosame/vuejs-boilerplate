@@ -7,9 +7,9 @@ localVue.use(Vuex)
 
 const store = new Vuex.Store({
   actions: {
-    addValue: jest.fn(),
-    axiosSample: jest.fn(),
-    asyncAwaitSample: jest.fn()
+    addCount: jest.fn(),
+    addAxiosCount: jest.fn(),
+    addAsyncAwaitCount: jest.fn()
   },
   getters: {
     count: () => 1,

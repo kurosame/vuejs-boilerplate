@@ -1,3 +1,3 @@
-export const ADD_VALUE = 'ADD_VALUE'
-export const AXIOS_SAMPLE = 'AXIOS_SAMPLE'
-export const ASYNC_AWAIT_SAMPLE = 'ASYNC_AWAIT_SAMPLE'
+export const ADD_COUNT = 'ADD_COUNT'
+export const ADD_AXIOS_COUNT = 'ADD_AXIOS_COUNT'
+export const ADD_ASYNC_AWAIT_COUNT = 'ADD_ASYNC_AWAIT_COUNT'

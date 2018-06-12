@@ -13,39 +13,39 @@ test('Data binding from the propsData.count to the count', () => {
   expect(wrapper.html()).toContain('<span class="count">1</span>')
 })
 
-test('Click the button.add-value will emit the addValue', () => {
-  expect(wrapper.emitted('addValue')).toBeUndefined()
+test('Click the button.add-count will emit the addCount', () => {
+  expect(wrapper.emitted('addCount')).toBeUndefined()
 
-  wrapper.find('button.add-value').trigger('click')
+  wrapper.find('button.add-count').trigger('click')
 
-  expect(wrapper.emitted('addValue')).toBeTruthy()
-  expect(wrapper.emitted('addValue')[0]).toEqual([])
+  expect(wrapper.emitted('addCount')).toBeTruthy()
+  expect(wrapper.emitted('addCount')[0]).toEqual([])
 })
 
 test('Data binding from the propsData.axiosCount to the axiosCount', () => {
   expect(wrapper.html()).toContain('<span class="axios-count">2</span>')
 })
 
-test('Click the button.axios-sample will emit the axiosSample', () => {
-  expect(wrapper.emitted('axiosSample')).toBeUndefined()
+test('Click the button.add-axios-count will emit the addAxiosCount', () => {
+  expect(wrapper.emitted('addAxiosCount')).toBeUndefined()
 
-  wrapper.find('button.axios-sample').trigger('click')
+  wrapper.find('button.add-axios-count').trigger('click')
 
-  expect(wrapper.emitted('axiosSample')).toBeTruthy()
-  expect(wrapper.emitted('axiosSample')[0]).toEqual([])
+  expect(wrapper.emitted('addAxiosCount')).toBeTruthy()
+  expect(wrapper.emitted('addAxiosCount')[0]).toEqual([])
 })
 
 test('Data binding from the propsData.asyncAwaitCount to the asyncAwaitCount', () => {
   expect(wrapper.html()).toContain('<span class="async-await-count">3</span>')
 })
 
-test('Click the button.async-await-sample will emit the asyncAwaitSample', () => {
-  expect(wrapper.emitted('asyncAwaitSample')).toBeUndefined()
+test('Click the button.add-async-await-count will emit the addAsyncAwaitCount', () => {
+  expect(wrapper.emitted('addAsyncAwaitCount')).toBeUndefined()
 
-  wrapper.find('button.async-await-sample').trigger('click')
+  wrapper.find('button.add-async-await-count').trigger('click')
 
-  expect(wrapper.emitted('asyncAwaitSample')).toBeTruthy()
-  expect(wrapper.emitted('asyncAwaitSample')[0]).toEqual([])
+  expect(wrapper.emitted('addAsyncAwaitCount')).toBeTruthy()
+  expect(wrapper.emitted('addAsyncAwaitCount')[0]).toEqual([])
 })
 
 test('Match the snapshot', () => {

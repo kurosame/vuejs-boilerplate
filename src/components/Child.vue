@@ -2,16 +2,16 @@
   <div class="child">
     <div>
       <span class="count">{{ count }}</span>
-      <button class="add-value" @click="$emit('addValue')">ADD</button>
+      <button class="add-count" @click="$emit('addCount')">ADD</button>
     </div>
     <div>
       <span class="axios-count">{{ axiosCount }}</span>
-      <button class="axios-sample" @click="$emit('axiosSample')">ADD</button>
+      <button class="add-axios-count" @click="$emit('addAxiosCount')">ADD</button>
       ※axios sample
     </div>
     <div>
       <span class="async-await-count">{{ asyncAwaitCount }}</span>
-      <button class="async-await-sample" @click="$emit('asyncAwaitSample')">ADD</button>
+      <button class="add-async-await-count" @click="$emit('addAsyncAwaitCount')">ADD</button>
       ※async await sample
     </div>
   </div>

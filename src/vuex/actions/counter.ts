@@ -1,23 +1,25 @@
 import { State } from '@/vuex/state/counter'
-import { ADD_VALUE, ASYNC_AWAIT_SAMPLE, AXIOS_SAMPLE } from '@/vuex/types'
+import { ADD_ASYNC_AWAIT_COUNT, ADD_AXIOS_COUNT, ADD_COUNT } from '@/vuex/types'
 import axios from 'axios'
 import { ActionContext, ActionTree } from 'vuex'
 
 const actions: ActionTree<State, any> = {
-  [ADD_VALUE](context: ActionContext<State, any>) {
-    context.commit(ADD_VALUE, 1)
+  [ADD_COUNT](context: ActionContext<State, any>) {
+    context.commit(ADD_COUNT, 1)
   },
-  [AXIOS_SAMPLE](context: ActionContext<State, any>) {
+  [ADD_AXIOS_COUNT](context: ActionContext<State, any>) {
     axios
       .get('/api')
-      .then(res => context.commit(AXIOS_SAMPLE, res.data.axiosCount))
-      .catch(() => console.error('AXIOS_SAMPLE API response error'))
+      .then(res => context.commit(ADD_AXIOS_COUNT, res.data.axiosCount))
+      .catch(() => console.error('ADD_AXIOS_COUNT API response error'))
   },
-  async [ASYNC_AWAIT_SAMPLE](context: ActionContext<State, any>) {
+  async [ADD_ASYNC_AWAIT_COUNT](context: ActionContext<State, any>) {
     const data: any = await axios
       .get('/api')
-      .then(res => context.commit(ASYNC_AWAIT_SAMPLE, res.data.asyncAwaitCount))
-      .catch(() => console.error('ASYNC_AWAIT_SAMPLE API response error'))
+      .then(res =>
+        context.commit(ADD_ASYNC_AWAIT_COUNT, res.data.asyncAwaitCount)
+      )
+      .catch(() => console.error('ADD_ASYNC_AWAIT_COUNT API response error'))
     // possible to use data
   }
 }
