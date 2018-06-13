@@ -4,6 +4,7 @@ const apiMocker = require('webpack-api-mocker')
 const autoprefixer = require('autoprefixer')
 const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
 const Html = require('html-webpack-plugin')
 const AddAssetHtml = require('add-asset-html-webpack-plugin')
@@ -34,24 +35,17 @@ module.exports = (_, argv) => ({
     rules: [
       {
         test: /\.vue$/,
-        use: [
-          {
-            loader: 'vue-loader',
-            options: {
-              loaders: {
-                ts: 'ts-loader!tslint-loader'
-              },
-              postcss: [autoprefixer(), stylelint()]
-            }
-          }
-        ],
+        use: ['vue-loader'],
         exclude: /node_modules/
       },
       {
         test: /\.ts$/,
         use: [
           {
-            loader: 'babel-loader?cacheDirectory'
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true
+            }
           },
           {
             loader: 'ts-loader',
@@ -71,12 +65,27 @@ module.exports = (_, argv) => ({
               )
             }
           },
+          'tslint-loader'
+        ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
           {
-            loader: 'tslint-loader',
+            loader: 'css-loader',
             options: {
-              typeCheck: true
+              importLoaders: 2
             }
-          }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoprefixer(), stylelint()]
+            }
+          },
+          'sass-loader'
         ],
         exclude: /node_modules/
       }
@@ -90,7 +99,8 @@ module.exports = (_, argv) => ({
         ignore: '.gitkeep'
       }
     ]),
-    new ForkTsChecker({ tslint: true }),
+    new VueLoaderPlugin(),
+    new ForkTsChecker({ tslint: true, vue: true }),
     new Html({
       template: path.join(__dirname, 'src', 'index.html'),
       hash: true
