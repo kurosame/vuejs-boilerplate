@@ -4,8 +4,6 @@
     <router-view></router-view>
   </div>
 </template>
-<style lang="scss">
-</style>
 <script lang="ts">
 /* tslint:disable:prettier */
 // This rule is temporary solution to bug by TSLint (tslint-loader) of vue-loader

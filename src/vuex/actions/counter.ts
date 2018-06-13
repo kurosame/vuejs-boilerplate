@@ -14,13 +14,12 @@ const actions: ActionTree<State, any> = {
       .catch(() => console.error('ADD_AXIOS_COUNT API response error'))
   },
   async [ADD_ASYNC_AWAIT_COUNT](context: ActionContext<State, any>) {
-    const data: any = await axios
+    await axios
       .get('/api')
       .then(res =>
         context.commit(ADD_ASYNC_AWAIT_COUNT, res.data.asyncAwaitCount)
       )
       .catch(() => console.error('ADD_ASYNC_AWAIT_COUNT API response error'))
-    // possible to use data
   }
 }
 
