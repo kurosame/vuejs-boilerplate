@@ -3,7 +3,6 @@ module.exports = {
   testMatch: ['<rootDir>/test/unit/specs/**/*.ts'],
   transform: {
     '^.+\\.vue$': 'vue-jest',
-    '^.+\\.ts$': 'babel-jest',
     '^.+\\.ts$': 'ts-jest'
   },
   moduleNameMapper: {
