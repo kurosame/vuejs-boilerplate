@@ -20,9 +20,6 @@ jobs:
           name: Install
           command: yarn install
       - run:
-          name: Build for vendor
-          command: yarn build:vendor
-      - run:
           name: Build for production
           command: yarn build:production
       - save_cache:
@@ -43,9 +40,6 @@ jobs:
           name: Install
           command: yarn install
       - run:
-          name: Build for vendor
-          command: yarn build:vendor
-      - run:
           name: Test for CI
           command: yarn test:ci
       - save_cache:
@@ -65,9 +59,6 @@ jobs:
       - run:
           name: Install
           command: yarn install
-      - run:
-          name: Build for vendor
-          command: yarn build:vendor
       - run:
           name: E2E Test for CI
           command: yarn e2e:ci
