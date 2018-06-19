@@ -5,7 +5,6 @@
 ```sh
 git clone https://github.com/kurosame/vuejs-boilerplate.git
 yarn install
-yarn build:vendor # Build for vendor (This must be done in advance)
 ```
 
 ## Tasks

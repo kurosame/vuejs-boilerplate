@@ -7,7 +7,6 @@ const Copy = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
 const Html = require('html-webpack-plugin')
-const AddAssetHtml = require('add-asset-html-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = (_, argv) => ({
@@ -15,9 +14,15 @@ module.exports = (_, argv) => ({
     bundle: path.join(__dirname, 'src', 'index.ts')
   },
   output: {
-    filename: '[name].js',
+    filename: '[name]-[hash].js',
     path: path.join(__dirname, 'dist'),
     publicPath: '/'
+  },
+  optimization: {
+    splitChunks: {
+      name: 'vendor',
+      chunks: 'initial'
+    }
   },
   devServer: {
     contentBase: 'dist',
@@ -102,19 +107,9 @@ module.exports = (_, argv) => ({
     new VueLoaderPlugin(),
     new ForkTsChecker({ tslint: true, vue: true }),
     new Html({
-      template: path.join(__dirname, 'src', 'index.html'),
-      hash: true
+      template: path.join(__dirname, 'src', 'index.html')
     }),
-    new AddAssetHtml({
-      filepath: path.join(__dirname, 'dist', 'vendor.js'),
-      hash: true,
-      includeSourcemap: false
-    }),
-    new StyleLint(),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require(path.join(__dirname, 'dist', 'vendor-manifest.json'))
-    })
+    new StyleLint()
   ],
   resolve: {
     extensions: ['.vue', '.js', '.ts'],
