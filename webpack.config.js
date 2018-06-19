@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 const apiMocker = require('webpack-api-mocker')
 const autoprefixer = require('autoprefixer')
 const stylelint = require('stylelint')
@@ -8,7 +7,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
 const HardSource = require('hard-source-webpack-plugin')
 const Html = require('html-webpack-plugin')
-const StyleLint = require('stylelint-webpack-plugin')
 
 module.exports = (_, argv) => ({
   entry: {
@@ -99,8 +97,7 @@ module.exports = (_, argv) => ({
     new HardSource(),
     new Html({
       template: path.join(__dirname, 'src', 'index.html')
-    }),
-    new StyleLint()
+    })
   ],
   resolve: {
     extensions: ['.vue', '.js', '.ts'],

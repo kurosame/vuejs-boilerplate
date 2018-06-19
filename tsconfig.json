@@ -19,6 +19,6 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true
   },
-  "include": ["src/**/*.ts", "test/unit/specs/**/*.spec.ts"],
+  "include": ["src/**/*.vue", "src/**/*.ts", "test/unit/specs/**/*.spec.ts"],
   "exclude": ["node_modules"]
 }
