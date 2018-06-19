@@ -6,6 +6,7 @@ const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
+const HardSource = require('hard-source-webpack-plugin')
 const Html = require('html-webpack-plugin')
 const StyleLint = require('stylelint-webpack-plugin')
 
@@ -59,17 +60,6 @@ module.exports = (_, argv) => ({
               transpileOnly: true
             }
           },
-          {
-            loader: 'cache-loader',
-            options: {
-              cacheDirectory: path.join(
-                __dirname,
-                'node_modules',
-                '.cache',
-                'cache-loader'
-              )
-            }
-          },
           'tslint-loader'
         ],
         exclude: /node_modules/
@@ -106,6 +96,7 @@ module.exports = (_, argv) => ({
     ]),
     new VueLoaderPlugin(),
     new ForkTsChecker({ tslint: true, vue: true }),
+    new HardSource(),
     new Html({
       template: path.join(__dirname, 'src', 'index.html')
     }),
