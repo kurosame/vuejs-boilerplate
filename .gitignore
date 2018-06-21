@@ -1,6 +1,4 @@
-.vscode
 dist
 node_modules
 test/e2e/specs/**/__screenshots__/*.png
 test/unit/coverage
-npm-debug.log

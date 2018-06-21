@@ -1,8 +1,7 @@
 <template>
   <div class="parent">
     Parent
-    <child :count="count" :axiosCount="axiosCount" :asyncAwaitCount="asyncAwaitCount"
-      @addCount="addCount" @addAxiosCount="addAxiosCount" @addAsyncAwaitCount="addAsyncAwaitCount">
+    <child :counter="counter" @addCount="addCount" @addAxiosCount="addAxiosCount" @addAsyncAwaitCount="addAsyncAwaitCount">
     </child>
   </div>
 </template>
@@ -17,9 +16,10 @@
 // This rule is temporary solution to bug by TSLint (tslint-loader) of Vue
 /* tslint:enable:prettier */
 import Child from '@/components/Child.vue'
+import { ICounterState } from '@/vuex/state/counter'
 import { ADD_ASYNC_AWAIT_COUNT, ADD_AXIOS_COUNT, ADD_COUNT } from '@/vuex/types'
 import Vue from 'vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default Vue.extend({
   name: 'Parent',
@@ -31,7 +31,9 @@ export default Vue.extend({
     })
   },
   computed: {
-    ...mapGetters(['count', 'axiosCount', 'asyncAwaitCount'])
+    counter(): ICounterState {
+      return this.$store.getters.counter
+    }
   },
   components: {
     Child
