@@ -3,9 +3,11 @@ import { mount } from '@vue/test-utils'
 
 const wrapper = mount(Child, {
   propsData: {
-    count: 1,
-    axiosCount: 2,
-    asyncAwaitCount: 3
+    counter: {
+      count: 1,
+      axiosCount: 2,
+      asyncAwaitCount: 3
+    }
   }
 })
 
