@@ -6,7 +6,7 @@
 </template>
 <script lang="ts">
 /* tslint:disable:prettier */
-// This rule is temporary solution to bug by TSLint (tslint-loader) of Vue
+// TODO: https://github.com/kurosame/vuejs-boilerplate/issues/1
 /* tslint:enable:prettier */
 import Vue from 'vue'
 import HeaderView from './components/globals/Header.vue'

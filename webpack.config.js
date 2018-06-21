@@ -58,6 +58,7 @@ module.exports = (_, argv) => ({
               transpileOnly: true
             }
           },
+          // TODO: https://github.com/kurosame/vuejs-boilerplate/issues/2
           'tslint-loader'
         ],
         exclude: /node_modules/
