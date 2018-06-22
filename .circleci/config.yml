@@ -47,6 +47,10 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - store_artifacts:
+          path: ~/vuejs-boilerplate/artifacts
+      - store_test_results:
+          path: ~/vuejs-boilerplate/test-reports
   e2e:
     <<: *setup-docker
     steps:
@@ -67,6 +71,10 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - store_artifacts:
+          path: ~/vuejs-boilerplate/artifacts
+      - store_test_results:
+          path: ~/vuejs-boilerplate/test-reports
 
 workflows:
   version: 2
