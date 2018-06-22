@@ -1,4 +1,6 @@
 dist
 node_modules
-test/e2e/specs/**/__screenshots__/*.png
-test/unit/coverage
+test/e2e/specs/**/__screenshots__/*
+test/unit/coverage/**/*
+
+!.gitkeep
