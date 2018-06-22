@@ -48,13 +48,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - store_artifacts:
-<<<<<<< HEAD
           path: ./test/unit/coverage
-=======
-          path: ./
-      - store_test_results:
-          path: ./
->>>>>>> 218bb224f62bdfd215439cbbbef3974a2779937b
   e2e:
     <<: *setup-docker
     steps:
@@ -76,13 +70,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - store_artifacts:
-<<<<<<< HEAD
           path: /test/e2e/specs/__screenshots__
-=======
-          path: /artifacts
-      - store_test_results:
-          path: /test-reports
->>>>>>> 218bb224f62bdfd215439cbbbef3974a2779937b
 
 workflows:
   version: 2
