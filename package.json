@@ -6,7 +6,7 @@
     "start": "webpack-dev-server --open --port 8000 --mode development",
     "build": "webpack --mode development",
     "build:production": "webpack --mode production",
-    "test": "jest --watchAll --coverage",
+    "test": "jest --watchAll",
     "test:ci": "jest",
     "e2e": "jest --config jest.e2e.config.js --watchAll",
     "e2e:ci": "jest --config jest.e2e.config.js",

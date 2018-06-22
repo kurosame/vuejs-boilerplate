@@ -9,6 +9,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
   snapshotSerializers: ['jest-serializer-vue'],
+  collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/src/components/**/*.vue',
     '<rootDir>/src/pages/**/*.vue',
