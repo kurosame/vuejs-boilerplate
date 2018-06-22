@@ -3,7 +3,6 @@ references:
     setup-docker: &setup-docker
       docker:
         - image: kurosame/node
-      working_directory: ~/vuejs-boilerplate
 
 version: 2
 jobs:
@@ -70,7 +69,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - store_artifacts:
-          path: /test/e2e/specs/__screenshots__
+          path: ./test/e2e/specs/__screenshots__
 
 workflows:
   version: 2
