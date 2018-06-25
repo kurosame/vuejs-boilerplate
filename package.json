@@ -19,6 +19,7 @@
     "vuex": "^3.0.0"
   },
   "devDependencies": {
+    "@kurosame/stylelint-config-vue": "^1.0.0",
     "@kurosame/tslint-config-vue": "^1.2.0",
     "@types/jest": "^22.2.3",
     "@types/moxios": "^0.4.8",
@@ -47,7 +48,7 @@
     "puppeteer": "^1.4.0",
     "sass-loader": "^7.0.3",
     "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^18.2.0",
+    "stylelint-webpack-plugin": "^0.10.5",
     "ts-jest": "^22.4.6",
     "ts-loader": "^4.2.0",
     "tslint": "^5.10.0",

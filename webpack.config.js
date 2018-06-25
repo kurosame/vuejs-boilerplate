@@ -1,10 +1,10 @@
 const path = require('path')
 const apiMocker = require('webpack-api-mocker')
 const autoprefixer = require('autoprefixer')
-const stylelint = require('stylelint')
 const Copy = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
+const Stylelint = require('stylelint-webpack-plugin')
 const HardSource = require('hard-source-webpack-plugin')
 const Html = require('html-webpack-plugin')
 
@@ -76,7 +76,7 @@ module.exports = (_, argv) => ({
           {
             loader: 'postcss-loader',
             options: {
-              plugins: [autoprefixer(), stylelint()]
+              plugins: [autoprefixer()]
             }
           },
           'sass-loader'
@@ -95,6 +95,7 @@ module.exports = (_, argv) => ({
     ]),
     new VueLoaderPlugin(),
     new ForkTsChecker({ tslint: true, vue: true }),
+    new Stylelint({ files: ['**/*.vue'] }),
     new HardSource(),
     new Html({
       template: path.join(__dirname, 'src', 'index.html')

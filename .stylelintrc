@@ -1,5 +1,3 @@
 {
-  "extends": "stylelint-config-standard",
-  "rules": {
-  }
+  "extends": ["@kurosame/stylelint-config-vue"]
 }
