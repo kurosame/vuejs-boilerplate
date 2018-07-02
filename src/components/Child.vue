@@ -1,17 +1,17 @@
 <template>
   <div class="child">
     <div>
-      <span class="count">{{ counter.count }}</span>
-      <button class="add-count" @click="$emit('addCount')">ADD</button>
+      <span data-test="count">{{ counter.count }}</span>
+      <button data-test="add-count" @click="$emit('addCount')">ADD</button>
     </div>
     <div>
-      <span class="axios-count">{{ counter.axiosCount }}</span>
-      <button class="add-axios-count" @click="$emit('addAxiosCount')">ADD</button>
+      <span data-test="axios-count">{{ counter.axiosCount }}</span>
+      <button data-test="add-axios-count" @click="$emit('addAxiosCount')">ADD</button>
       ※axios sample
     </div>
     <div>
-      <span class="async-await-count">{{ counter.asyncAwaitCount }}</span>
-      <button class="add-async-await-count" @click="$emit('addAsyncAwaitCount')">ADD</button>
+      <span data-test="async-await-count">{{ counter.asyncAwaitCount }}</span>
+      <button data-test="add-async-await-count" @click="$emit('addAsyncAwaitCount')">ADD</button>
       ※async await sample
     </div>
   </div>

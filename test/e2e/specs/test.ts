@@ -25,19 +25,21 @@ beforeEach(async () => {
   await page.goto('http://localhost:9000')
 })
 
-test('Click the button.add-count, update the count', async () => {
-  await page.click('.add-count')
+test('Click the add-count, update the count', async () => {
+  await page.click('[data-test="add-count"]')
 
   await page.screenshot({
     path: path.join(__dirname, '__screenshots__', 'add-count.png'),
     fullPage: true
   })
 
-  expect(await page.$eval('.count', v => v.textContent)).toEqual('1')
+  expect(await page.$eval('[data-test="count"]', v => v.textContent)).toEqual(
+    '1'
+  )
 })
 
-test('Click the button.add-axios-count, update the axiosCount', async () => {
-  await page.click('.add-axios-count')
+test('Click the add-axios-count, update the axiosCount', async () => {
+  await page.click('[data-test="add-axios-count"]')
   await page.waitFor(1000)
 
   await page.screenshot({
@@ -45,11 +47,13 @@ test('Click the button.add-axios-count, update the axiosCount', async () => {
     fullPage: true
   })
 
-  expect(await page.$eval('.axios-count', v => v.textContent)).toEqual('2')
+  expect(
+    await page.$eval('[data-test="axios-count"]', v => v.textContent)
+  ).toEqual('2')
 })
 
-test('Click the button.add-async-await-count, update the asyncAwaitCount', async () => {
-  await page.click('.add-async-await-count')
+test('Click the add-async-await-count, update the asyncAwaitCount', async () => {
+  await page.click('[data-test="add-async-await-count"]')
   await page.waitFor(1000)
 
   await page.screenshot({
@@ -57,7 +61,7 @@ test('Click the button.add-async-await-count, update the asyncAwaitCount', async
     fullPage: true
   })
 
-  expect(await page.$eval('.async-await-count', v => v.textContent)).toEqual(
-    '3'
-  )
+  expect(
+    await page.$eval('[data-test="async-await-count"]', v => v.textContent)
+  ).toEqual('3')
 })
