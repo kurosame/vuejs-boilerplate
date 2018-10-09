@@ -2,7 +2,7 @@ references:
   commands:
     setup-docker: &setup-docker
       docker:
-        - image: kurosame/node
+        - image: kurosame/circleci-node
 
 version: 2
 jobs:
