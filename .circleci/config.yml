@@ -55,7 +55,9 @@ jobs:
     steps:
       - run:
           name: Outdated
-          command: curl -X POST $SLACK_WEB_HOOK_URL -d "text=${ yarn outdated }"
+          command: |
+            OUTDATED=$(yarn outdated)
+            curl -X POST $SLACK_WEB_HOOK_URL -d "text=${OUTDATED}"
 
 workflows:
   version: 2
@@ -66,7 +68,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '07 * * * *'
+          cron: '12 * * * *'
           filters:
             branches:
               only:
