@@ -71,12 +71,12 @@ jobs:
             # echo $OUTDATED
             # echo "aaaa" >> OUTDATED
             PAYLOAD=`cat << EOF
-              payload={
-                "text": "$(yarn outdated)"
+              {
+                "text": $(yarn outdated)
               }
             EOF`
             # echo $POST_DATA
-            curl -X POST --data-urlencode "${PAYLOAD}" ${SLACK_WEBHOOK_URL}
+            curl -X POST --data-urlencode "payload=$PAYLOAD" $SLACK_WEBHOOK_URL
 
             # curl -X POST -H --data-urlencode "payload={\"text\": \"$?\"}" $SLACK_WEBHOOK_URL
 
@@ -89,7 +89,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '02 * * * *'
+          cron: '07 * * * *'
           filters:
             branches:
               only:
