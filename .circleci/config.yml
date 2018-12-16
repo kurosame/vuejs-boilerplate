@@ -68,7 +68,7 @@ jobs:
             echo $(yarn outdated) >> OUTDATED
             POST_DATA=`cat << EOF
               payload={
-                "text": "${OUTDATED}"
+                "text": "aaaaaaaaaaaa"
               }
             EOF`
             curl -s -S -X POST --data-urlencode "${POST_DATA}" ${SLACK_WEBHOOK_URL}
