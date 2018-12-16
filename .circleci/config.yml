@@ -51,9 +51,10 @@ jobs:
       - store_artifacts:
           path: ./test/e2e/specs/__screenshots__
   outdated:
-    - run:
-        name: Outdated
-        command: curl -X POST $SLACK_WEB_HOOK_URL -d "text=${ yarn outdated }"
+    steps:
+      - run:
+          name: Outdated
+          command: curl -X POST $SLACK_WEB_HOOK_URL -d "text=${ yarn outdated }"
 
 workflows:
   version: 2
