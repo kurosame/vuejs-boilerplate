@@ -65,8 +65,8 @@ jobs:
       - run:
           name: Outdated
           command: |
-            # OUTDATED=$(yarn outdated)
-            curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": $(yarn outdated), \"icon_emoji\": \":ghost:\" }" "${SLACK_WEB_HOOK_URL}"
+            OUTDATED: $(yarn outdated)
+            curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"${OUTDATED}\", \"icon_emoji\": \":ghost:\" }" "${SLACK_WEBHOOK_URL}"
 
 workflows:
   version: 2
@@ -77,7 +77,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '32 * * * *'
+          cron: '38 * * * *'
           filters:
             branches:
               only:
