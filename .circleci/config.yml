@@ -65,7 +65,7 @@ jobs:
       - run:
           name: Outdated
           command: |
-            OUTDATED=$(echo "example environment variable")
+            OUTDATED=$(yarn outdated)
             # $(yarn outdated) >> OUTDATED
             echo $OUTDATED
             # echo "aaaa" >> OUTDATED
@@ -87,7 +87,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '34 * * * *'
+          cron: '36 * * * *'
           filters:
             branches:
               only:
