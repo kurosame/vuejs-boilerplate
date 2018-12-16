@@ -65,7 +65,8 @@ jobs:
       - run:
           name: Outdated
           command: |
-            $(yarn outdated) >> OUTDATED
+            OUTDATED: $(echo "example environment variable")
+            # $(yarn outdated) >> OUTDATED
             echo $OUTDATED
             # echo "aaaa" >> OUTDATED
             # POST_DATA=`cat << EOF
@@ -86,7 +87,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '27 * * * *'
+          cron: '32 * * * *'
           filters:
             branches:
               only:
