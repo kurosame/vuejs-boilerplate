@@ -72,7 +72,7 @@ jobs:
             # echo "aaaa" >> OUTDATED
             PAYLOAD=`cat << EOF
               {
-                "text": "$(yarn outdated)"
+                "text": '$(yarn outdated)'
               }
             EOF`
             echo $PAYLOAD
@@ -89,7 +89,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '11 * * * *'
+          cron: '13 * * * *'
           filters:
             branches:
               only:
