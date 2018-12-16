@@ -51,6 +51,7 @@ jobs:
       - store_artifacts:
           path: ./test/e2e/specs/__screenshots__
   outdated:
+    <<: *setup-docker
     steps:
       - run:
           name: Outdated
@@ -65,7 +66,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '59 * * * *'
+          cron: '07 * * * *'
           filters:
             branches:
               only:
