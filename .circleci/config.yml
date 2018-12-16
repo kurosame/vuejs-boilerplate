@@ -65,8 +65,8 @@ jobs:
       - run:
           name: Outdated
           command: |
-            OUTDATED: $(yarn outdated)
-            curl -X POST --data-urlencode "payload={\"username\": \"circleCI\",\"text\": \"${OUTDATED}\", \"icon_emoji\": \":ghost:\" }" "${SLACK_WEBHOOK_URL}"
+            # OUTDATED: $(yarn outdated)
+            curl -X POST --data-urlencode -d "text=aaaaa" "${SLACK_WEBHOOK_URL}"
 
 workflows:
   version: 2
