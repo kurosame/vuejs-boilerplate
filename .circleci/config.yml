@@ -74,7 +74,7 @@ jobs:
             # EOF`
             # curl -s -S -X POST --data-urlencode "${POST_DATA}" ${SLACK_WEBHOOK_URL}
 
-            curl -X POST -H "Content-Type: application/json" --data-urlencode 'payload={"text": "'"$OUTDATED"'"}' $SLACK_WEBHOOK_URL
+            curl -X POST -H "Content-Type: application/json" --data-urlencode "payload={\"text\": \"{$OUTDATED}\"}" $SLACK_WEBHOOK_URL
 
 workflows:
   version: 2
@@ -85,7 +85,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '33 * * * *'
+          cron: '36 * * * *'
           filters:
             branches:
               only:
