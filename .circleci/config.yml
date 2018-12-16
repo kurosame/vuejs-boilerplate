@@ -66,7 +66,7 @@ jobs:
           name: Outdated
           command: |
             echo $(yarn outdated) >> $OUTDATED
-            curl -X POST --data-urlencode "payload={\"text\": \"$OUTDATED\"}" $SLACK_WEBHOOK_URL
+            curl -X POST --data-urlencode "payload={\"text\": \"${OUTDATED}\"}" $SLACK_WEBHOOK_URL
 
 workflows:
   version: 2
@@ -77,7 +77,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '38 * * * *'
+          cron: '40 * * * *'
           filters:
             branches:
               only:
