@@ -87,11 +87,15 @@ workflows:
     triggers:
       - schedule:
 <<<<<<< HEAD
+<<<<<<< HEAD
           # cron: '00 0 * * *'
           cron: '56 * * * *'
 =======
           cron: '43 * * * *'
 >>>>>>> 53e28f0... test
+=======
+          cron: '47 * * * *'
+>>>>>>> 12a2ca7... test
           filters:
             branches:
               only:
