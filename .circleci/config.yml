@@ -71,9 +71,8 @@ jobs:
               "attachments": [
                 {
                   "pretext": "vuejs-boilerplate's outdated",
-                  "mrkdwn_in": [
-                    "text": '$(yarn outdated --json | $(yarn bin)/format-yarn-outdated)'
-                  ]
+                  "text": '$(yarn outdated --json | $(yarn bin)/format-yarn-outdated)',
+                  "mrkdwn_in": ["text"]
                 }
               ]
             }
@@ -90,7 +89,7 @@ workflows:
     triggers:
       - schedule:
           # cron: '00 0 * * *'
-          cron: '59 * * * *'
+          cron: '03 * * * *'
           filters:
             branches:
               only:
