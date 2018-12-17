@@ -65,6 +65,7 @@ jobs:
       - run:
           name: Outdated
           command: |
+            yarn add -D yarn-outdated-formatter
             PAYLOAD=`cat << EOF
             {
               "attachments": [
@@ -87,7 +88,7 @@ workflows:
     triggers:
       - schedule:
           # cron: '00 0 * * *'
-          cron: '55 * * * *'
+          cron: '57 * * * *'
           filters:
             branches:
               only:
