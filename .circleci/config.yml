@@ -67,9 +67,9 @@ jobs:
           command: |
             PAYLOAD=`cat << EOF
             {
-              "text": "vuejs-boilerplate's outdated"
               "attachments": [
                 {
+                  "pretext": "vuejs-boilerplate's outdated",
                   "text": '$(yarn outdated)'
                 }
               ]
@@ -87,7 +87,7 @@ workflows:
     triggers:
       - schedule:
           # cron: '00 0 * * *'
-          cron: '50 * * * *'
+          cron: '56 * * * *'
           filters:
             branches:
               only:
