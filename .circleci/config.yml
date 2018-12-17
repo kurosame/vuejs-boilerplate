@@ -51,6 +51,7 @@ jobs:
       - store_artifacts:
           path: ./test/e2e/specs/__screenshots__
   outdated:
+<<<<<<< HEAD
     <<: *setup-docker
     steps:
       - checkout
@@ -76,6 +77,12 @@ jobs:
             }
             EOF`
             curl -X POST -d "payload=$PAYLOAD" $SLACK_WEBHOOK_URL
+=======
+    steps:
+      - run:
+          name: Outdated
+          command: curl -X POST $SLACK_WEB_HOOK_URL -d "text=${ yarn outdated }"
+>>>>>>> bd429c3... test
 
 workflows:
   version: 2
