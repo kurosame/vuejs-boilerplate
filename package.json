@@ -63,6 +63,7 @@
     "webpack": "^4.7.0",
     "webpack-api-mocker": "^1.5.1",
     "webpack-cli": "^2.1.3",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "yarn-outdated-formatter": "^2.0.0"
   }
 }

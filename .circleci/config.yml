@@ -65,16 +65,12 @@ jobs:
       - run:
           name: Outdated
           command: |
-            yarn add -D yarn-outdated-formatter
-            aaa=`cat << EOF
-              $(yarn outdated --json | $(yarn bin)/format-yarn-outdated)
-            EOF`
             PAYLOAD=`cat << EOF
             {
               "attachments": [
                 {
                   "pretext": "vuejs-boilerplate's outdated",
-                  "text": '$aaa',
+                  "text": '$(yarn outdated --json | $(yarn bin)/format-yarn-outdated)',
                   "mrkdwn_in": ["text"]
                 }
               ]
@@ -91,8 +87,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          # cron: '00 0 * * *'
-          cron: '17 * * * *'
+          cron: '00 0 * * *'
           filters:
             branches:
               only:

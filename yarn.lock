@@ -5519,7 +5519,7 @@ js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
 
-js-yaml@^3.4.3:
+js-yaml@^3.4.3, js-yaml@^3.8.4:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.12.0.tgz#eaed656ec8344f10f527c6bfa1b6e2244de167d1"
   dependencies:
@@ -10222,6 +10222,15 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+yarn-outdated-formatter@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/yarn-outdated-formatter/-/yarn-outdated-formatter-2.0.0.tgz#43578a204d85036f86ae2bdfd293e5c6e410be3b"
+  integrity sha1-Q1eKIE2FA2+Grivf0pPlxuQQvjs=
+  dependencies:
+    js-yaml "^3.8.4"
+    meow "^3.7.0"
+    semver "^5.3.0"
 
 yauzl@2.4.1:
   version "2.4.1"
