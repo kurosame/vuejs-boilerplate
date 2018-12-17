@@ -67,7 +67,12 @@ jobs:
           command: |
             PAYLOAD=`cat << EOF
             {
-              "text": '$(yarn outdated)'
+              "text": "vuejs-boilerplate's outdated"
+              "attachments": [
+                {
+                  "text": '$(yarn outdated)'
+                }
+              ]
             }
             EOF`
             curl -X POST -d "payload=$PAYLOAD" $SLACK_WEBHOOK_URL
@@ -81,7 +86,8 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: '00 0 * * *'
+          # cron: '00 0 * * *'
+          cron: '50 * * * *'
           filters:
             branches:
               only:
