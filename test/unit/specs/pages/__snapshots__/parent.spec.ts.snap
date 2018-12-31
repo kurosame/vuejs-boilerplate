@@ -3,6 +3,6 @@
 exports[`Match the snapshot 1`] = `
 <div class="parent">
   Parent
-  <!---->
+  <child-stub></child-stub>
 </div>
 `;
