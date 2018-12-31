@@ -1,6 +1,6 @@
+import counter from '@/vuex/modules/counter'
 import Vue from 'vue'
 import Vuex from 'vuex'
-import counter from './modules/counter'
 
 Vue.use(Vuex)
 Vue.config.devtools = true
