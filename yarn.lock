@@ -608,10 +608,10 @@
     stylelint "^9.3.0"
     stylelint-config-standard "^18.2.0"
 
-"@kurosame/tslint-config-vue@^1.2.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@kurosame/tslint-config-vue/-/tslint-config-vue-1.3.0.tgz#aa35584dc060c02dd352b0bcc30e82f4ec90e490"
-  integrity sha512-hqRf3FwUbQ+5R0WEk+5PpUmiUhfhh5ufrBhAe7X0b9QxVAdnC4bm3V3p9+Zxsh6vr03lBlAcM2fCGSSIaSwiYA==
+"@kurosame/tslint-config-vue@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@kurosame/tslint-config-vue/-/tslint-config-vue-1.4.0.tgz#8e448b28590f10377e5ac8916844e545be1a81eb"
+  integrity sha512-d3ACRXvVZlocrVTu34qjWIewwY8acXS+hI15NkahRoH2+DGDH7J8bBjL9yzTyfGY48jiG8q3ItJQf9PgLkP6TQ==
   dependencies:
     prettier "^1.13.2"
     tslint "^5.10.0"

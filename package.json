@@ -25,7 +25,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/runtime": "^7.1.2",
     "@kurosame/stylelint-config-vue": "^1.0.0",
-    "@kurosame/tslint-config-vue": "^1.2.0",
+    "@kurosame/tslint-config-vue": "^1.4.0",
     "@types/jest": "^22.2.3",
     "@types/moxios": "^0.4.8",
     "@types/node": "^10.0.4",
