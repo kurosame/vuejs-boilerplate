@@ -34,7 +34,6 @@
     "autoprefixer": "^8.4.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.0",
-    "browserslist": "^4.3.6",
     "copy-webpack-plugin": "^4.2.0",
     "css-loader": "^0.28.11",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
