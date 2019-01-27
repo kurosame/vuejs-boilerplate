@@ -69,7 +69,7 @@ jobs:
             {
               "attachments": [
                 {
-                  "pretext": "vuejs-boilerplate's outdated",
+                  "pretext": "vuejs-boilerplate's Outdated",
                   "text": '$(yarn outdated --json | $(yarn bin)/format-yarn-outdated)',
                   "mrkdwn_in": ["text"]
                 }
