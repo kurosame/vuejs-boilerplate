@@ -2,11 +2,17 @@
 
 exports[`Match the snapshot 1`] = `
 <div class="child">
-  <div><span data-test="count">147</span> <button data-test="add-count">ADD</button></div>
-  <div><span data-test="axios-count">258</span> <button data-test="add-axios-count">ADD</button>
+  <div><span data-test="count">147</span> <button data-test="add-count">
+      ADD
+    </button></div>
+  <div><span data-test="axios-count">258</span> <button data-test="add-axios-count">
+      ADD
+    </button>
     ※axios sample
   </div>
-  <div><span data-test="async-await-count">369</span> <button data-test="add-async-await-count">ADD</button>
+  <div><span data-test="async-await-count">369</span> <button data-test="add-async-await-count">
+      ADD
+    </button>
     ※async await sample
   </div>
 </div>
