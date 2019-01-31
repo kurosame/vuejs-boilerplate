@@ -1,7 +1,12 @@
 <template>
   <div class="parent">
     Parent
-    <child :counter="counter" @addCount="addCount" @addAxiosCount="addAxiosCount" @addAsyncAwaitCount="addAsyncAwaitCount">
+    <child
+      :counter="counter"
+      @add-count="addCount"
+      @add-axios-count="addAxiosCount"
+      @add-async-await-count="addAsyncAwaitCount"
+    >
     </child>
   </div>
 </template>

@@ -15,26 +15,26 @@ test('Data binding from the propsData.count to the count', () => {
   expect(wrapper.find('[data-test="count"]').text()).toEqual('147')
 })
 
-test('Click the add-count will emit the addCount', () => {
-  expect(wrapper.emitted('addCount')).toBeUndefined()
+test('Click the add-count will emit the add-count', () => {
+  expect(wrapper.emitted('add-count')).toBeUndefined()
 
   wrapper.find('[data-test="add-count"]').trigger('click')
 
-  expect(wrapper.emitted('addCount')).toBeTruthy()
-  expect(wrapper.emitted('addCount')[0]).toEqual([])
+  expect(wrapper.emitted('add-count')).toBeTruthy()
+  expect(wrapper.emitted('add-count')[0]).toEqual([])
 })
 
 test('Data binding from the propsData.axiosCount to the axiosCount', () => {
   expect(wrapper.find('[data-test="axios-count"]').text()).toEqual('258')
 })
 
-test('Click the add-axios-count will emit the addAxiosCount', () => {
-  expect(wrapper.emitted('addAxiosCount')).toBeUndefined()
+test('Click the add-axios-count will emit the add-axios-count', () => {
+  expect(wrapper.emitted('add-axios-count')).toBeUndefined()
 
   wrapper.find('[data-test="add-axios-count"]').trigger('click')
 
-  expect(wrapper.emitted('addAxiosCount')).toBeTruthy()
-  expect(wrapper.emitted('addAxiosCount')[0]).toEqual([])
+  expect(wrapper.emitted('add-axios-count')).toBeTruthy()
+  expect(wrapper.emitted('add-axios-count')[0]).toEqual([])
 })
 
 test('Data binding from the propsData.asyncAwaitCount to the asyncAwaitCount', () => {
@@ -42,12 +42,12 @@ test('Data binding from the propsData.asyncAwaitCount to the asyncAwaitCount', (
 })
 
 test('Click the add-async-await-count will emit the addAsyncAwaitCount', () => {
-  expect(wrapper.emitted('addAsyncAwaitCount')).toBeUndefined()
+  expect(wrapper.emitted('add-async-await-count')).toBeUndefined()
 
   wrapper.find('[data-test="add-async-await-count"]').trigger('click')
 
-  expect(wrapper.emitted('addAsyncAwaitCount')).toBeTruthy()
-  expect(wrapper.emitted('addAsyncAwaitCount')[0]).toEqual([])
+  expect(wrapper.emitted('add-async-await-count')).toBeTruthy()
+  expect(wrapper.emitted('add-async-await-count')[0]).toEqual([])
 })
 
 test('Match the snapshot', () => {
