@@ -43,6 +43,7 @@
     "jest-environment-node": "^22.0.0",
     "jest-puppeteer": "^3.0.1",
     "jest-serializer-vue": "^1.0.0",
+    "mocker-api": "^1.6.7",
     "moxios": "^0.4.0",
     "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.5",
@@ -60,7 +61,6 @@
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.7.0",
-    "webpack-api-mocker": "^1.5.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.4",
     "yarn-outdated-formatter": "^2.0.0"

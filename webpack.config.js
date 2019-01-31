@@ -1,5 +1,5 @@
 const path = require('path')
-const apiMocker = require('webpack-api-mocker')
+const apiMocker = require('mocker-api')
 const autoprefixer = require('autoprefixer')
 const Copy = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
