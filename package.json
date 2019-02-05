@@ -8,9 +8,12 @@
     "build:production": "webpack --mode=production",
     "test": "jest --watchAll",
     "test:ci": "jest",
-    "e2e": "jest --config jest.e2e.config.js --watchAll",
+    "e2e": "server-test e2e:start http-get://localhost:9000 e2e:run",
+    "e2e:start": "webpack-dev-server --port 9000 --mode=development",
+    "e2e:run": "cypress run -b chrome",
     "e2e:ci": "jest --config jest.e2e.config.js",
-    "clean": "rimraf ./dist/**/*"
+    "clean:dist": "rimraf ./dist/**/*",
+    "clean:screenshots": "rimraf ./test/e2e/cypress/screenshots/**/*"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -24,6 +27,7 @@
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/runtime": "^7.1.2",
+    "@cypress/webpack-preprocessor": "^4.0.3",
     "@kurosame/stylelint-config-vue": "^1.0.0",
     "@kurosame/tslint-config-vue": "^1.4.0",
     "@types/jest": "^22.2.3",
@@ -36,6 +40,7 @@
     "babel-loader": "^8.0.0",
     "copy-webpack-plugin": "^4.2.0",
     "css-loader": "^0.28.11",
+    "cypress": "^3.1.5",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
     "hard-source-webpack-plugin": "^0.8.1",
     "html-webpack-plugin": "^3.2.0",
@@ -49,6 +54,7 @@
     "postcss-loader": "^2.1.5",
     "puppeteer": "^1.4.0",
     "sass-loader": "^7.0.3",
+    "start-server-and-test": "^1.7.11",
     "stylelint": "^8.0.0",
     "stylelint-webpack-plugin": "^0.10.5",
     "ts-jest": "^22.4.6",

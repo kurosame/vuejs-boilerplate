@@ -42,14 +42,14 @@ jobs:
           command: yarn install
       - run:
           name: E2E Test for CI
-          command: yarn e2e:ci
+          command: yarn e2e
       - save_cache:
           name: Cache dependencies
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - store_artifacts:
-          path: ./test/e2e/specs/__screenshots__
+          path: ./test/e2e/cypress/screenshots
   outdated:
     <<: *setup-docker
     steps:
