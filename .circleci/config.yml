@@ -1,13 +1,16 @@
 references:
   commands:
-    setup-docker: &setup-docker
+    setup-docker-base: &setup-docker-base
       docker:
         - image: kurosame/circleci-node
+    setup-docker-cypress: &setup-docker-cypress
+      docker:
+        - image: cypress/browsers:chrome69
 
 version: 2
 jobs:
   test:
-    <<: *setup-docker
+    <<: *setup-docker-base
     steps:
       - checkout
       - restore_cache:
@@ -29,7 +32,7 @@ jobs:
       - store_artifacts:
           path: ./test/unit/coverage
   e2e:
-    <<: *setup-docker
+    <<: *setup-docker-cypress
     steps:
       - checkout
       - restore_cache:
@@ -51,7 +54,7 @@ jobs:
       - store_artifacts:
           path: ./test/e2e/cypress/screenshots
   outdated:
-    <<: *setup-docker
+    <<: *setup-docker-base
     steps:
       - checkout
       - restore_cache:
