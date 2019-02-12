@@ -10,14 +10,19 @@ yarn install
 ## Tasks
 
 ```sh
-yarn start            # webpack-dev-server localhost:8000
-yarn build            # Build for development
-yarn build:production # Build for production
-yarn test             # Unit test (jest + vue-test-utils)
-yarn test:ci          # Unit test for CI
-yarn e2e              # E2E test (jest + puppeteer)
-yarn e2e:ci           # E2E test for CI
-yarn clean            # Clear the dist directory
+yarn start             # webpack-dev-server to localhost:8000
+yarn build             # Build for development
+yarn build:production  # Build for production
+yarn test              # Unit test (Jest + vue-test-utils)
+yarn test:ci           # Unit test for CI
+yarn e2e               # E2E test (Cypress) to localhost:9000
+yarn e2e:ci            # E2E test for CI
+yarn e2e:start         # Run server for E2E test
+yarn e2e:run           # Run Cypress for E2E test
+yarn e2e:run:ci        # Run Cypress for E2E test for CI
+yarn clean:cache       # Clear cache of webpack
+yarn clean:dist        # Clear dist directory
+yarn clean:screenshots # Clear screenshots of Cypress
 ```
 
 ## Hot Module Replacement
