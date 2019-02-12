@@ -10,12 +10,14 @@ yarn install
 ## Tasks
 
 ```sh
-yarn start             # webpack-dev-server to localhost:8000
+yarn start             # Run webpack-dev-server for local
+yarn start:mock        # Run mock for local
+yarn start:server      # Run server for local
 yarn build             # Build for development
 yarn build:production  # Build for production
 yarn test              # Unit test (Jest + vue-test-utils)
 yarn test:ci           # Unit test for CI
-yarn e2e               # E2E test (Cypress) to localhost:9000
+yarn e2e               # E2E test (Cypress)
 yarn e2e:ci            # E2E test for CI
 yarn e2e:start         # Run server for E2E test
 yarn e2e:run           # Run Cypress for E2E test
