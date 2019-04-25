@@ -58,6 +58,7 @@
     "start-server-and-test": "^1.7.11",
     "stylelint": "^8.0.0",
     "stylelint-webpack-plugin": "^0.10.5",
+    "thread-loader": "^2.1.2",
     "ts-jest": "^22.4.6",
     "ts-loader": "^4.2.0",
     "tslint": "^5.10.0",

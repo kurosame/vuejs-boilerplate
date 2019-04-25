@@ -1,3 +1,4 @@
+const os = require('os')
 const path = require('path')
 const autoprefixer = require('autoprefixer')
 const Copy = require('copy-webpack-plugin')
@@ -40,6 +41,13 @@ module.exports = (_, argv) => ({
         test: /\.ts$/,
         use: [
           {
+            loader: 'thread-loader',
+            options: {
+              // workers: require('os').cpus().length - 1
+              workers: 1
+            }
+          },
+          {
             loader: 'babel-loader',
             options: {
               cacheDirectory: true
@@ -49,10 +57,9 @@ module.exports = (_, argv) => ({
             loader: 'ts-loader',
             options: {
               appendTsSuffixTo: [/\.vue$/],
-              transpileOnly: true
+              happyPackMode: true
             }
           },
-          // TODO: https://github.com/kurosame/vuejs-boilerplate/issues/2
           'tslint-loader'
         ],
         exclude: /node_modules/
@@ -88,7 +95,7 @@ module.exports = (_, argv) => ({
       }
     ]),
     new VueLoaderPlugin(),
-    new ForkTsChecker({ tslint: true, vue: true }),
+    new ForkTsChecker({ tslint: true, checkSyntacticErrors: true, vue: true }),
     new Stylelint({ files: ['**/*.vue'] }),
     new HardSource(),
     new Html({
