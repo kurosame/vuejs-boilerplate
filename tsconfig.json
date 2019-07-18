@@ -1,20 +1,18 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
     "lib": ["dom", "es2015"],
-    "sourceMap": true,
-    "strict": true,
+    "module": "esnext",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "paths": { "@/*": ["src/*"] },
     "skipLibCheck": true,
-    "moduleResolution": "node",
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext"
   },
   "include": ["src/**/*.vue", "src/**/*.ts", "test/unit/specs/**/*.spec.ts"],
   "exclude": ["node_modules"]
