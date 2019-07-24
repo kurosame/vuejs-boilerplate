@@ -1,5 +1,6 @@
 import App from '@/App.vue'
 import routes from '@/routes'
+import '@/vuex/state/index'
 import store from '@/vuex/store'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
