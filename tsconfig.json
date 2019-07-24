@@ -6,6 +6,7 @@
     "experimentalDecorators": true,
     "lib": ["dom", "es2015"],
     "module": "esnext",
+    "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": { "@/*": ["src/*"] },
