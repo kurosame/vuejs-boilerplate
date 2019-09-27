@@ -16,9 +16,9 @@
     "e2e:ci": "server-test start:e2e http-get://localhost:9000 e2e:run:ci",
     "e2e:run": "cypress open",
     "e2e:run:ci": "cypress run -b chrome",
-    "clean:cache": "rimraf ./node_modules/.cache",
-    "clean:dist": "rimraf ./dist/**/*",
-    "clean:screenshots": "rimraf ./test/e2e/cypress/screenshots/**/*"
+    "clean:cache": "rimraf ./node_modules/.cache/*",
+    "clean:dist": "rimraf ./dist/*",
+    "clean:screenshots": "rimraf ./test/e2e/cypress/screenshots/*"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -71,7 +71,6 @@
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.7.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.4",
-    "yarn-outdated-formatter": "^2.0.0"
+    "webpack-dev-server": "^3.1.4"
   }
 }

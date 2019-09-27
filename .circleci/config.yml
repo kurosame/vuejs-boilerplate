@@ -20,7 +20,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install
-          command: yarn install
+          command: npm install
       - save_cache:
           name: Cache dependencies
           paths:
@@ -28,7 +28,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: Test for CI
-          command: yarn test:ci
+          command: npm run test:ci
       - store_artifacts:
           path: ./test/unit/coverage
   e2e:
@@ -42,7 +42,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install
-          command: yarn install
+          command: npm install
       - save_cache:
           name: Cache dependencies
           paths:
@@ -50,7 +50,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: E2E Test for CI
-          command: yarn e2e:ci
+          command: npm run e2e:ci
       - store_artifacts:
           path: ./test/e2e/cypress/screenshots
   outdated:
@@ -64,7 +64,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install
-          command: yarn install
+          command: npm install
       - save_cache:
           name: Cache dependencies
           paths:
@@ -78,7 +78,7 @@ jobs:
               "attachments": [
                 {
                   "pretext": "vuejs-boilerplate's Outdated",
-                  "text": '$(yarn outdated --json | $(yarn bin)/format-yarn-outdated)',
+                  "text": '$(npm outdated)',
                   "mrkdwn_in": ["text"]
                 }
               ]
