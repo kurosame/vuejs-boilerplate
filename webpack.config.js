@@ -34,7 +34,7 @@ module.exports = (_, argv) => ({
     rules: [
       {
         test: /\.vue$/,
-        use: ['vue-loader'],
+        use: ['vue-loader', 'eslint-loader'],
         exclude: /node_modules/
       },
       {
@@ -60,7 +60,7 @@ module.exports = (_, argv) => ({
               happyPackMode: true
             }
           },
-          'tslint-loader'
+          'eslint-loader'
         ],
         exclude: /node_modules/
       },
@@ -95,7 +95,7 @@ module.exports = (_, argv) => ({
       }
     ]),
     new VueLoaderPlugin(),
-    new ForkTsChecker({ tslint: true, checkSyntacticErrors: true, vue: true }),
+    new ForkTsChecker({ checkSyntacticErrors: true, vue: true }),
     new Stylelint({ files: ['**/*.vue'] }),
     new HardSource(),
     new Html({
