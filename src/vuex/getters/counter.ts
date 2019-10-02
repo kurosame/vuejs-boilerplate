@@ -1,9 +1,9 @@
-import { ICounterState } from '@/vuex/state/counter'
-import { IStates } from '@/vuex/state/index'
 import { GetterTree } from 'vuex'
+import { CounterState } from '@/vuex/modules/counter'
+import { States } from '@/vuex/modules/state'
 
-const getters: GetterTree<ICounterState, IStates> = {
-  counter: (state: ICounterState): ICounterState => {
+const getters: GetterTree<CounterState, States> = {
+  counter: (state: CounterState): CounterState => {
     return {
       count: state.count,
       axiosCount: state.axiosCount,

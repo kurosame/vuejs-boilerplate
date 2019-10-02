@@ -17,31 +17,28 @@
 }
 </style>
 <script lang="ts">
-/* tslint:disable:prettier */
-// TODO: https://github.com/kurosame/vuejs-boilerplate/issues/1
-/* tslint:enable:prettier */
-import Child from '@/components/Child.vue'
-import { ICounterState } from '@/vuex/state/counter'
-import { ADD_ASYNC_AWAIT_COUNT, ADD_AXIOS_COUNT, ADD_COUNT } from '@/vuex/types'
 import Vue from 'vue'
 import { mapActions } from 'vuex'
+import Child from '@/components/Child.vue'
+import { CounterState } from '@/vuex/modules/counter'
+import { ADD_ASYNC_AWAIT_COUNT, ADD_AXIOS_COUNT, ADD_COUNT } from '@/vuex/types'
 
 export default Vue.extend({
   name: 'Parent',
+  components: {
+    Child
+  },
+  computed: {
+    counter(): CounterState {
+      return this.$store.getters.counter
+    }
+  },
   methods: {
     ...mapActions({
       addCount: ADD_COUNT,
       addAxiosCount: ADD_AXIOS_COUNT,
       addAsyncAwaitCount: ADD_ASYNC_AWAIT_COUNT
     })
-  },
-  computed: {
-    counter(): ICounterState {
-      return this.$store.getters.counter
-    }
-  },
-  components: {
-    Child
   }
 })
 </script>

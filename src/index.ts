@@ -1,9 +1,8 @@
+import Vue, { VNode } from 'vue'
+import VueRouter from 'vue-router'
 import App from '@/App.vue'
 import routes from '@/routes'
-import '@/vuex/state/index'
 import store from '@/vuex/store'
-import Vue from 'vue'
-import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
@@ -17,6 +16,6 @@ const router = new VueRouter({
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h): VNode => h(App)
 }).$mount('#app')
 /* eslint-enable no-new */

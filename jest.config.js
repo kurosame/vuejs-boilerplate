@@ -15,8 +15,7 @@ module.exports = {
     '<rootDir>/src/pages/**/*.vue',
     '<rootDir>/src/vuex/actions/**/*.ts',
     '<rootDir>/src/vuex/getters/**/*.ts',
-    '<rootDir>/src/vuex/modules/**/*.ts',
-    '<rootDir>/src/vuex/state/**/*.ts'
+    '<rootDir>/src/vuex/modules/**/*.ts'
   ],
   coverageDirectory: '<rootDir>/test/unit/coverage',
   coverageReporters: ['html', 'text-summary'],
