@@ -36,6 +36,8 @@
     "@babel/runtime": "^7.1.2",
     "@kurosame/eslint-config-vue": "^1.0.1",
     "@kurosame/stylelint-config-vue": "^1.0.0",
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-console": "^1.2.1",
     "@storybook/vue": "^5.2.1",
     "@types/jest": "^22.2.3",
     "@types/moxios": "^0.4.8",
