@@ -23,6 +23,8 @@ npm run e2e               # E2E test (Cypress)
 npm run e2e:ci            # E2E test for CI
 npm run e2e:run           # Run Cypress for E2E test
 npm run e2e:run:ci        # Run Cypress for E2E test for CI
+npm run storybook         # Storybook
+npm run storybook:run     # Run Storybook
 npm run clean:cache       # Clear cache of webpack
 npm run clean:dist        # Clear dist directory
 npm run clean:screenshots # Clear screenshots of Cypress

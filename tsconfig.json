@@ -15,6 +15,11 @@
     "strict": true,
     "target": "esnext"
   },
-  "include": ["src/**/*.vue", "src/**/*.ts", "test/unit/specs/**/*.spec.ts"],
+  "include": [
+    "src/**/*.vue",
+    "src/**/*.ts",
+    "stories/**/*.ts",
+    "test/unit/specs/**/*.spec.ts"
+  ],
   "exclude": ["node_modules"]
 }
