@@ -1,53 +1,59 @@
+import Vuex from 'vuex'
+import { mount, createLocalVue } from '@vue/test-utils'
 import Child from '@/components/Child.vue'
-import { mount } from '@vue/test-utils'
+import { ADD_COUNT, ADD_AXIOS_COUNT, ADD_ASYNC_AWAIT_COUNT } from '@/vuex/types'
 
-const wrapper = mount(Child, {
-  propsData: {
-    counter: {
-      count: 147,
-      axiosCount: 258,
-      asyncAwaitCount: 369
-    }
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
+const addCount = jest.fn().mockReturnValue(() => '')
+const addAxiosCount = jest.fn()
+const addAsyncAwaitCount = jest.fn()
+
+const store = new Vuex.Store({
+  actions: {
+    [ADD_COUNT]: addCount,
+    [ADD_AXIOS_COUNT]: addAxiosCount,
+    [ADD_ASYNC_AWAIT_COUNT]: addAsyncAwaitCount
+  },
+  getters: {
+    counter: () => ({ count: 147, axiosCount: 258, asyncAwaitCount: 369 })
   }
 })
 
-test('Data binding from the propsData.count to the count', () => {
+const wrapper = mount(Child, {
+  localVue,
+  store
+})
+
+test('Data binding from store counter.count to the count', () => {
   expect(wrapper.find('[data-test="count"]').text()).toEqual('147')
 })
 
-test('Click the add-count will emit the add-count', () => {
-  expect(wrapper.emitted('add-count')).toBeUndefined()
-
+test('Click the add-count will emit the addCount', () => {
   wrapper.find('[data-test="add-count"]').trigger('click')
 
-  expect(wrapper.emitted('add-count')).toBeTruthy()
-  expect(wrapper.emitted('add-count')[0]).toEqual([])
+  expect(addCount).toBeCalled()
 })
 
-test('Data binding from the propsData.axiosCount to the axiosCount', () => {
+test('Data binding from store counter.axiosCount to the axiosCount', () => {
   expect(wrapper.find('[data-test="axios-count"]').text()).toEqual('258')
 })
 
-test('Click the add-axios-count will emit the add-axios-count', () => {
-  expect(wrapper.emitted('add-axios-count')).toBeUndefined()
-
+test('Click the add-axios-count will emit the addAxiosCount', () => {
   wrapper.find('[data-test="add-axios-count"]').trigger('click')
 
-  expect(wrapper.emitted('add-axios-count')).toBeTruthy()
-  expect(wrapper.emitted('add-axios-count')[0]).toEqual([])
+  expect(addAxiosCount).toBeCalled()
 })
 
-test('Data binding from the propsData.asyncAwaitCount to the asyncAwaitCount', () => {
+test('Data binding from store counter.asyncAwaitCount to the asyncAwaitCount', () => {
   expect(wrapper.find('[data-test="async-await-count"]').text()).toEqual('369')
 })
 
 test('Click the add-async-await-count will emit the addAsyncAwaitCount', () => {
-  expect(wrapper.emitted('add-async-await-count')).toBeUndefined()
-
   wrapper.find('[data-test="add-async-await-count"]').trigger('click')
 
-  expect(wrapper.emitted('add-async-await-count')).toBeTruthy()
-  expect(wrapper.emitted('add-async-await-count')[0]).toEqual([])
+  expect(addAsyncAwaitCount).toBeCalled()
 })
 
 test('Match the snapshot', () => {
