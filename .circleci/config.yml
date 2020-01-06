@@ -16,16 +16,16 @@ jobs:
       - restore_cache:
           name: Download and cache dependencies
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
       - run:
           name: Install
-          command: npm install
+          command: npm ci
       - save_cache:
           name: Cache dependencies
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ~/.npm
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Test for CI
           command: npm run test:ci
@@ -38,19 +38,20 @@ jobs:
       - restore_cache:
           name: Download and cache dependencies
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
       - run:
           name: Install
-          command: npm install
-      - save_cache:
-          name: Cache dependencies
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          command: npm ci
       - run:
           name: E2E Test for CI
           command: npm run e2e:ci
+      - save_cache:
+          name: Cache dependencies
+          paths:
+            - ~/.npm
+            - ~/.cache # Cache Cypress binary
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
       - store_artifacts:
           path: ./test/e2e/cypress/screenshots
   outdated:
@@ -60,16 +61,16 @@ jobs:
       - restore_cache:
           name: Download and cache dependencies
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
       - run:
           name: Install
-          command: npm install
+          command: npm ci
       - save_cache:
           name: Cache dependencies
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ~/.npm
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Outdated
           command: |
