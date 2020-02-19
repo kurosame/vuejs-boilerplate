@@ -91,7 +91,7 @@ module.exports = (_, argv) => ({
       {
         from: path.join(__dirname, 'assets'),
         to: path.join(__dirname, 'dist', 'assets'),
-        ignore: '.gitkeep'
+        ignore: ['.gitkeep']
       }
     ]),
     new VueLoaderPlugin(),
