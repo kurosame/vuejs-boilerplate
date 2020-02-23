@@ -37,6 +37,11 @@ You can check the axios sample and the async/await sample\
 Also, you can edit fixtures/mock.json\
 using https://github.com/typicode/json-server
 
+## Dependency
+
+- node-sass  
+  Depends on sass-loader
+
 ## License
 
 MIT
