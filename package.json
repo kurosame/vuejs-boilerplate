@@ -23,10 +23,10 @@
     "clean:screenshots": "rimraf ./test/e2e/cypress/screenshots/*"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "vue": "^2.5.3",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.0"
+    "axios": "^0.19.2",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.5",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -74,7 +74,7 @@
     "vue-jest": "^3.0.5",
     "vue-loader": "^15.9.0",
     "vue-style-loader": "^4.1.0",
-    "vue-template-compiler": "^2.5.16",
+    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"

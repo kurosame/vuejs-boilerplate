@@ -41,6 +41,8 @@ using https://github.com/typicode/json-server
 
 - node-sass  
   Depends on sass-loader
+- vue-template-compiler  
+  Depends on vue-loader
 
 ## License
 
