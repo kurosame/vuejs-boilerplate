@@ -1,4 +1,4 @@
-import Parent from '@/pages/Parent.vue'
+import Parent from '@/containers/Parent.vue'
 import { shallowMount } from '@vue/test-utils'
 
 const wrapper = shallowMount(Parent)
