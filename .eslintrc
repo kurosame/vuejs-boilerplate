@@ -1,9 +1,3 @@
 {
-  "extends": ["@kurosame/eslint-config-vue"],
-  "rules": {
-    "import/no-extraneous-dependencies": [
-      "error",
-      { "devDependencies": ["**/*.stories.ts"] }
-    ]
-  }
+  "extends": ["@kurosame/eslint-config-vue"]
 }

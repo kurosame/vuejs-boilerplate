@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Match the snapshot 1`] = `
-<div class="parent">
-  Parent
-  <child-stub></child-stub>
+<div>
+  <child-stub count="147"></child-stub>
+  <child-stub count="258"></child-stub>
+  <child-stub count="369"></child-stub>
 </div>
 `;
