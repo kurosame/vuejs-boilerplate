@@ -8,7 +8,6 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   routes,
-  mode: 'history',
   base: __dirname
 })
 
