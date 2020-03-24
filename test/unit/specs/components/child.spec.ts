@@ -1,17 +1,20 @@
-import { mount } from '@vue/test-utils'
 import Child from '@/components/Child.vue'
+import { mount, Wrapper } from '@vue/test-utils'
 
-const wrapper = mount(Child, {
-  propsData: { count: 147 }
+let wrapper: Wrapper<Child>
+beforeEach(() => {
+  wrapper = mount(Child, {
+    propsData: { count: 147 }
+  })
+  wrapper.vm.$emit('add-count')
 })
-wrapper.vm.$emit('add-count')
 
-test('Data binding props.count to count', () => {
-  expect(wrapper.find('[data-test="count"]').text()).toEqual('147')
+test('Data binding `props.count` to `count`', () => {
+  expect(wrapper.find('[data-testid="count"]').text()).toEqual('147')
 })
 
-test('Click the add-count will emit the add-count', () => {
-  wrapper.find('[data-test="add-count"]').trigger('click')
+test('Click `add-count` will emit `add-count`', () => {
+  wrapper.find('[data-testid="add-count"]').trigger('click')
 
   expect(wrapper.emitted('add-count')).toBeTruthy()
 })

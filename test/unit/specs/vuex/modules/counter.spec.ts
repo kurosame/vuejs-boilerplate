@@ -1,7 +1,7 @@
 import modules from '@/vuex/modules/counter'
 import { ADD_ASYNC_AWAIT_COUNT, ADD_AXIOS_COUNT, ADD_COUNT } from '@/vuex/types'
 
-test('Set the state.count', () => {
+test('Set `state.count`', () => {
   const state = { count: 1 }
   const wrapper = (m: any) => m[ADD_COUNT](state, 1)
   wrapper(modules.mutations)
@@ -9,7 +9,7 @@ test('Set the state.count', () => {
   expect(state.count).toEqual(2)
 })
 
-test('Set the state.axiosCount', () => {
+test('Set `state.axiosCount`', () => {
   const state = { axiosCount: 2 }
   const wrapper = (m: any) => m[ADD_AXIOS_COUNT](state, 2)
   wrapper(modules.mutations)
@@ -17,7 +17,7 @@ test('Set the state.axiosCount', () => {
   expect(state.axiosCount).toEqual(4)
 })
 
-test('Set the state.asyncAwaitCount', () => {
+test('Set `state.asyncAwaitCount`', () => {
   const state = { asyncAwaitCount: 3 }
   const wrapper = (m: any) => m[ADD_ASYNC_AWAIT_COUNT](state, 3)
   wrapper(modules.mutations)

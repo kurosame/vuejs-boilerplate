@@ -4,7 +4,6 @@ import moxios from 'moxios'
 
 let mockCommit: jest.Mock
 let spyErr: jest.SpyInstance
-
 beforeEach(() => {
   moxios.install()
   mockCommit = jest.fn()
@@ -12,12 +11,11 @@ beforeEach(() => {
 })
 afterEach(() => {
   moxios.uninstall()
-  mockCommit.mockReset()
-  spyErr.mockReset()
+  jest.restoreAllMocks()
 })
 
-describe('Run the ADD_COUNT', () => {
-  test('Call the commit', () => {
+describe('Run ADD_COUNT', () => {
+  test('Call `commit`', () => {
     const wrapper = (a: any) => a[ADD_COUNT]({ commit: mockCommit })
     wrapper(actions)
 
@@ -27,8 +25,8 @@ describe('Run the ADD_COUNT', () => {
   })
 })
 
-describe('Run the ADD_AXIOS_COUNT', () => {
-  test('Call the commit', done => {
+describe('Run ADD_AXIOS_COUNT', () => {
+  test('Call `commit`', done => {
     moxios.stubRequest('/api', {
       status: 200,
       response: { axiosCount: 2 }
@@ -45,7 +43,7 @@ describe('Run the ADD_AXIOS_COUNT', () => {
     })
   })
 
-  test('Output the console.error', done => {
+  test('Output console.error', done => {
     moxios.stubRequest('/api', {
       status: 400
     })
@@ -63,8 +61,8 @@ describe('Run the ADD_AXIOS_COUNT', () => {
   })
 })
 
-describe('Run the ADD_ASYNC_AWAIT_COUNT', () => {
-  test('Call the commit', done => {
+describe('Run ADD_ASYNC_AWAIT_COUNT', () => {
+  test('Call `commit`', done => {
     moxios.stubRequest('/api', {
       status: 200,
       response: { asyncAwaitCount: 3 }
@@ -81,7 +79,7 @@ describe('Run the ADD_ASYNC_AWAIT_COUNT', () => {
     })
   })
 
-  test('Output the console.error', done => {
+  test('Output console.error', done => {
     moxios.stubRequest('/api', {
       status: 400
     })
