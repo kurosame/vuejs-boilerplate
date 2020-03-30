@@ -1,4 +1,4 @@
-import Header from '@/components/globals/Header.vue'
+import Header from '@/components/Header.vue'
 import { mount, Wrapper } from '@vue/test-utils'
 
 let wrapper: Wrapper<Header>

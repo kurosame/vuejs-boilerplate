@@ -8,6 +8,7 @@ beforeEach(() => {
   moxios.install()
   mockCommit = jest.fn()
   spyErr = jest.spyOn(console, 'error')
+  spyErr.mockImplementation(x => x)
 })
 afterEach(() => {
   moxios.uninstall()
