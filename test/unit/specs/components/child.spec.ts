@@ -1,7 +1,7 @@
 import Child from '@/components/Child.vue'
 import { mount, Wrapper } from '@vue/test-utils'
 
-let wrapper: Wrapper<Child>
+let wrapper: Wrapper<Vue>
 beforeEach(() => {
   wrapper = mount(Child, {
     propsData: { count: 147 }

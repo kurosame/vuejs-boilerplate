@@ -3,7 +3,7 @@ import Parent from '@/containers/Parent.vue'
 import { CounterState } from '@/vuex/modules/counter'
 import { shallowMount, createLocalVue, Wrapper } from '@vue/test-utils'
 
-let wrapper: Wrapper<Parent>
+let wrapper: Wrapper<Vue>
 beforeEach(() => {
   const localVue = createLocalVue()
   localVue.use(Vuex)
