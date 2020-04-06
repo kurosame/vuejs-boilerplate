@@ -53,7 +53,7 @@ describe('Run ADD_AXIOS_COUNT', () => {
     wrapper(actions)
 
     moxios.wait(() => {
-      expect(console.error).toBeCalled()
+      expect(spyErr).toBeCalled()
       expect(spyErr.mock.calls[0][0]).toEqual(
         'ADD_AXIOS_COUNT API response error'
       )
@@ -89,7 +89,7 @@ describe('Run ADD_ASYNC_AWAIT_COUNT', () => {
     wrapper(actions)
 
     moxios.wait(() => {
-      expect(console.error).toBeCalled()
+      expect(spyErr).toBeCalled()
       expect(spyErr.mock.calls[0][0]).toEqual(
         'ADD_ASYNC_AWAIT_COUNT API response error'
       )
