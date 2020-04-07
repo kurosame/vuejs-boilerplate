@@ -12,7 +12,9 @@ const actions: ActionTree<CounterState, States> = {
     axios
       .get('/api')
       .then(res => context.commit(ADD_AXIOS_COUNT, res.data.axiosCount))
-      .catch(() => console.error('ADD_AXIOS_COUNT API response error'))
+      .catch((err: Error) =>
+        console.error(`ADD_AXIOS_COUNT API response error: ${err.message}`)
+      )
   },
   async [ADD_ASYNC_AWAIT_COUNT](context: ActionContext<CounterState, States>) {
     await axios
@@ -20,7 +22,11 @@ const actions: ActionTree<CounterState, States> = {
       .then(res =>
         context.commit(ADD_ASYNC_AWAIT_COUNT, res.data.asyncAwaitCount)
       )
-      .catch(() => console.error('ADD_ASYNC_AWAIT_COUNT API response error'))
+      .catch((err: Error) =>
+        console.error(
+          `ADD_ASYNC_AWAIT_COUNT API response error: ${err.message}`
+        )
+      )
   }
 }
 

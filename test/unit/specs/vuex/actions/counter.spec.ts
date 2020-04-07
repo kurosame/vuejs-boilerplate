@@ -45,9 +45,7 @@ describe('Run ADD_AXIOS_COUNT', () => {
   })
 
   test('Output console.error', done => {
-    moxios.stubRequest('/api', {
-      status: 400
-    })
+    moxios.stubRequest('/api', { status: 400 })
 
     const wrapper = (a: any) => a[ADD_AXIOS_COUNT]({ commit: mockCommit })
     wrapper(actions)
@@ -55,7 +53,7 @@ describe('Run ADD_AXIOS_COUNT', () => {
     moxios.wait(() => {
       expect(spyErr).toBeCalled()
       expect(spyErr.mock.calls[0][0]).toEqual(
-        'ADD_AXIOS_COUNT API response error'
+        'ADD_AXIOS_COUNT API response error: Request failed with status code 400'
       )
       done()
     })
@@ -81,9 +79,7 @@ describe('Run ADD_ASYNC_AWAIT_COUNT', () => {
   })
 
   test('Output console.error', done => {
-    moxios.stubRequest('/api', {
-      status: 400
-    })
+    moxios.stubRequest('/api', { status: 400 })
 
     const wrapper = (a: any) => a[ADD_ASYNC_AWAIT_COUNT]({ commit: mockCommit })
     wrapper(actions)
@@ -91,7 +87,7 @@ describe('Run ADD_ASYNC_AWAIT_COUNT', () => {
     moxios.wait(() => {
       expect(spyErr).toBeCalled()
       expect(spyErr.mock.calls[0][0]).toEqual(
-        'ADD_ASYNC_AWAIT_COUNT API response error'
+        'ADD_ASYNC_AWAIT_COUNT API response error: Request failed with status code 400'
       )
       done()
     })
