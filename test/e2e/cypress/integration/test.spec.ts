@@ -21,7 +21,7 @@ context('Test', () => {
     cy.get('#app').screenshot('initial-display')
   })
 
-  it('Click the add-count, update the count', () => {
+  it('Click `add-count`, update `count`', () => {
     cy.get('[data-testid="add-count"]')
       .eq(0)
       .click()
@@ -39,7 +39,7 @@ context('Test', () => {
     cy.get('#app').screenshot('add-count')
   })
 
-  it('Click the add-count for axios, update the count for axios', () => {
+  it('Click `add-count` for axios, update `count` for axios', () => {
     cy.get('[data-testid="add-count"]')
       .eq(1)
       .click()
@@ -57,7 +57,7 @@ context('Test', () => {
     cy.get('#app').screenshot('add-axios-count')
   })
 
-  it('Click the add-count for async/await, update the count for async/await', () => {
+  it('Click `add-count` for async/await, update `count` for async/await', () => {
     cy.get('[data-testid="add-count"]')
       .eq(2)
       .click()
