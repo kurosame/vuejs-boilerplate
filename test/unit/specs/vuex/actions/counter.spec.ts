@@ -10,7 +10,7 @@ let mockCommit: jest.Mock
 let spyErr: jest.SpyInstance
 beforeEach(() => {
   wrapper = (type): ActionTree<CounterState, States> =>
-    (actions[type] as any)({ commit: mockCommit })
+    (actions[type] as jest.Mock)({ commit: mockCommit })
   moxios.install()
   mockCommit = jest.fn()
   spyErr = jest.spyOn(console, 'error')
