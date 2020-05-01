@@ -5,6 +5,7 @@ let wrapper: Wrapper<Vue>
 beforeEach(() => {
   wrapper = mount(Header)
 })
+afterEach(() => wrapper.destroy())
 
 test('Match the snapshot', () => {
   expect(wrapper.html()).toMatchSnapshot()

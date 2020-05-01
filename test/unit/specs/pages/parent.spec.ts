@@ -19,6 +19,7 @@ beforeEach(() => {
   wrapper = shallowMount(Parent, { localVue, store })
   wrapper.vm.$emit('add-count')
 })
+afterEach(() => wrapper.destroy())
 
 test('Match the snapshot', () => {
   expect(wrapper.html()).toMatchSnapshot()

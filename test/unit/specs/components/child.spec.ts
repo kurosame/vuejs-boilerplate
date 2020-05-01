@@ -8,6 +8,7 @@ beforeEach(() => {
   })
   wrapper.vm.$emit('add-count')
 })
+afterEach(() => wrapper.destroy())
 
 test('Data binding `props.count` to `count`', () => {
   expect(wrapper.find('[data-testid="count"]').text()).toEqual('147')
