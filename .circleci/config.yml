@@ -79,8 +79,7 @@ jobs:
               "attachments": [
                 {
                   "pretext": "vuejs-boilerplate's Outdated",
-                  "text": '$(npm outdated)',
-                  "mrkdwn_in": ["text"]
+                  "text": '$(npm outdated)'
                 }
               ]
             }
