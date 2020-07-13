@@ -1,3 +1,0 @@
-{
-  "extends": ["@kurosame/stylelint-config-vue"]
-}
