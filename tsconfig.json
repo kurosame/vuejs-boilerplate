@@ -1,24 +1,18 @@
 {
   "compilerOptions": {
-    // Basic
     "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "es2015"],
     "sourceMap": true,
-    // Strict Type Checks
     "strict": true,
-    // Additional Checks
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    // Module Resolution
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": { "@/*": ["src/*"] },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    // Experimental
     "experimentalDecorators": true,
-    // Advanced
     "skipLibCheck": true
   },
   "include": [
