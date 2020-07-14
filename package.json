@@ -22,6 +22,15 @@
     "clean:dist": "rimraf ./dist/*",
     "clean:screenshots": "rimraf ./test/e2e/cypress/screenshots/*"
   },
+  "lint-staged": {
+    "*.{ts,js,vue}": "eslint",
+    "*.{css,vue}": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "vue": "^2.6.11",
@@ -57,9 +66,11 @@
     "hard-source-webpack-plugin": "^0.13.1",
     "html-webpack-plugin": "^4.2.1",
     "http-proxy-middleware": "^1.0.3",
+    "husky": "^4.2.5",
     "jest": "^25.5.2",
     "jest-serializer-vue": "^2.0.2",
     "json-server": "^0.16.1",
+    "lint-staged": "^10.2.11",
     "moxios": "^0.4.0",
     "node-sass": "^4.14.0",
     "postcss-loader": "^3.0.0",
