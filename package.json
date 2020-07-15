@@ -23,12 +23,12 @@
     "clean:screenshots": "rimraf ./test/e2e/cypress/screenshots/*"
   },
   "lint-staged": {
-    "*.{ts,js,vue}": "eslint",
+    "*.{js,ts,vue}": "eslint",
     "*.{css,vue}": "stylelint"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "tsc -p ./ --noEmit && lint-staged"
     }
   },
   "dependencies": {
