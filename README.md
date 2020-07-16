@@ -32,10 +32,10 @@ npm run clean:screenshots # Clear screenshots of Cypress
 
 ## Mock
 
-Mock server is start at port 3000 when the `npm start`\
-You can check the axios sample and the async/await sample\
-Also, you can edit fixtures/mock.json\
-using https://github.com/typicode/json-server
+Mock server is start at port 3000 when the `npm start`  
+You can check the axios sample and the async/await sample  
+Also, you can edit fixtures/mock.json  
+using [json-server](https://github.com/typicode/json-server)
 
 ## Dependency
 
