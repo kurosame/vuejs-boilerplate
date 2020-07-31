@@ -106,5 +106,5 @@ module.exports = (_, argv) => ({
     extensions: ['.vue', '.js', '.ts'],
     alias: { '@': path.join(__dirname, 'src') }
   },
-  devtool: argv.mode === 'development' ? '#inline-source-map' : false
+  devtool: argv.mode === 'development' ? 'inline-source-map' : false
 })
