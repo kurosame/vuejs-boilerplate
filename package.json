@@ -43,7 +43,7 @@
     "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/runtime": "^7.9.6",
-    "@kurosame/eslint-config-vue": "^1.0.5",
+    "@kurosame/eslint-config-vue": "^1.0.9",
     "@kurosame/stylelint-config-vue": "^1.0.0",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-console": "^1.2.1",
