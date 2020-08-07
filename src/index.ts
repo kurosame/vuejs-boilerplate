@@ -11,10 +11,9 @@ const router = new VueRouter({
   base: __dirname
 })
 
-/* eslint-disable no-new */
+/* eslint-disable-next-line no-new */
 new Vue({
   router,
   store,
   render: (h): VNode => h(App)
 }).$mount('#app')
-/* eslint-enable no-new */
