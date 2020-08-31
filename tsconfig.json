@@ -9,7 +9,7 @@
     "noUnusedParameters": true,
     "moduleResolution": "node",
     "baseUrl": "./",
-    "paths": { "@/*": ["src/*"] },
+    "paths": { "@/*": ["src/*"], "@test/*": ["test/unit/*"] },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,

@@ -6,8 +6,10 @@ module.exports = {
     '^.+\\.ts$': 'ts-jest'
   },
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@test/(.*)$': '<rootDir>/test/unit/$1'
   },
+  setupFiles: ['<rootDir>/test/unit/setup.ts'],
   snapshotSerializers: ['jest-serializer-vue'],
   collectCoverage: true,
   collectCoverageFrom: [
