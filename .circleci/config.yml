@@ -2,7 +2,7 @@ references:
   commands:
     setup-docker-base: &setup-docker-base
       docker:
-        - image: kurosame/circleci-node
+        - image: circleci/node:10.17.0
     setup-docker-cypress: &setup-docker-cypress
       docker:
         - image: cypress/browsers:chrome69
@@ -16,8 +16,8 @@ jobs:
       - restore_cache:
           name: Download and cache dependencies
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-            - v1-dependencies-
+            - v2-dependencies-{{ checksum "package-lock.json" }}
+            - v2-dependencies-
       - run:
           name: Install dependencies
           command: npm ci
@@ -25,7 +25,7 @@ jobs:
           name: Cache dependencies
           paths:
             - ~/.npm
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v2-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Test for CI
           command: npm run test:ci
@@ -61,8 +61,8 @@ jobs:
       - restore_cache:
           name: Download and cache dependencies
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
-            - v1-dependencies-
+            - v2-dependencies-{{ checksum "package-lock.json" }}
+            - v2-dependencies-
       - run:
           name: Install dependencies
           command: npm ci
@@ -70,7 +70,7 @@ jobs:
           name: Cache dependencies
           paths:
             - ~/.npm
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: v2-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Outdated
           command: |
