@@ -26,11 +26,6 @@
     "*.{js,ts,vue}": "eslint",
     "*.{css,vue}": "stylelint"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsc -p ./ --noEmit && vtc --workspace ./src && lint-staged"
-    }
-  },
   "dependencies": {
     "axios": "^0.19.2",
     "vue": "^2.6.11",
