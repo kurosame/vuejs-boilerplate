@@ -1,9 +1,7 @@
 <template>
   <div class="child">
     <span data-testid="count">{{ count }}</span>
-    <button data-testid="add-count" @click="$emit('add-count')">
-      ADD
-    </button>
+    <button data-testid="add-count" @click="$emit('add-count')">ADD</button>
   </div>
 </template>
 <style lang="scss" scoped>
